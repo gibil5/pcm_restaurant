@@ -1,0 +1,36 @@
+{% extends 'menus/base.html' %}
+
+
+{% block content %}
+
+
+
+{% if latest_menu_list %}
+	<h1>Menus</h1>
+
+	<ul>
+		{% for menu in latest_menu_list %}
+
+			<li>
+
+				<a href='{% url "menu" menu.id %}'>
+					{{menu.menu_title}}
+				</a>
+
+			</li>
+
+			<br>
+		{% endfor %}
+	</ul>
+
+
+
+{% else %}
+	<p>
+		You haven't uploaded any menu yet.
+	</p>
+{% endif %}
+
+
+
+{% endblock %}
