@@ -1,8 +1,8 @@
 PCM - Restaurante
 ------------------
 
-Creado: 		28 Oct 2019
-Actualizacion:	28 Oct 2019
+Creado:         28 Oct 2019
+Actualizacion:  28 Oct 2019
 
 
 
