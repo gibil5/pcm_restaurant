@@ -1,5 +1,5 @@
 # PCM Restaurante - v. 1.0
-------------------
+
 
 ## Historia
 - Creado:         28 oct 2019
