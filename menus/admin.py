@@ -38,28 +38,28 @@ class FamilyAdmin(admin.ModelAdmin):
 
 
 
-class MenuAdmin(admin.ModelAdmin):
-	print()
+#class MenuAdmin(admin.ModelAdmin):
+#	print()
 
-	fieldsets = [
-					(None, 					{'fields': ['title'] }),
-					('Fecha', 				{'fields': ['date'] }),
-				]
+#	fieldsets = [
+#					(None, 					{'fields': ['title'] }),
+#					('Fecha', 				{'fields': ['date'] }),
+#				]
 
 	#inlines = [FamilyInline]
 	#inlines = [MainCourseInline]
 
-	list_display = ['title', 'date']
+#	list_display = ['title', 'date']
 	#list_display = ['title', 'Fecha']
 
-	list_filter = ['date']
+#	list_filter = ['date']
 
 	#search_fields = ['question_text']
 
 
 
-#admin.site.register(Menu)
-admin.site.register(Menu, MenuAdmin)
+admin.site.register(Menu)
+#admin.site.register(Menu, MenuAdmin)
 
 
 #admin.site.register(Item)
