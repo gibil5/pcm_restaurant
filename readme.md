@@ -34,11 +34,13 @@ Recomendaciones
 	- Mozo 
 	- Cocinero 
 
--Entregables:
-	1. Código fuente en Github
-	2. Aplicación web funcionando (url) de preferencia en Heroku
 
-- Tiempo máximo: 
+## Entregables
+1. Código fuente en Github
+2. Aplicación web funcionando (url) de preferencia en Heroku
+
+
+## Tiempo máximo: 
 	Viernes 08 al final del día.
 
 Trata de hacer una aplicación mínima pero intuitiva, pensando más en el Mozo y Cocinero como usuarios.
