@@ -27,7 +27,8 @@ SECRET_KEY = 'k@2l-@tw#n6q9xp0a9v6jxcn)8_yaya^l$u%zc^mk53z9*ngwp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['desolate-chamber-64593.herokuapp.com']
 
 
 # Application definition
