@@ -541,7 +541,7 @@
 			"file": "pcm/settings.py",
 			"settings":
 			{
-				"buffer_size": 4042,
+				"buffer_size": 4046,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,7 +550,7 @@
 			"file": "templates/menus/base.html",
 			"settings":
 			{
-				"buffer_size": 424,
+				"buffer_size": 560,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -859,7 +859,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -924,15 +924,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4042,
+						"buffer_size": 4046,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3775,
-								3775
+								3609,
+								3609
 							]
 						],
 						"settings":
@@ -942,10 +942,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2356.0,
+						"translation.y": 2331.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -954,15 +954,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 424,
+						"buffer_size": 560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								297,
-								297
+								426,
+								426
 							]
 						],
 						"settings":
@@ -974,7 +974,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
