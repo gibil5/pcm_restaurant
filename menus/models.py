@@ -1,6 +1,6 @@
 from django.db import models
 
-#from django.utils.translation import gettext as _
+from django.utils.translation import gettext as _
 
 
 # Create your models here.
@@ -12,22 +12,22 @@ class Family(models.Model):
 		verbose_name = '2. Familia'
 		verbose_name_plural = '2. Familias'
 
+
 	name = models.CharField(
 		max_length=100,
-		#default='x',
-		#default=False,
 		blank=True
 	)
 
-	title = models.CharField(
-		max_length=200,
-		#default='x',
-		#default=False,
-		blank=True
-	)
+
+	#title = models.CharField(
+	#	max_length=200,
+	#	blank=True
+	#)
+
 
 	def __str__(self):
-		return self.title
+		#return self.title
+		return self.name
 
 
 
