@@ -6,6 +6,73 @@
 <h1>{{menu.menu_title}}</h1>
 
 
+{% if not menu.entries_empty %}
+
+<h2>Entradas</h2>
+
+{% for item in menu.entries.all %}
+
+	<h3>{{item}}</h3>
+
+{% endfor %}
+{% endif %}
+<br>
+
+
+
+{% if not menu.main_courses_empty %}
+
+<h2>Platos Principales</h2>
+
+{% for item in menu.main_courses.all %}
+
+	<h3>{{item}}</h3>
+
+{% endfor %}
+{% endif %}
+<br>
+
+
+
+{% if not menu.desserts_empty %}
+<h2>Postres</h2>
+
+{% for item in menu.desserts.all %}
+
+	<h3>{{item}}</h3>
+
+{% endfor %}
+{% endif %}
+
+
+
+{% if not menu.drinks_empty %}
+<h2>Bebidas</h2>
+
+{% for item in menu.drinks.all %}
+
+	<h3>{{item}}</h3>
+
+{% endfor %}
+{% endif %}
+
+
+
+{% if not menu.hot_drinks_empty %}
+
+<h2>Bebidas Calientes</h2>
+
+{% for item in menu.hot_drinks.all %}
+
+	<h3>{{item}}</h3>
+
+{% endfor %}
+{% endif %}
+
+
+
+
+
 <br>
 <a href="{% url 'menus' %}"><< Regresar a la Lista de Menus</a>
 

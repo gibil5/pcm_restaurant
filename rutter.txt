@@ -25,7 +25,7 @@ python manage.py startapp menus
 # Create Models
 python manage.py makemigrations 
 python manage.py migrate 
-
+python manage.py showmigrations
 
 
 Django Shell
@@ -36,20 +36,31 @@ Menu.objects.all()
 
 
 
-Postgres
----------
-
+Postgres - Local
+-----------------
 Launch Postgres
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start 
-
 Connect
 psql -p5432 -d "postgres"
-
-
 Create
 CREATE DATABASE pcmdb OWNER postgres;
-
 \l
-
 \q
+
+
+Heroku
+--------
+pip install django-heroku 
+
+heroku --version 
+heroku create 
+heroku local web 
+heroku login 
+heroku open 
+git push heroku master 
+heroku logs --tail
+heroku addons
+heroku pg
+heroku run python  manage.py migrate 
+heroku run bash 
 

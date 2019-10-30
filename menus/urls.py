@@ -8,9 +8,7 @@ urlpatterns = [
 
 	path('', views.index, name='menus'),
 
-	#path('<int:menu_id>', views.menu, name='menu'),
 	path('<int:menu_id>', views.detail, name='menu'),
-
 
 	#path('search', views.search, name='search'),
 ]
