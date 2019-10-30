@@ -8,7 +8,6 @@
 # Autor
 Javier Revilla
 jrevilla55@gmail.com
-http://jrevilla.com
 
 
 Desafío 
@@ -18,7 +17,7 @@ Desarrollar una aplicación web para la atención de menús de restaurantes.
 
 Recomendaciones
 ----------------
-- Utilizar cualquier base de datos y cualquier lenguaje de programación.	*****
+- **Utilizar cualquier base de datos y cualquier lenguaje de programación.**
 
 - Desplegar en algún proveedor gratuito, ejemplo: https://heroku.com 
 
