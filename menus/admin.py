@@ -4,10 +4,11 @@ from django.contrib import admin
 
 
 #jx
-from .models import Menu
+from .models import Menu, Item
 
 #admin.site.register(Question, QuestionAdmin)
 admin.site.register(Menu)
 
+admin.site.register(Item)
 
 
