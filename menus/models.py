@@ -1,9 +1,16 @@
 from django.db import models
 
+#from django.utils.translation import gettext as _
+
+
 # Create your models here.
 
 
 class Family(models.Model):
+
+	class Meta:
+		verbose_name = '2. Familia'
+		verbose_name_plural = '2. Familias'
 
 	name = models.CharField(
 		max_length=100,
@@ -24,6 +31,8 @@ class Family(models.Model):
 
 
 
+
+
 class Item(models.Model):
 
 	#item_title = models.CharField(max_length=200)
@@ -39,7 +48,7 @@ class Item(models.Model):
 
 
 	def __str__(self): 
-		return self.item_title
+		return self.title
 
 
 
@@ -60,47 +69,74 @@ class Item(models.Model):
 
 
 
+
+
+
 class MainCourse(Item):
 
-	def __str__(self):
-		return self.title
+	class Meta:
+		verbose_name = '4. Plato Principal'
+		verbose_name_plural = '4. Platos Principales'
+
+
 
 
 class Dessert(Item):
 
-	def __str__(self):
-		return self.title
+	class Meta:
+		verbose_name = '5. Postre'
+		verbose_name_plural = '5. Postres'
+
+
 
 
 class Entry(Item):
 
-	def __str__(self):
-		return self.title
+	class Meta:
+		verbose_name = '3. Entrada'
+		verbose_name_plural = '3. Entradas'
 
 
-#class Drinks(Item):
+
 class Drink(Item):
 
-	def __str__(self):
-		return self.title
+	class Meta:
+		verbose_name = '6. Bebida'
+		verbose_name_plural = '6. Bebidas'
 
 
-#class HotDrinks(Item):
+
+
+
 class HotDrink(Item):
 
-	def __str__(self):
-		return self.title
-
+	class Meta:
+		verbose_name = '7. Bebida Caliente'
+		verbose_name_plural = '7. Bebidas Calientes'
 
 
 
 
 class Menu(models.Model):
 
-	#menu_title = models.CharField(max_length=200)
-	title = models.CharField(max_length=200)
+	class Meta:
+		verbose_name = '1. Menu'
+		verbose_name_plural = '1. Menus'
 
-	date = models.DateTimeField('date')
+
+	#menu_title = models.CharField(max_length=200)
+	
+	title = models.CharField(
+		'nombre',
+		max_length=200,
+	)
+
+
+	date = models.DateTimeField(
+		#'date',
+		'fecha',
+	)
+
 
 	def __str__(self): 
 		return self.title
