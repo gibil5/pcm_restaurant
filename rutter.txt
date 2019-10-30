@@ -57,10 +57,13 @@ heroku create
 heroku local web 
 heroku login 
 heroku open 
+
 git push heroku master 
 heroku logs --tail
 heroku addons
 heroku pg
+
 heroku run python  manage.py migrate 
+
 heroku run bash 
 
