@@ -25,13 +25,15 @@ Recomendaciones
 	- Agregar como desarrollador a: lab51.epic@gmail.com 
 
 
-- No es necesario registro de usuarios
-
-- No es necesario cobros en línea ni facturación ni reportes. 
+- No es necesario 
+	- registro de usuarios
+	- cobros en línea ni facturación ni reportes. 
 
 - Usuarios o vistas para:
 	- Mozo 
 	- Cocinero 
+
+- Trata de hacer una aplicación mínima pero intuitiva, pensando más en el Mozo y Cocinero como usuarios.
 
 
 ## Entregables
@@ -42,5 +44,4 @@ Recomendaciones
 ## Tiempo máximo
 	Viernes 08 al final del día.
 
-Trata de hacer una aplicación mínima pero intuitiva, pensando más en el Mozo y Cocinero como usuarios.
 
