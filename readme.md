@@ -18,13 +18,13 @@ Desarrollar una aplicación web para la atención de menús de restaurantes.
 
 Recomendaciones
 ----------------
+- Utilizar cualquier base de datos y cualquier lenguaje de programación.	*****
+
 - Desplegar en algún proveedor gratuito, ejemplo: https://heroku.com 
 
 - Poner el código fuente en github.com
-	- Agregar como desarrollador a
-		- lab51.epic@gmail.com 
+	- Agregar como desarrollador a: lab51.epic@gmail.com 
 
-- Utilizar cualquier base de datos y cualquier lenguaje de programación.	*****
 
 - No es necesario registro de usuarios
 
@@ -40,7 +40,7 @@ Recomendaciones
 2. Aplicación web funcionando (url) de preferencia en Heroku
 
 
-## Tiempo máximo: 
+## Tiempo máximo
 	Viernes 08 al final del día.
 
 Trata de hacer una aplicación mínima pero intuitiva, pensando más en el Mozo y Cocinero como usuarios.
