@@ -16,17 +16,32 @@
 	<!-- Custom -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+	<!-- Lightbox -->
+	<link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
 
 	<title>PCM Restaurante</title>
 </head>
 <body>
 
+<!-- Top Bar -->
+{% include 'partials/_topbar.html' %}
+
+<!-- Nav Bar -->
+{% include 'partials/_navbar.html' %}
 
 <!-- Main Content -->
 {% block content %}
 
 {% endblock %}
 
+
+	<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+	<script src="{% static 'js/lightbox.min.js' %}"></script>
+
+	<script src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
