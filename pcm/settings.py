@@ -147,21 +147,22 @@ USE_TZ = True
 
 
 
-# Heroku
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/static/'
+# Heroku
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#STATIC_URL = '/static/'
 
 
 
 # Btre
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = [
-#                    os.path.join(BASE_DIR, 'pcm/static'),
-#]
+STATICFILES_DIRS = [
+                    os.path.join(BASE_DIR, 'pcm/static'),
+]
 
 
 
