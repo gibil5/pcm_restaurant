@@ -5,8 +5,9 @@
 
 
 
+<h1>Menus</h1>
+
 {% if latest_menu_list %}
-	<h1>Menus</h1>
 
 	<ul>
 		{% for menu in latest_menu_list %}
@@ -32,5 +33,9 @@
 {% endif %}
 
 
+<br>
+<a href="{% url 'add' %}">Agregar Menu</a>
+<br>
+<br>
 
 {% endblock %}

@@ -4,29 +4,55 @@
 
 
 <h1>{{menu.title}}</h1>
+<br>
 
 
-{% if not menu.entries_empty %}
+{% for item in menu.dishes.all %}
 
-<h2>Entradas</h2>
-
-{% for item in menu.entries.all %}
-
-	<h3>{{item}}</h3>
+	<h4>{{item}}</h4>
 
 {% endfor %}
-{% endif %}
 <br>
 
 
 
-{% if not menu.main_courses_empty %}
+
+{% if menu.entries.all %}
+<h2>Entradas</h2>
+
+{% for item in menu.entries.all %}
+
+	<h4>{{item}}</h4>
+
+{% endfor %}
+{% endif %}
+<br>
+<br>
+
+
+
+
+{% if menu.main_courses.all %}
 
 <h2>Platos Principales</h2>
 
 {% for item in menu.main_courses.all %}
 
-	<h3>{{item}}</h3>
+	<h4>{{item}}</h4>
+
+{% endfor %}
+{% endif %}
+<br>
+<br>
+
+
+
+{% if menu.desserts.all %}
+<h2>Postres</h2>
+
+{% for item in menu.desserts.all %}
+
+	<h4>{{item}}</h4>
 
 {% endfor %}
 {% endif %}
@@ -34,37 +60,25 @@
 
 
 
-{% if not menu.desserts_empty %}
-<h2>Postres</h2>
-
-{% for item in menu.desserts.all %}
-
-	<h3>{{item}}</h3>
-
-{% endfor %}
-{% endif %}
-
-
-
-{% if not menu.drinks_empty %}
+{% if menu.drinks.all %}
 <h2>Bebidas</h2>
 
 {% for item in menu.drinks.all %}
 
-	<h3>{{item}}</h3>
+	<h4>{{item}}</h4>
 
 {% endfor %}
 {% endif %}
+<br>
 
 
 
-{% if not menu.hot_drinks_empty %}
-
+{% if menu.hot_drinks.all %}
 <h2>Bebidas Calientes</h2>
 
 {% for item in menu.hot_drinks.all %}
 
-	<h3>{{item}}</h3>
+	<h4>{{item}}</h4>
 
 {% endfor %}
 {% endif %}
@@ -75,7 +89,6 @@
 
 <br>
 <a href="{% url 'menus' %}"><< Regresar a la Lista de Menus</a>
-
 <br>
 <br>
 

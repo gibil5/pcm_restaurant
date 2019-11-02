@@ -1,0 +1,37 @@
+{% for family in families %}
+{{family}}
+<br>
+{% endfor %}
+
+
+
+{{items_dic.1}}
+<br>
+
+
+{{ items_dic }}
+<br>
+
+
+{{ items_dic|get_item:key }}
+<br>
+
+{{ items_dic|get_item:key }}
+<br>
+<br>
+{{kkey}}
+
+<br>
+	<ul>
+		{% for item in item_list %}
+
+			<li>
+				<a href='{% url "item" item.id %}'>
+					{{item.title}}
+				</a>
+			</li>
+
+			<br>
+		{% endfor %}
+	</ul>
+

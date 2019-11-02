@@ -6,13 +6,12 @@ from . import views
 
 urlpatterns = [
 
-	path('', views.index, name='menus'),
+	path('items', views.index, name='items'),
 
+	path('about', views.about, name='about'),
 
-	path('add', views.add, name='add'),
+	path('<int:item_id>', views.detail, name='item'),
 
-
-	path('<int:menu_id>', views.detail, name='menu'),
 
 	#path('search', views.search, name='search'),
 ]

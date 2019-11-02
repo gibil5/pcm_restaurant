@@ -1,0 +1,39 @@
+{% extends 'menus/base.html' %}
+
+
+{% block content %}
+
+<h1>Lista de platos</h1>
+<br>
+
+{% if items_dic %}
+
+
+
+{% for key in items_dic %}
+
+<h3>{{key}}</h3>
+
+{% for kkey in items_dic|get_item:key %}
+
+<li>
+	<a href='{% url "item" kkey.id %}'>
+		{{kkey.title}}
+	</a>
+</li>
+
+{% endfor %}
+<br>
+
+{% endfor %}
+
+
+{% else %}
+	<p>
+		You haven't uploaded any Item yet.
+	</p>
+{% endif %}
+
+
+
+{% endblock %}

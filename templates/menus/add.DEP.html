@@ -1,0 +1,8 @@
+{% for dish in menu.dishes.all %}
+
+	<input 	type="radio" name="dish" id="dish{{forloop.counter}}" value="{{choice.id}}"/>
+
+	<label  for="choice{{forloop.counter}}">{{dish.title}}</label>
+
+	</br>
+{% endfor %}

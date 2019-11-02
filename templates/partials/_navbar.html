@@ -7,7 +7,10 @@
       <a class="navbar-brand" href="index.html">
 
 
-        <img src="{% static 'img/logo.png' %}" class="logo" alt="">
+        <img src="{% static 'img/logo_pcm_2.png' %}" class="logo" alt="">
+<!--
+        <img src="{% static 'img/logo_pcm_3.jpg' %}" class="logo" alt="">
+-->
 
 
       </a>
@@ -19,16 +22,26 @@
 
 
           <li
-              {% if '/' == request.path %}
+              {% if 'menu' in request.path %}
                 class="nav-item active mr-3"
               {% else %}
                 class="nav-item mr-3"
               {% endif %}
           >
 
-            <a class="nav-link" href="{% url 'menus' %}">Home</a>
+            <a class="nav-link" href="{% url 'menus' %}">Menus</a>
 
           </li>
+
+
+          <li
+              {% if 'item' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+          >
+            <a class="nav-link" href="{% url 'items' %}">Platos</a>
 
 
           <li
@@ -39,35 +52,29 @@
               {% endif %}
           >
 
-            <a class="nav-link" href="{% url 'menus' %}">About</a>
+            <a class="nav-link" href="{% url 'about' %}">Desafio</a>
 
           </li>
 
 
-          <li
-              {% if 'listing' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
 
-            <a class="nav-link" href="{% url 'menus' %}">Featured Listings</a>
 
           </li>
         </ul>
-
         <ul class="navbar-nav ml-auto">
+<!--
           <li class="nav-item mr-3">
             <a class="nav-link" href="register.html">
               <i class="fas fa-user-plus"></i> Register</a>
           </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="login.html">
-              <i class="fas fa-sign-in-alt"></i>
+-->
 
-              Login</a>
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="{% url 'admin:index' %}">
+              <i class="fas fa-sign-in-alt"></i>
+              Admin</a>
           </li>
+
         </ul>
       </div>
     </div>

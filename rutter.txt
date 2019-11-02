@@ -19,6 +19,8 @@ admin_user
 
 python manage.py startapp menus 
 
+python manage.py startapp items 
+
 #python manage.py startapp items 
 
 
@@ -32,7 +34,10 @@ Django Shell
 ---------------
 python manage.py shell 
 from menus.models import Menu
+from items.models import *
+
 Menu.objects.all()
+Item.objects.all()
 
 
 

@@ -1,3 +1,47 @@
+	#entries = models.ManyToManyField(Entry, blank=True)
+	#main_courses = models.ManyToManyField(MainCourse, blank=True)
+	#desserts = models.ManyToManyField(Dessert, blank=True)
+	#drinks = models.ManyToManyField(Drink, blank=True)
+	#hot_drinks = models.ManyToManyField(HotDrink, blank=True)
+
+
+	def entries_empty(self):
+		if self.entries.count() == 0:
+			return True
+		else:
+			return False
+
+	def main_courses_empty(self):
+		if self.main_courses.count() == 0:
+			return True
+		else:
+			return False
+
+	def desserts_empty(self):
+		if self.desserts.count() == 0:
+			empty = True
+		else:
+			empty = False
+		return empty
+
+
+	def drinks_empty(self):
+		if self.drinks.count() == 0:
+			empty = True
+		else:
+			empty = False
+		return empty
+
+	def hot_drinks_empty(self):
+		if self.hot_entries.count() == 0:
+			return True
+		else:
+			return False
+
+
+
+
+
 		choices=(	
 					#('entry', _("Entrada")),
 					#('main_course', _("Plato Principal")),

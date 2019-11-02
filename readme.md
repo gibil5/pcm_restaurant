@@ -2,8 +2,8 @@
 
 
 ## Historia
-- Creado:         28 oct 2019
-- Actualizacion:  29 oct 2019
+- Creado:         28 Oct 2019
+- Actualizacion:   2 Nov 2019
 
 ## Autor
 Javier Revilla

@@ -1,0 +1,17 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+
+<h1>{{item.title}}</h1>
+
+<h2>{{item.price}}</h2>
+
+<br>
+<a href="{% url 'menus' %}"><< Regresar a la Lista de Menus</a>
+
+<br>
+<br>
+
+
+{% endblock %}

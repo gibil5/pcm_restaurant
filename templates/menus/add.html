@@ -1,0 +1,21 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+
+<h1>Agregar</h1>
+<br>
+
+
+<form method="post">
+    {{ formset }}
+</form>
+
+
+
+<br>
+<a href="{% url 'menus' %}"><< Inicio</a>
+<br>
+<br>
+
+{% endblock %}
