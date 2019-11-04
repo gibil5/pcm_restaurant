@@ -3,94 +3,19 @@
 {% block content %}
 
 
-<h1>{{menu.title}}</h1>
+<h2>{{menu.title}}</h2>
 <br>
 
-
-{% for item in menu.dishes.all %}
-
-	<h4>{{item}}</h4>
-
-{% endfor %}
+<div class="container">
 <br>
 
+<!-- Item Dictionary -->
+{% include 'partials/_itemdic.html' %}
 
 
-
-{% if menu.entries.all %}
-<h2>Entradas</h2>
-
-{% for item in menu.entries.all %}
-
-	<h4>{{item}}</h4>
-
-{% endfor %}
-{% endif %}
-<br>
-<br>
+<!-- Go Home -->
+{% include 'partials/_gohome.html' %}
 
 
-
-
-{% if menu.main_courses.all %}
-
-<h2>Platos Principales</h2>
-
-{% for item in menu.main_courses.all %}
-
-	<h4>{{item}}</h4>
-
-{% endfor %}
-{% endif %}
-<br>
-<br>
-
-
-
-{% if menu.desserts.all %}
-<h2>Postres</h2>
-
-{% for item in menu.desserts.all %}
-
-	<h4>{{item}}</h4>
-
-{% endfor %}
-{% endif %}
-<br>
-
-
-
-{% if menu.drinks.all %}
-<h2>Bebidas</h2>
-
-{% for item in menu.drinks.all %}
-
-	<h4>{{item}}</h4>
-
-{% endfor %}
-{% endif %}
-<br>
-
-
-
-{% if menu.hot_drinks.all %}
-<h2>Bebidas Calientes</h2>
-
-{% for item in menu.hot_drinks.all %}
-
-	<h4>{{item}}</h4>
-
-{% endfor %}
-{% endif %}
-
-
-
-
-
-<br>
-<a href="{% url 'menus' %}"><< Regresar a la Lista de Menus</a>
-<br>
-<br>
-
-
+</div>
 {% endblock %}

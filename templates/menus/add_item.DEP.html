@@ -1,0 +1,56 @@
+<form action="/your-name/" method="post">
+	{% csrf_token %}
+	{% for field in form %}
+		{{ field.label_tag }} {{ field }}
+		<p>
+	{% endfor %}
+	<input type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+<form action="/menu_update/" method="post">
+	
+	<ul>
+	{% for item in items %}
+		<li>
+		
+		    <label for="your_name">{{item}}</label>
+
+		    <input id="your_name" type="checkbox" name="your_name" value="{{ item.title }}" checked>
+
+<!--		
+		    <input id="your_name" type="checkbox" name="your_name" value="{{ item.title }}">
+		    <input id="your_name" type="radio" name="your_name">
+			<h3>{{item.title}}</h3>
+-->
+
+		</li>
+		<br>
+	{% endfor %}
+	</ul>
+
+    
+    <input type="submit" value="OK">
+</form>
+</div>
+
+
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+
+<!--
+<form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+-->
+

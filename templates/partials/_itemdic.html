@@ -1,11 +1,3 @@
-{% extends 'menus/base.html' %}
-
-
-{% block content %}
-
-<h1>Lista de platos</h1>
-<br>
-
 
 {% if items_dic %}
 
@@ -14,15 +6,18 @@
 	<h3>{{key}}</h3>
 
 		{% for kkey in items_dic|get_item:key %}
-
+		<ul>
 			<li>
 				<a href='{% url "item" kkey.id %}'>
-					{{kkey.title}}
+					<h5>{{kkey.title}}</h5>
 				</a>
 			</li>
 
+
+		<a href="{% url 'add_item' menu.id kkey.id %}">Agregar plato</a>
+		</ul>
 		{% endfor %}
-		<br>
+
 {% endfor %}
 
 {% else %}
@@ -30,7 +25,3 @@
 		You haven't uploaded any Item yet.
 	</p>
 {% endif %}
-
-
-
-{% endblock %}

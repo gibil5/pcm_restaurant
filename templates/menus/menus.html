@@ -5,23 +5,26 @@
 
 
 
-<h1>Menus</h1>
+<h2>Menus</h2>
+<br>
 
 {% if latest_menu_list %}
 
+<div class="container_">
+
 	<ul>
-		{% for menu in latest_menu_list %}
+	{% for menu in latest_menu_list %}
 
-			<li>
+		<li>
+			<a href='{% url "menu" menu.id %}'>
 
-				<a href='{% url "menu" menu.id %}'>
-					{{menu.title}}
-				</a>
+				<h5>{{menu.title}}</h5>
 
-			</li>
+			</a>
+		</li>
 
-			<br>
-		{% endfor %}
+		<br>
+	{% endfor %}
 	</ul>
 
 
@@ -31,6 +34,7 @@
 		You haven't uploaded any menu yet.
 	</p>
 {% endif %}
+</div>
 
 
 <br>

@@ -30,6 +30,11 @@ class Family(models.Model):
 
 class Item(models.Model):
 
+	class Meta:
+		ordering = ('family',)
+
+
+
 	title = models.CharField(
 		max_length=200,
 		blank=True

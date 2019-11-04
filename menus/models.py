@@ -27,11 +27,22 @@ class Menu(models.Model):
 		verbose_name_plural = 'Menus'
 
 	
-
 	title = models.CharField(
 		'nombre',
 		max_length=200,
 	)
+
+
+	family = models.CharField(
+			max_length=200, 
+			blank=True,
+		)
+
+	family_id = models.IntegerField(
+			default=0,
+			#blank=True,
+		)
+
 
 
 	#get_date():

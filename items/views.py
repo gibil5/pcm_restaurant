@@ -15,7 +15,7 @@ def index(request):
 	#return render(request, 'items/items.html')
 	
 
-	# Items
+	# Items Dictionary, by Family
 	items_dic = lib.get_items_dic()
 	print(items_dic)
 
