@@ -1,8 +1,10 @@
 
+
+
 {% if items_dic %}
 
-{% for key in items_dic %}
 
+{% for key in items_dic %}
 	<h3>{{key}}</h3>
 
 		{% for kkey in items_dic|get_item:key %}
@@ -13,10 +15,13 @@
 				</a>
 			</li>
 
-
-		<a href="{% url 'add_item' menu.id kkey.id %}">Agregar plato</a>
 		</ul>
 		{% endfor %}
+
+		<a href="{% url 'add_item' menu.id key.id %}">Modificar</a>
+		
+		<p>
+		<br>
 
 {% endfor %}
 

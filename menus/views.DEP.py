@@ -1,3 +1,63 @@
+		#family = get_object_or_404(Family, pk=family_id)
+		#print(family)
+
+		#items = Item.objects.filter(family=family.id)
+		#print(items)
+
+
+		#FamilyForm = modelform_factory(Family, fields=('name', ))
+		#print(FamilyForm)
+
+
+		#form = MenuForm(instance=menu)
+		#form = MenuForm(instance=menu, family_id=2)
+		#form = MenuForm(initial={'title': 'Initial Title'})
+		#form = MenuForm(instance=menu, initial={'title': 'Initial Title', 'family': family.name, 'family_id': family_id})
+		#form = MenuForm(instance=menu, initial={'title': 'Initial Title', 'family': family.name, 'family_id': family_id, 'dishes': items})
+
+
+
+		#MenuForm = modelform_factory(
+		#								Menu, 
+		#								fields=('title', 'date', 'dishes'),
+		#								widgets = {
+		#											'dishes': forms.widgets.CheckboxSelectMultiple,
+		#								},
+		#							)
+
+		#MenuForm = modelformset_factory(Menu, fields=('title', 'date', 'dishes'))
+		#print(MenuForm)
+
+
+		#form = FamilyForm()
+		#form = MenuForm(instance=menu)
+		#formset = MenuForm()
+		#print(formset)
+
+
+
+
+
+
+
+
+def add_item(request, menu_id, family_id):
+
+	# Create and populate
+	if request.method == 'POST':
+		pass
+
+		# create a form instance and populate it with data from the request:
+		#form = NameForm(request.POST)
+
+		# check whether it's valid:
+		#if form.is_valid():
+			# process the data in form.cleaned_data as required
+			# ...
+			# redirect to a new URL:
+		#	return HttpResponseRedirect('/thanks/')
+
+
 
 
 

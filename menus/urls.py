@@ -12,6 +12,11 @@ urlpatterns = [
 	path('add', views.add, name='add'),
 
 
+	path('add_item_form/', views.add_item_form, name='add_item_form'),
+	path('thanks/', views.thanks, name='thanks'),
+
+
+
 	#path('add_item/<int:menu_id>', views.add_item, name='add_item'),
 	
 	path('add_item/<int:menu_id>/<int:family_id>', views.add_item, name='add_item'),

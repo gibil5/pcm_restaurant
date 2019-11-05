@@ -71,15 +71,15 @@ class Menu(models.Model):
 		)
 
 
-	entries = models.ManyToManyField(items.models.Entry, blank=True)
+	#entries = models.ManyToManyField(items.models.Entry, blank=True)
 
-	main_courses = models.ManyToManyField(items.models.MainCourse, blank=True)
+	#main_courses = models.ManyToManyField(items.models.MainCourse, blank=True)
 
-	desserts = models.ManyToManyField(items.models.Dessert, blank=True)
+	#desserts = models.ManyToManyField(items.models.Dessert, blank=True)
 
-	drinks = models.ManyToManyField(items.models.Drink, blank=True)
+	#drinks = models.ManyToManyField(items.models.Drink, blank=True)
 
-	hot_drinks = models.ManyToManyField(items.models.HotDrink, blank=True)
+	#hot_drinks = models.ManyToManyField(items.models.HotDrink, blank=True)
 
 
 

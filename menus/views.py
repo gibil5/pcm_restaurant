@@ -1,11 +1,22 @@
 #from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+
+#from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+
 
 from django import forms
+
+
 from .models import Menu
 from items.models import Family, Item
 from items import lib
+
+
+
+from django.forms import modelform_factory, modelformset_factory
+
+
 
 # Create your views here.
 
@@ -19,6 +30,15 @@ class MenuForm(forms.ModelForm):
 	print()
 	print('MenuForm')
 
+	def __init__(self, *args, **kwargs):
+		print('MF - Init')
+		
+		super().__init__(*args, **kwargs)
+
+		#self.dishes = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
+		#self.dishes = False
+
+
 	class Meta:
 
 		model = Menu
@@ -27,8 +47,8 @@ class MenuForm(forms.ModelForm):
 					'title',
 					'date',
 
-					'family',
-					'family_id',
+					#'family',
+					#'family_id',
 
 					'dishes',
 				]
@@ -37,7 +57,7 @@ class MenuForm(forms.ModelForm):
 	
 	date = forms.DateField(required=False)
 	
-	family = forms.CharField(max_length=100)
+	#family = forms.CharField(max_length=100)
 
 	#family_id = forms.IntegerField()
 
@@ -48,57 +68,134 @@ class MenuForm(forms.ModelForm):
 
 
 
+def thanks(request):
+
+	ctx = {
+			}
+
+	output = render(request, 'menus/thanks.html', ctx)
+	return HttpResponse(output)
+
+
+
+def add_item_form(request):
+	print()
+	print('Add Item Form')
+	print(request)
+
+	#return HttpResponseRedirect('/thanks/')
+
+	# Create and populate
+	if request.method == 'POST':
+		print('mark')
+		#pass
+		
+		# create a form instance and populate it with data from the request:
+		#form = NameForm(request.POST)
+		form = MenuForm(request.POST)
+		#print(form)
+
+		title = 'Viernes 1 Nov'
+
+		menu = Menu.objects.filter(title=title)[0]
+		print(menu)
+		menu.dishes.through.objects.all().delete()
+
+
+		# check whether it's valid:
+		if form.is_valid():
+		#if True:
+
+			print('mark 2')
+
+			# process the data in form.cleaned_data as required
+			# ...
+		
+			#print(form.data)
+
+			print(form.cleaned_data)
+
+			title = form.cleaned_data['title']
+			print(title)
+
+
+			items = form.cleaned_data['dishes']
+
+			# Remove all
+			menu.dishes.through.objects.all().delete()
+			print(menu.dishes)
+
+			for item in items:
+				print('mark 3')
+	
+				print(item)
+
+				menu.dishes.add(item)
+
+			print(menu.dishes)
+
+			# redirect to a new URL:
+			return HttpResponseRedirect('/thanks/')
+
+		#else:
+		#	print('mark 4')
+		#	menu.dishes.through.objects.all().delete()
+
+
+
+	# redirect to a new URL:
+	return HttpResponseRedirect('/thanks/')
+
+
+
+
 #def add_item(request, menu_id):
 def add_item(request, menu_id, family_id):
 	print()
 	print('Add Item')
-	#print(request)
-	#print(menu_id)
-	#print(family_id)
+
 
 	# Create and populate
 	if request.method == 'POST':
-		pass
-
+		#pass
+		
 		# create a form instance and populate it with data from the request:
 		#form = NameForm(request.POST)
+		form = MenuForm(request.POST)
+
 
 		# check whether it's valid:
-		#if form.is_valid():
+		if form.is_valid():
 			# process the data in form.cleaned_data as required
 			# ...
-			# redirect to a new URL:
-		#	return HttpResponseRedirect('/thanks/')
+		
+			print(form.cleaned_data)
 
+			# redirect to a new URL:
+			return HttpResponseRedirect('/thanks/')
 
 
 	# Create a blank form
 	else:
 
 		menu = get_object_or_404(Menu, pk=menu_id)
-		print(menu)
-
-		family = get_object_or_404(Family, pk=family_id)
-		print(family)
-
-		items = Item.objects.filter(family=family.id)
-		print(items)
+		#print(menu)
 
 
-		#form = MenuForm(instance=menu)
-		#form = MenuForm(instance=menu, family_id=2)
-		#form = MenuForm(initial={'title': 'Initial Title'})
-		#form = MenuForm(instance=menu, initial={'title': 'Initial Title', 'family': family.name, 'family_id': family_id})
-		form = MenuForm(instance=menu, initial={'title': 'Initial Title', 'family': family.name, 'family_id': family_id, 'dishes': items})
+		# Form from a Model
+		#form = MenuForm()
+		form = MenuForm(instance=menu)
+
+		# Limit to the family
+		form.fields["dishes"].queryset = Item.objects.filter(family=family_id)
 
 
 
 		ctx = {
-				#'family': family,
-				#'items': items,
 				'menu': menu,
+				'menu_id': menu.id,
 				'form': form,
-				}
+			}
 
 		output = render(request, 'menus/add_item.html', ctx)
 
