@@ -3,13 +3,19 @@
 {% block content %}
 
 
-<h1>Agregar</h1>
+<h2>Agregar</h2>
 <br>
 
 
-<form method="post">
-    {{ formset }}
+<form action="{% url 'add' %}" method="post">
+
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <input type="submit" value="Submit">
 </form>
+
 
 
 

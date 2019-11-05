@@ -20,6 +20,8 @@
 
 				<h5>{{menu.name}}</h5>
 
+				<a href="{% url 'delete_menu' menu.id %}">Eliminar</a>
+		
 			</a>
 		</li>
 
@@ -38,7 +40,7 @@
 
 
 <br>
-<a href="{% url 'add' %}">Agregar Menu</a>
+<a href="{% url 'add' %}">Crear Menú</a>
 <br>
 <br>
 

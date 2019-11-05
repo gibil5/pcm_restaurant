@@ -1,3 +1,14 @@
+# 5 nov
+
+FAMILY_ID = 1
+GLOBAL_VAR = 'Magic String' #or matrix...
+
+
+
+
+
+
+
 def add(request):
 
 	menu = Menu()
@@ -11,7 +22,6 @@ def add(request):
 
 
 
-# 5 nov
 
 		#menu.dishes.through.objects.all().delete()
 		#menu.dishes.filter(family=family.id).delete()

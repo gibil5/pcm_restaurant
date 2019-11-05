@@ -2,30 +2,74 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
+from django.forms import modelform_factory, modelformset_factory
+
 from .models import Menu
 from items.models import Family, Item
 from items import lib
-from django.forms import modelform_factory, modelformset_factory
-
 
 # Create your views here.
 
 
-FAMILY_ID = 1
-GLOBAL_VAR = 'Magic String' #or matrix...
+
+class DeleteMenuForm(forms.Form):
+	pass
+	#your_name = forms.CharField(label='Your name', max_length=100)
+
+
+
+
+def delete_menu(request, menu_id):
+	print()
+	print('Delete Menu')
+	print(request)
+	print(menu_id)
+
+	menu = get_object_or_404(Menu, pk=menu_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('mark')
+
+		form = DeleteMenuForm(request.POST)
+
+		if form.is_valid():
+
+			# process the data in form.cleaned_data as required
+
+
+			menu.delete()					# Delete !!!
+
+
+			return HttpResponseRedirect('/thanks/')
+
+
+
+	else:
+
+		form = DeleteMenuForm()
+
+		ctx = {
+				'menu': menu,
+				'form': form,
+		}
+		output = render(request, 'menus/delete_menu.html', ctx)
+		return HttpResponse(output)
+
+
+
+
+
 
 
 class MenuForm(forms.ModelForm):
 	print()
 	print('MenuForm')
 
-	def __init__(self, *args, **kwargs):
-		print('MF - Init')
-		
-		super().__init__(*args, **kwargs)
-
-		#self.dishes = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
-		#self.dishes = False
+	#def __init__(self, *args, **kwargs):
+	#	print('MF - Init')		
+	#	super().__init__(*args, **kwargs)
 
 
 	class Meta:
@@ -40,7 +84,7 @@ class MenuForm(forms.ModelForm):
 					'family',
 					#'family_id',
 
-					'dishes',
+					'items',
 				]
 	
 	name = forms.CharField(max_length=100)
@@ -51,18 +95,18 @@ class MenuForm(forms.ModelForm):
 
 	#family_id = forms.IntegerField()
 
-	dishes = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple)
-	#dishes = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
-	#dishes = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=family_id), widget=forms.widgets.CheckboxSelectMultiple)
+	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple)
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=family_id), widget=forms.widgets.CheckboxSelectMultiple)
 
 
 
 
 def thanks(request):
+	print()
+	print('Thanks')
 
-	ctx = {
-			}
-
+	ctx = {}
 	output = render(request, 'menus/thanks.html', ctx)
 	return HttpResponse(output)
 
@@ -81,7 +125,6 @@ def add_item_form(request):
 		#pass
 		
 		# create a form instance and populate it with data from the request:
-		#form = NameForm(request.POST)
 		form = MenuForm(request.POST)
 
 		#print(form)
@@ -108,14 +151,14 @@ def add_item_form(request):
 
 
 		# Clean Items - only that family
-		qset = menu.dishes.filter(family=family.id)
+		qset = menu.items.filter(family=family.id)
 		print(qset)
 
 		for iq in qset:
-			menu.dishes.remove(iq)
+			menu.items.remove(iq)
 
 		print()
-		print(menu.dishes)
+		print(menu.items)
 		print()
 		print()
 
@@ -126,10 +169,10 @@ def add_item_form(request):
 
 			# process the data in form.cleaned_data as required
 		
-			items = form.cleaned_data['dishes']
+			items = form.cleaned_data['items']
 
 			for item in items:
-				menu.dishes.add(item)
+				menu.items.add(item)
 
 			return HttpResponseRedirect('/thanks/')
 
@@ -184,7 +227,7 @@ def add_item(request, menu_id, family_id):
 
 
 		# Limit to the family
-		form.fields["dishes"].queryset = Item.objects.filter(family=family_id)
+		form.fields["items"].queryset = Item.objects.filter(family=family_id)
 		#form.fields['family'] = family.name
 
 
@@ -240,7 +283,7 @@ def detail(request, menu_id):
 	for fam in families:
 
 		#items = menu.objects.all.filter(family=fam.id)
-		items = menu.dishes.filter(family=fam.id)
+		items = menu.items.filter(family=fam.id)
 
 		#items_dic[fam.name] = items
 		items_dic[fam] = items
@@ -255,12 +298,78 @@ def detail(request, menu_id):
 
 
 
+
+
+# New Form
+class NewMenuForm(forms.ModelForm):
+	print()
+	print('NewMenuForm')
+
+	class Meta:
+
+		model = Menu
+
+		fields = [
+					'name',
+
+					'date',
+
+					#'items',
+				]
+
+
 # Add Menu
 def add(request):
-	menu = Menu()
-	ctx = {
-			'menu': menu,
+	print()
+	print('Menu - Add')
+	print()
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewMenuForm(request.POST)
+
+		# check whether it's valid:
+		if form.is_valid():
+
+			print(form.cleaned_data)
+
+			form_instance = NewMenuForm(request.POST)
+			print(form_instance)
+
+			new_menu = form_instance.save()
+
+
+			return HttpResponseRedirect('/thanks/')
+
+
+
+	# Create a blank form
+	else:
+
+		menu = Menu()
+		#print(menu)
+
+
+
+		# Form from a Model
+		#form = MenuForm()
+		#form = MenuForm(instance=menu)
+		form = NewMenuForm(instance=menu)
+
+
+
+		# Context
+		ctx = {
+				#'menu': menu,
+				'form': form,
 			}
-	output = render(request, 'menus/add.html', ctx)
-	return HttpResponse(output)
+
+		output = render(request, 'menus/add.html', ctx)
+
+		return HttpResponse(output)
+
+
+
 

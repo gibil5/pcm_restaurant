@@ -1,0 +1,51 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+
+<h2>Eliminar el Menú ?</h2>
+
+<h3>{{ menu.name }}</h3>
+<br>
+
+
+<div class="container">
+<form action="{% url 'delete_menu' menu.id %}" method="post">
+
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <td><input type="submit" value="Si"></td>
+
+<!--
+	<td><input type="submit" value="SI" name="_delete"></td>
+	<td><input type="submit" value="NO" name="_cancel"></td>
+    <td><input type="submit" value="Si"  name="_delete"></td>
+    <td><input type="submit" value="No"  name="_cancel"></td>
+-->
+</form>
+<br>
+
+
+
+
+<form action="{% url 'thanks' %}" method="post">
+
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <td><input type="submit" value="No"></td>
+</form>
+</div>
+
+
+
+
+<br>
+<a href="{% url 'menus' %}"><< Inicio</a>
+<br>
+<br>
+
+{% endblock %}
