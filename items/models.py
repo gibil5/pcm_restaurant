@@ -11,6 +11,7 @@ def get_item(dictionary, key):
 
 
 
+
 class Family(models.Model):
 
 	class Meta:
@@ -33,7 +34,8 @@ class Item(models.Model):
 		ordering = ('family',)
 
 
-	title = models.CharField(
+	#title = models.CharField(
+	name = models.CharField(
 		max_length=200,
 		blank=True
 	)
@@ -41,7 +43,7 @@ class Item(models.Model):
 	price = models.FloatField(default=0)
 
 	def __str__(self): 
-		return self.title
+		return self.name
 
 
 	def get_family():

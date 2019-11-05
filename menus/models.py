@@ -1,36 +1,28 @@
 from django.db import models
-
 from django.utils.translation import gettext as _
-
 import datetime
 from django.utils import timezone
 
-
 # Create your models here.
-
-
-#from items.models import *
 
 import items.models
 
 
-class Item(models.Model):
-	def get_family():
-		pass
 
 class Menu(models.Model):
 
 	class Meta:
-		#verbose_name = '1. Menu'
-		#verbose_name_plural = '1. Menus'
 		verbose_name = 'Menu'
 		verbose_name_plural = 'Menus'
 
 	
-	title = models.CharField(
+
+	#title = models.CharField(
+	name = models.CharField(
 		'nombre',
 		max_length=200,
 	)
+
 
 
 	family = models.CharField(
@@ -40,8 +32,28 @@ class Menu(models.Model):
 
 	family_id = models.IntegerField(
 			default=0,
-			#blank=True,
 		)
+
+
+
+	def clean_items_by_family(self, family): 
+		print()
+		print('Clean Items by Family')
+		print(family)
+
+		#items = menu.dishes.through.objects.all()
+		items = menu.items.through.objects.all()
+
+		#items = menu.dishes.through.objects.filter(family=family)
+		print(items)
+
+		#i = self.dishes.get(title='Causa')
+		i = self.items.get(title='Causa')
+		print(i)
+
+		#query_set = m.dishes.filter(family=1)
+		query_set = m.items.filter(family=1)
+		print(query_set)
 
 
 
@@ -59,27 +71,25 @@ class Menu(models.Model):
 
 
 	def __str__(self): 
-		return self.title
+		return self.name
 
 
 
 	# Items
-	dishes = models.ManyToManyField(
+	#dishes = models.ManyToManyField(
+	items = models.ManyToManyField(
 		items.models.Item, 
-		related_name='dishes',
+		#related_name='dishes',
 		blank=True,
-		)
+	)
 
 
-	#entries = models.ManyToManyField(items.models.Entry, blank=True)
 
-	#main_courses = models.ManyToManyField(items.models.MainCourse, blank=True)
 
-	#desserts = models.ManyToManyField(items.models.Dessert, blank=True)
 
-	#drinks = models.ManyToManyField(items.models.Drink, blank=True)
-
-	#hot_drinks = models.ManyToManyField(items.models.HotDrink, blank=True)
+class Item(models.Model):
+	def get_family():
+		pass
 
 
 

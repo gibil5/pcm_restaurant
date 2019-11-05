@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h1>Lista de platos</h1>
+<h2>Lista de platos</h2>
 <br>
 
 
@@ -11,13 +11,13 @@
 
 {% for key in items_dic %}
 
-	<h3>{{key}}</h3>
+	<h4>{{key}}</h4>
 
 		{% for kkey in items_dic|get_item:key %}
 
 			<li>
 				<a href='{% url "item" kkey.id %}'>
-					{{kkey.title}}
+					{{kkey.name}}
 				</a>
 			</li>
 

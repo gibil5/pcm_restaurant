@@ -1,3 +1,21 @@
+
+# 5 nov
+	#entries = models.ManyToManyField(items.models.Entry, blank=True)
+
+	#main_courses = models.ManyToManyField(items.models.MainCourse, blank=True)
+
+	#desserts = models.ManyToManyField(items.models.Dessert, blank=True)
+
+	#drinks = models.ManyToManyField(items.models.Drink, blank=True)
+
+	#hot_drinks = models.ManyToManyField(items.models.HotDrink, blank=True)
+
+
+
+
+
+
+# 4 nov 
 	#entries = models.ManyToManyField(Entry, blank=True)
 	#main_courses = models.ManyToManyField(MainCourse, blank=True)
 	#desserts = models.ManyToManyField(Dessert, blank=True)

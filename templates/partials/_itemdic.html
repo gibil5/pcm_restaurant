@@ -5,13 +5,16 @@
 
 
 {% for key in items_dic %}
-	<h3>{{key}}</h3>
+
+	<h4>{{key}}</h4>
 
 		{% for kkey in items_dic|get_item:key %}
 		<ul>
 			<li>
 				<a href='{% url "item" kkey.id %}'>
-					<h5>{{kkey.title}}</h5>
+
+					<h6>{{kkey.name}}</h6>
+
 				</a>
 			</li>
 

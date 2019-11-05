@@ -1,21 +1,11 @@
 #from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-
-#from django.http import HttpResponse
 from django.http import HttpResponse, HttpResponseRedirect
-
-
 from django import forms
-
-
 from .models import Menu
 from items.models import Family, Item
 from items import lib
-
-
-
 from django.forms import modelform_factory, modelformset_factory
-
 
 
 # Create your views here.
@@ -25,7 +15,6 @@ FAMILY_ID = 1
 GLOBAL_VAR = 'Magic String' #or matrix...
 
 
-#class MenuForm(forms.ModelForm):
 class MenuForm(forms.ModelForm):
 	print()
 	print('MenuForm')
@@ -44,16 +33,17 @@ class MenuForm(forms.ModelForm):
 		model = Menu
 
 		fields = [
-					'title',
+					'name',
+
 					'date',
 
-					#'family',
+					'family',
 					#'family_id',
 
 					'dishes',
 				]
 	
-	title = forms.CharField(max_length=100)
+	name = forms.CharField(max_length=100)
 	
 	date = forms.DateField(required=False)
 	
@@ -93,54 +83,55 @@ def add_item_form(request):
 		# create a form instance and populate it with data from the request:
 		#form = NameForm(request.POST)
 		form = MenuForm(request.POST)
+
 		#print(form)
+		#print()
 
-		title = 'Viernes 1 Nov'
+		print(form.data)
+		print()
 
-		menu = Menu.objects.filter(title=title)[0]
+
+		#name = 'Viernes 1 Nov'
+
+		name = form.data['name']
+
+		family_name = form.data['family']
+		print(name)
+		print(family_name)
+
+
+		menu = Menu.objects.filter(name=name)[0]
 		print(menu)
-		menu.dishes.through.objects.all().delete()
+
+		family = Family.objects.filter(name=family_name)[0]
+		print(family)
+
+
+		# Clean Items - only that family
+		qset = menu.dishes.filter(family=family.id)
+		print(qset)
+
+		for iq in qset:
+			menu.dishes.remove(iq)
+
+		print()
+		print(menu.dishes)
+		print()
+		print()
+
 
 
 		# check whether it's valid:
 		if form.is_valid():
-		#if True:
-
-			print('mark 2')
 
 			# process the data in form.cleaned_data as required
-			# ...
 		
-			#print(form.data)
-
-			print(form.cleaned_data)
-
-			title = form.cleaned_data['title']
-			print(title)
-
-
 			items = form.cleaned_data['dishes']
 
-			# Remove all
-			menu.dishes.through.objects.all().delete()
-			print(menu.dishes)
-
 			for item in items:
-				print('mark 3')
-	
-				print(item)
-
 				menu.dishes.add(item)
 
-			print(menu.dishes)
-
-			# redirect to a new URL:
 			return HttpResponseRedirect('/thanks/')
-
-		#else:
-		#	print('mark 4')
-		#	menu.dishes.through.objects.all().delete()
-
 
 
 	# redirect to a new URL:
@@ -181,14 +172,20 @@ def add_item(request, menu_id, family_id):
 		menu = get_object_or_404(Menu, pk=menu_id)
 		#print(menu)
 
+		family = get_object_or_404(Family, pk=family_id)
+		print(family)
+
 
 		# Form from a Model
 		#form = MenuForm()
-		form = MenuForm(instance=menu)
+		#form = MenuForm(instance=menu)
+		form = MenuForm(instance=menu, initial={'family': family.name,})
+
+
 
 		# Limit to the family
 		form.fields["dishes"].queryset = Item.objects.filter(family=family_id)
-
+		#form.fields['family'] = family.name
 
 
 		ctx = {
@@ -200,6 +197,7 @@ def add_item(request, menu_id, family_id):
 		output = render(request, 'menus/add_item.html', ctx)
 
 		return HttpResponse(output)
+
 
 
 
@@ -257,19 +255,12 @@ def detail(request, menu_id):
 
 
 
-
-
-
-
-
-
+# Add Menu
 def add(request):
-
-	#menu = Menu.objects.create()		# Creates and saves
 	menu = Menu()
-
 	ctx = {
 			'menu': menu,
 			}
 	output = render(request, 'menus/add.html', ctx)
 	return HttpResponse(output)
+

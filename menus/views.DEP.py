@@ -1,3 +1,31 @@
+def add(request):
+
+	menu = Menu()
+
+	ctx = {
+			'menu': menu,
+			}
+	output = render(request, 'menus/add.html', ctx)
+	return HttpResponse(output)
+
+
+
+
+# 5 nov
+
+		#menu.dishes.through.objects.all().delete()
+		#menu.dishes.filter(family=family.id).delete()
+		#menu.dishes.filter(family=family.id).clear()
+		#menu.clean_items_by_family(family)
+
+
+
+
+
+
+
+
+# 4 nov 
 		#family = get_object_or_404(Family, pk=family_id)
 		#print(family)
 
