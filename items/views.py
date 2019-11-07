@@ -55,8 +55,6 @@ class DeleteFamilyForm(forms.Form):
 def delete_family(request, family_id):
 	print()
 	print('Delete family')
-	print(request)
-	print(family_id)
 
 	family = get_object_or_404(Family, pk=family_id)
 
@@ -226,6 +224,49 @@ def add_item(request):
 
 		output = render(request, 'items/add_item.html', ctx)
 
+		return HttpResponse(output)
+
+
+
+
+
+
+class DeleteItemForm(forms.Form):
+	pass
+
+
+def delete_item(request, item_id):
+	print()
+	print('Delete Item')
+
+
+	item = get_object_or_404(Item, pk=item_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('mark')
+
+		form = DeleteItemForm(request.POST)
+
+		if form.is_valid():
+
+			item.delete()					# Delete !!!
+
+			return HttpResponseRedirect('/thanks/')
+
+
+
+	# Create delete form
+	else:
+
+		form = DeleteItemForm()
+
+		ctx = {
+				'item': item,
+				'form': form,
+		}
+		output = render(request, 'items/delete_item.html', ctx)
 		return HttpResponse(output)
 
 

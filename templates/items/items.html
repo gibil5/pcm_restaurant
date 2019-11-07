@@ -23,7 +23,16 @@
 			<li>
 				<a href='{% url "item" kkey.id %}'>
 					{{kkey.name}}
+	
+
 				</a>
+
+<ul style="list-style-type:none;">
+<li>
+	<a href="{% url 'delete_item' kkey.id %}">Eliminar</a>
+</li>
+</ul>
+
 			</li>
 
 		{% endfor %}
