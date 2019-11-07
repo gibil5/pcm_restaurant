@@ -7,7 +7,7 @@
 <br>
 
 
-<form action="{% url 'add' %}" method="post">
+<form action="{% url 'add_family' %}" method="post">
     {% csrf_token %}
 
 	{{ form.as_p }}

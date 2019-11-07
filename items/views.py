@@ -99,7 +99,7 @@ def add(request):
 				'form': form,
 			}
 
-		output = render(request, 'items/add_item.html', ctx)
+		output = render(request, 'items/add.html', ctx)
 
 		return HttpResponse(output)
 

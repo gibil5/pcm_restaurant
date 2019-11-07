@@ -36,19 +36,20 @@ def families(request):
 	return HttpResponse(output)
 
 
-def family(request, menu_id):
+
+def family(request, family_id):
 	print()
 	print('Family')
 	print()
 
-	family = get_object_or_404(Menu, pk=menu_id)  		# Shortcut !
+	family = get_object_or_404(Family, pk=family_id)  		# Shortcut !
 	print(family)
 
 	ctx = {
 			'family': family,
 			}
 
-	return	render(request, 'items/family.html', ctx)
+	return	render(request, 'families/family.html', ctx)
 
 
 
