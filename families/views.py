@@ -31,7 +31,7 @@ def families(request):
 			'families': families,
 			}
 
-	output = render(request, 'items/families.html', ctx)
+	output = render(request, 'families/families.html', ctx)
 
 	return HttpResponse(output)
 
