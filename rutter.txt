@@ -51,7 +51,11 @@ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 Connect
 psql -p5432 -d "postgres"
 Create
+
 CREATE DATABASE pcmdb OWNER postgres;
+
+CREATE DATABASE pcmresdb OWNER postgres;
+
 \l
 \q
 
@@ -78,7 +82,7 @@ heroku run python  manage.py migrate
 heroku run bash 
 
 
- heroku pg:reset DATABASE_URL --confirm pcm-restaurante
+heroku pg:reset DATABASE_URL --confirm pcm-restaurante
 
 
- 
+
