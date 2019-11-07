@@ -32,7 +32,12 @@
 				<h5>{{menu.name}}</h5>
 			</a>
 			</div>
-			<div class="col-sm-8">
+
+			<div class="col-sm-4">
+				<a href="{% url 'update_menu' menu.id %}">Modificar</a>
+			</div>
+
+			<div class="col-sm-4">
 				<a href="{% url 'delete_menu' menu.id %}">Eliminar</a>
 			</div>
 		</div>

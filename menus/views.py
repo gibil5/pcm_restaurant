@@ -15,6 +15,61 @@ from items import lib
 
 
 
+def update_menu(request, menu_id):
+	print()
+	print('update Menu')
+	print(request)
+	print(menu_id)
+
+
+	menu = get_object_or_404(Menu, pk=menu_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewMenuForm(request.POST)
+
+		# check whether it's valid:
+		if form.is_valid():
+
+			print(form.cleaned_data)
+			
+			form_instance = NewMenuForm(request.POST, instance=menu)
+
+			print(form_instance)
+
+
+			form_instance.save()
+
+
+			return HttpResponseRedirect('/thanks/')
+
+
+
+	# Create a blank form
+	else:
+
+		# Form from a Model
+		form = NewMenuForm(instance=menu)
+
+		form.fields['name'].label = "Nombre"
+
+
+		# Context
+		ctx = {
+				'menu': menu,
+				'form': form,
+			}
+
+		output = render(request, 'menus/edit.html', ctx)
+
+		return HttpResponse(output)
+
+
+
+
 
 class DeleteMenuForm(forms.Form):
 	pass
@@ -121,7 +176,6 @@ def add_item_form(request):
 	print('Add Item Form')
 	print(request)
 
-	#return HttpResponseRedirect('/thanks/')
 
 	# Create and populate
 	if request.method == 'POST':
@@ -187,7 +241,7 @@ def add_item_form(request):
 
 
 
-#def add_item(request, menu_id):
+
 def add_item(request, menu_id, family_id):
 	print()
 	print('Add Item')

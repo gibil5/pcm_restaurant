@@ -21,6 +21,8 @@ urlpatterns = [
 
 	path('delete_menu/<int:menu_id>', views.delete_menu, name='delete_menu'),
 
+	path('update_menu/<int:menu_id>', views.update_menu, name='update_menu'),
+
 
 	#path('search', views.search, name='search'),
 ]
