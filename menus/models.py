@@ -3,10 +3,13 @@ from django.utils.translation import gettext as _
 import datetime
 from django.utils import timezone
 
+from django.template.defaulttags import register
+
 # Create your models here.
 
-import items.models
 
+#import items.models
+from items.models import *
 
 
 class Menu(models.Model):
@@ -29,8 +32,9 @@ class Menu(models.Model):
 		'fecha',
 
 		#default=datetime.date.today
+		#default=datetime.datetime.now()
 		#django.utils.timezone.now
-		default=datetime.datetime.now()
+		default=timezone.now
 	)
 
 
@@ -81,20 +85,12 @@ class Menu(models.Model):
 
 
 	# Items
-	#dishes = models.ManyToManyField(
 	items = models.ManyToManyField(
-		items.models.Item, 
-		#related_name='dishes',
+		Item, 
 		blank=True,
 	)
 
 
-
-
-
-class Item(models.Model):
-	def get_family():
-		pass
 
 
 

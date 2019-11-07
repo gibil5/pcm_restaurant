@@ -36,7 +36,6 @@ class Item(models.Model):
 		verbose_name = 'Plato'
 		verbose_name_plural = 'Platos'
 
-
 	name = models.CharField(
 		'nombre',
 		max_length=200,
@@ -54,7 +53,6 @@ class Item(models.Model):
 	    #return Family.objects.get(id=1)
 	    #return Family.objects.get(name='x').id
 		#return Family.objects.get(name=False).id
-
 
 	family = models.ForeignKey(
 		Family, 

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     # jx
     #'listings.apps.ListingsConfig',
+
    'items.apps.ItemsConfig',
+
    'menus.apps.MenusConfig',
 
     'django.contrib.admin',

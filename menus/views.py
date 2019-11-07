@@ -4,8 +4,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 from django.forms import modelform_factory, modelformset_factory
 
-from .models import Menu
-from items.models import Family, Item
+from .models import *
+
+#from items.models import Family, Item
 from items import lib
 
 # Create your views here.
@@ -91,7 +92,7 @@ class MenuForm(forms.ModelForm):
 	
 	date = forms.DateField(required=False, label='Fecha')
 	
-	family = forms.CharField(max_length=100, label='Familia')
+	#family = forms.CharField(max_length=100, label='Familia')
 
 	#family_id = forms.IntegerField()
 
