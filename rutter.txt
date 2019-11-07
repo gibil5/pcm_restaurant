@@ -77,3 +77,8 @@ heroku run python  manage.py migrate
 
 heroku run bash 
 
+
+ heroku pg:reset DATABASE_URL --confirm pcm-restaurante
+
+
+ 
