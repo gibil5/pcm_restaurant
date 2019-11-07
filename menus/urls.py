@@ -8,6 +8,7 @@ urlpatterns = [
 
 	path('', views.index, name='menus'),
 	path('<int:menu_id>', views.detail, name='menu'),
+
 	path('thanks/', views.thanks, name='thanks'),
 
 

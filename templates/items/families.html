@@ -32,7 +32,12 @@
 				<h5>{{family.name}}</h5>
 			</a>
 			</div>
-			<div class="col-sm-8">
+
+			<div class="col-sm-4">
+				<a href="{% url 'update_family' family.id %}">Modificar</a>
+			</div>
+
+			<div class="col-sm-4">
 				<a href="{% url 'delete_family' family.id %}">Eliminar</a>
 			</div>
 		</div>

@@ -1,16 +1,22 @@
 #from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-
 from django import forms
 from django.forms import modelform_factory, modelformset_factory
-
 from .models import *
 
-#from items.models import Family, Item
-from items import lib
+#from items import lib
 
 # Create your views here.
+
+
+
+def thanks(request):
+	print()
+	print('Thanks')
+	ctx = {}
+	output = render(request, 'menus/thanks.html', ctx)
+	return HttpResponse(output)
 
 
 
@@ -18,12 +24,8 @@ from items import lib
 def update_menu(request, menu_id):
 	print()
 	print('update Menu')
-	print(request)
-	print(menu_id)
-
 
 	menu = get_object_or_404(Menu, pk=menu_id)
-
 
 	# Create and populate
 	if request.method == 'POST':
@@ -33,20 +35,12 @@ def update_menu(request, menu_id):
 
 		# check whether it's valid:
 		if form.is_valid():
-
-			print(form.cleaned_data)
 			
 			form_instance = NewMenuForm(request.POST, instance=menu)
 
-			print(form_instance)
-
-
 			form_instance.save()
 
-
 			return HttpResponseRedirect('/thanks/')
-
-
 
 	# Create a blank form
 	else:
@@ -55,7 +49,6 @@ def update_menu(request, menu_id):
 		form = NewMenuForm(instance=menu)
 
 		form.fields['name'].label = "Nombre"
-
 
 		# Context
 		ctx = {
@@ -160,14 +153,6 @@ class MenuForm(forms.ModelForm):
 
 
 
-
-def thanks(request):
-	print()
-	print('Thanks')
-
-	ctx = {}
-	output = render(request, 'menus/thanks.html', ctx)
-	return HttpResponse(output)
 
 
 

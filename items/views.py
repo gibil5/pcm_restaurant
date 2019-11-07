@@ -9,6 +9,13 @@ from . import lib
 
 
 
+def family_thanks(request):
+	print()
+	print('Family Thanks')
+	ctx = {}
+	output = render(request, 'families/thanks.html', ctx)
+	return HttpResponse(output)
+
 
 # ------------------------------------------------ Families ---------------------
 
@@ -133,6 +140,60 @@ def add_family(request):
 		output = render(request, 'items/add_family.html', ctx)
 
 		return HttpResponse(output)
+
+
+
+
+def update_family(request, family_id):
+	print()
+	print('update Family')
+
+	family = get_object_or_404(Family, pk=family_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewFamilyForm(request.POST)
+
+		# check whether it's valid:
+		if form.is_valid():
+			
+			form_instance = NewFamilyForm(request.POST, instance=family)
+
+			form_instance.save()
+
+			#return HttpResponseRedirect('/thanks/')
+			return HttpResponseRedirect('/families/thanks/')
+
+
+	# Create a blank form
+	else:
+
+		# Form from a Model
+		form = NewFamilyForm(instance=family)
+
+		form.fields['name'].label = "Nombre"
+
+		# Context
+		ctx = {
+				'family': family,
+				'form': form,
+			}
+
+		output = render(request, 'families/edit.html', ctx)
+
+		return HttpResponse(output)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -268,6 +329,54 @@ def delete_item(request, item_id):
 		}
 		output = render(request, 'items/delete_item.html', ctx)
 		return HttpResponse(output)
+
+
+
+
+
+def update_item(request, item_id):
+	print()
+	print('update Item')
+
+	item = get_object_or_404(Item, pk=item_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewItemForm(request.POST)
+
+		# check whether it's valid:
+		if form.is_valid():
+			
+			form_instance = NewItemForm(request.POST, instance=item)
+
+			form_instance.save()
+
+			#return HttpResponseRedirect('/thanks/')
+			return HttpResponseRedirect('/items/thanks/')
+
+
+	# Create a blank form
+	else:
+
+		# Form from a Model
+		form = NewItemForm(instance=item)
+
+		form.fields['name'].label = "Nombre"
+
+		# Context
+		ctx = {
+				'item': item,
+				'form': form,
+			}
+
+		output = render(request, 'items/edit.html', ctx)
+
+		return HttpResponse(output)
+
+
 
 
 
