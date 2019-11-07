@@ -10,18 +10,19 @@ urlpatterns = [
 
 	path('<int:menu_id>', views.detail, name='menu'),
 
-	path('add', views.add, name='add'),
 
-	path('delete/<int:menu_id>', views.delete, name='delete'),
+	
+	path('add', views.add, name='add_menu'),
+	
+	path('delete/<int:menu_id>', views.delete, name='delete_menu'),
 
-	path('update/<int:menu_id>', views.update, name='update'),
+	path('update/<int:menu_id>', views.update, name='update_menu'),
 
-	path('thanks/', views.thanks, name='thanks'),
-
-
+	path('thanks/', views.thanks, name='thanks_menu'),
 
 
-	# Add
+	
+	# Add item into menu
 	path('add_item/<int:menu_id>/<int:family_id>', views.add_item, name='add_item'),
 	path('add_item_form/', views.add_item_form, name='add_item_form'),
 	#path('add_item_all/<int:menu_id>', views.add_item, name='add_item'),

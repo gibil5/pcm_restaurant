@@ -144,7 +144,7 @@ def delete(request, item_id):
 				'item': item,
 				'form': form,
 		}
-		output = render(request, 'items/delete_item.html', ctx)
+		output = render(request, 'items/delete.html', ctx)
 		return HttpResponse(output)
 
 

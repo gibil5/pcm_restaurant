@@ -15,12 +15,12 @@ urlpatterns = [
 	#path('delete_item/<int:item_id>', views.delete_item, name='delete_item'),
 	#path('update_item/<int:item_id>', views.update_item, name='update_item'),
 
-	path('add', views.add, name='add'),
-	path('delete/<int:item_id>', views.delete, name='delete'),
-	path('update/<int:item_id>', views.update, name='update'),
+	path('add', views.add, name='add_item'),
+	path('delete/<int:item_id>', views.delete, name='delete_item'),
+	path('update/<int:item_id>', views.update, name='update_item'),
 
 
-	path('thanks/', views.item_thanks, name='item_thanks'),
+	path('thanks/', views.item_thanks, name='thanks_item'),
 
 	#path('search', views.search, name='search'),
 ]

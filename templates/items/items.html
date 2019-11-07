@@ -10,7 +10,7 @@
 	</div>
 	
 	<div class="col-sm-4">
-<a href="{% url 'add' %}">Crear Plato</a>
+<a href="{% url 'add_item' %}">Crear Plato</a>
 	</div>
 
 	<div class="col-sm-4">
@@ -46,11 +46,11 @@
 			</div>
 
 			<div class="col-sm-4">
-				<a href="{% url 'update' kkey.id %}">Modificar</a>
+				<a href="{% url 'update_item' kkey.id %}">Modificar</a>
 			</div>
 
 			<div class="col-sm-4">
-					<a href="{% url 'delete' kkey.id %}">Eliminar</a>
+					<a href="{% url 'delete_item' kkey.id %}">Eliminar</a>
 			</div>
 		</div>
 

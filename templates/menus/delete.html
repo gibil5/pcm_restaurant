@@ -18,20 +18,11 @@
 	{{ form.as_p }}
 
     <td><input type="submit" value="Si"></td>
-
-<!--
-	<td><input type="submit" value="SI" name="_delete"></td>
-	<td><input type="submit" value="NO" name="_cancel"></td>
-    <td><input type="submit" value="Si"  name="_delete"></td>
-    <td><input type="submit" value="No"  name="_cancel"></td>
--->
 </form>
 <br>
 
 
-
-
-<form action="{% url 'thanks' %}" method="post">
+<form action="{% url 'thanks_menu' %}" method="post">
 
     {% csrf_token %}
 

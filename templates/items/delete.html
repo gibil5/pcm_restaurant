@@ -18,7 +18,7 @@
 </form>
 <br>
 
-<form action="{% url 'thanks' %}" method="post">
+<form action="{% url 'thanks_item' %}" method="post">
     {% csrf_token %}
 	{{ form.as_p }}
     <td><input type="submit" value="No"></td>

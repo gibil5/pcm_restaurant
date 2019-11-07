@@ -11,6 +11,7 @@ from .models import *
 
 
 
+
 def thanks(request):
 	print()
 	print('Thanks')
@@ -339,17 +340,6 @@ def add_item_form(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # New Form
 class NewMenuForm(forms.ModelForm):
 	print()
@@ -361,11 +351,9 @@ class NewMenuForm(forms.ModelForm):
 
 		fields = [
 					'name',
-
 					'date',
-
-					#'items',
 				]
+
 
 
 # Add Menu
@@ -400,8 +388,6 @@ def add(request):
 
 		menu = Menu()
 		#print(menu)
-
-
 
 		# Form from a Model
 		#form = MenuForm()

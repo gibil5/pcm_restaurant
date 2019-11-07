@@ -39,12 +39,8 @@ ALLOWED_HOSTS = ['desolate-chamber-64593.herokuapp.com']
 INSTALLED_APPS = [
 
     # jx
-    #'listings.apps.ListingsConfig',
-
    'families.apps.FamiliesConfig',
-
    'items.apps.ItemsConfig',
-
    'menus.apps.MenusConfig',
 
     'django.contrib.admin',
@@ -68,7 +64,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
 ROOT_URLCONF = 'pcm.urls'
+
+
 
 TEMPLATES = [
     {
@@ -108,7 +108,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
 
         'NAME': 'pcmdb',
-        #'NAME': 'pcmresdb',
 
         'USER': 'postgres',
         'PASSWORD': '',
@@ -173,8 +172,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
                     os.path.join(BASE_DIR, 'pcm/static'),
 ]
-
-
 
 
 
