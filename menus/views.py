@@ -104,7 +104,7 @@ def delete_menu(request, menu_id):
 				'menu': menu,
 				'form': form,
 		}
-		output = render(request, 'menus/delete_menu.html', ctx)
+		output = render(request, 'menus/delete.html', ctx)
 		return HttpResponse(output)
 
 
