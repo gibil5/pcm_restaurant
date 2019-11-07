@@ -10,7 +10,43 @@ from . import lib
 
 
 
-# ------------------------------------------------ Family ---------------------
+# ------------------------------------------------ Families ---------------------
+
+def families(request):
+	print()
+	print('Families')
+
+	families = Family.objects.all()
+
+	print(families)
+
+	ctx = {
+			'families': families,
+			}
+
+	output = render(request, 'items/families.html', ctx)
+
+	return HttpResponse(output)
+
+
+def family(request, menu_id):
+	print()
+	print('Family')
+	print()
+
+	family = get_object_or_404(Menu, pk=menu_id)  		# Shortcut !
+	print(family)
+
+	ctx = {
+			'family': family,
+			}
+
+	return	render(request, 'items/family.html', ctx)
+
+
+
+
+
 
 class DeleteFamilyForm(forms.Form):
 	pass
@@ -33,14 +69,11 @@ def delete_family(request, family_id):
 
 		if form.is_valid():
 
-			# process the data in form.cleaned_data as required
-
-
 			family.delete()					# Delete !!!
 
 			return HttpResponseRedirect('/thanks/')
 
-
+	# Create delete form
 	else:
 
 		form = DeleteFamilyForm()
@@ -56,40 +89,6 @@ def delete_family(request, family_id):
 
 
 
-def family(request, menu_id):
-	print()
-	print('Menu - Family')
-	print()
-
-	family = get_object_or_404(Menu, pk=menu_id)  		# Shortcut !
-	print(family)
-
-
-	ctx = {
-			'family': family,
-			}
-
-	return	render(request, 'items/family.html', ctx)
-
-
-def families(request):
-	print()
-	print('Families')
-
-	families = Family.objects.all()
-
-	print(families)
-
-	ctx = {
-			'families': families,
-			}
-
-	output = render(request, 'items/families.html', ctx)
-
-	return HttpResponse(output)
-
-
-
 # New Form
 class NewFamilyForm(forms.ModelForm):
 	print()
@@ -101,17 +100,12 @@ class NewFamilyForm(forms.ModelForm):
 
 		fields = [
 					'name',
-
-					#'date',
 				]
 
-# Add Menu
+# Add Family
 def add_family(request):
 	print()
-	print('Family - Add')
-	print()
-
-
+	print('Add Family')
 
 	# Create and populate
 	if request.method == 'POST':
@@ -119,34 +113,21 @@ def add_family(request):
 
 		form = NewFamilyForm(request.POST)
 
-		# check whether it's valid:
 		if form.is_valid():
 
-			print(form.cleaned_data)
-
 			form_instance = NewFamilyForm(request.POST)
-			print(form_instance)
 
 			new_family = form_instance.save()
 
-
 			return HttpResponseRedirect('/thanks/')
-
-
 
 	# Create a blank form
 	else:
 
 		family = Family()
-		#print(menu)
 
-		# Form from a Model
 		form = NewFamilyForm(instance=family)
 
-		#form.fields['name'].label = "Nombre"
-
-
-		# Context
 		ctx = {
 				'form': form,
 			}
@@ -161,9 +142,8 @@ def add_family(request):
 
 
 
-# ------------------------------------------------ Item ---------------------
+# ------------------------------------------------ Items ---------------------
 
-#def index(request):
 def items(request):
 	print()
 	print('Items')
@@ -189,7 +169,6 @@ def items(request):
 
 
 
-#def detail(request, item_id):
 def item(request, item_id):
 	
 	item = get_object_or_404(Item, pk=item_id)  	# Get Object
@@ -197,5 +176,57 @@ def item(request, item_id):
 	ctx = {'item': item,}
 
 	return	render(request, 'items/item.html', ctx)
+
+
+
+# New Form
+class NewItemForm(forms.ModelForm):
+	print()
+	print('NewItemForm')
+
+	class Meta:
+
+		model = Item
+
+		fields = [
+					'name',
+					'family',
+				]
+
+
+
+def add_item(request):
+	print()
+	print('Add item')
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewItemForm(request.POST)
+
+		if form.is_valid():
+
+			form_instance = NewItemForm(request.POST)
+
+			new_item = form_instance.save()
+
+			return HttpResponseRedirect('/thanks/')
+
+	# Create a blank form
+	else:
+
+		item = Item()
+
+		form = NewItemForm(instance=item)
+
+		ctx = {
+				'form': form,
+			}
+
+		output = render(request, 'items/add_item.html', ctx)
+
+		return HttpResponse(output)
+
 
 

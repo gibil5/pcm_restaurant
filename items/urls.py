@@ -6,6 +6,11 @@ from . import views
 
 urlpatterns = [
 
+
+	path('add_item', views.add_item, name='add_item'),
+
+
+
 	#path('items', views.index, name='items'),
 	#path('', views.index, name='items'),
 	path('', views.items, name='items'),
