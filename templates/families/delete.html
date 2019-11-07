@@ -11,7 +11,7 @@
 
 
 <div class="container">
-<form action="{% url 'delete_family' family.id %}" method="post">
+<form action="{% url 'delete' family.id %}" method="post">
     {% csrf_token %}
 	{{ form.as_p }}
     <td><input type="submit" value="Si"></td>

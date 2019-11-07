@@ -71,7 +71,7 @@ class NewItemForm(forms.ModelForm):
 
 
 
-def add_item(request):
+def add(request):
 	print()
 	print('Add item')
 
@@ -113,7 +113,7 @@ class DeleteItemForm(forms.Form):
 	pass
 
 
-def delete_item(request, item_id):
+def delete(request, item_id):
 	print()
 	print('Delete Item')
 
@@ -151,7 +151,7 @@ def delete_item(request, item_id):
 
 
 
-def update_item(request, item_id):
+def update(request, item_id):
 	print()
 	print('update Item')
 

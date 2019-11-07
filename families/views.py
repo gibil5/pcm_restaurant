@@ -65,7 +65,7 @@ class NewFamilyForm(forms.ModelForm):
 				]
 
 # Add Family
-def add_family(request):
+def add(request):
 	print()
 	print('Add Family')
 
@@ -94,7 +94,7 @@ def add_family(request):
 				'form': form,
 			}
 
-		output = render(request, 'items/add_family.html', ctx)
+		output = render(request, 'families/add.html', ctx)
 
 		return HttpResponse(output)
 
@@ -103,7 +103,7 @@ def add_family(request):
 class DeleteFamilyForm(forms.Form):
 	pass
 
-def delete_family(request, family_id):
+def delete(request, family_id):
 	print()
 	print('Delete family')
 
@@ -130,12 +130,12 @@ def delete_family(request, family_id):
 				'family': family,
 				'form': form,
 		}
-		output = render(request, 'items/delete_family.html', ctx)
+		output = render(request, 'families/delete.html', ctx)
 		return HttpResponse(output)
 
 
 
-def update_family(request, family_id):
+def update(request, family_id):
 	print()
 	print('update Family')
 

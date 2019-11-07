@@ -12,12 +12,7 @@ urlpatterns = [
     
     path('items/', include('items.urls')),
 
-
-    #path('families/', include('items.urls')),
-
     path('families/', include('families.urls')),
-
-
 
     path('admin/', admin.site.urls),
 ]

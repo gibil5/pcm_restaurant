@@ -21,7 +21,7 @@ def thanks(request):
 
 
 
-def update_menu(request, menu_id):
+def update(request, menu_id):
 	print()
 	print('update Menu')
 
@@ -69,7 +69,7 @@ class DeleteMenuForm(forms.Form):
 	#your_name = forms.CharField(label='Your name', max_length=100)
 
 
-def delete_menu(request, menu_id):
+def delete(request, menu_id):
 	print()
 	print('Delete Menu')
 	print(request)
