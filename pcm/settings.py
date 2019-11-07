@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # jx
     #'listings.apps.ListingsConfig',
 
+   'families.apps.FamiliesConfig',
+
    'items.apps.ItemsConfig',
 
    'menus.apps.MenusConfig',

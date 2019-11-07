@@ -24,7 +24,9 @@ python manage.py startapp menus
 
 python manage.py startapp items 
 
-#python manage.py startapp items 
+python manage.py startapp families 
+
+
 
 
 # Create Models
