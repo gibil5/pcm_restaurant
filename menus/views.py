@@ -1,6 +1,7 @@
 #from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
+
 from django import forms
 from django.forms import modelform_factory, modelformset_factory
 
@@ -13,11 +14,11 @@ from items import lib
 
 
 
+
+
 class DeleteMenuForm(forms.Form):
 	pass
 	#your_name = forms.CharField(label='Your name', max_length=100)
-
-
 
 
 def delete_menu(request, menu_id):

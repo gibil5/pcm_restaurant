@@ -1,0 +1,45 @@
+{% extends 'menus/base.html' %}
+
+{% block content %}
+
+
+<h2>Familias</h2>
+<br>
+<a href="{% url 'add_family' %}">Crear Famlia</a>
+<br>
+<br>
+
+
+{% if families %}
+
+<div class="container">
+
+	<ul>
+	{% for family in families %}
+
+		<li>
+			<a href='{% url "family" family.id %}'>
+
+				<h5>{{family.name}}</h5>
+
+				<a href="{% url 'delete_family' family.id %}">Eliminar</a>
+		
+			</a>
+		</li>
+
+		<br>
+
+	{% endfor %}
+	</ul>
+
+
+
+{% else %}
+	<p>
+		Todavía no ha creado ninguna Familia.
+	</p>
+
+{% endif %}
+</div>
+
+{% endblock %}

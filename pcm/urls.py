@@ -24,6 +24,9 @@ urlpatterns = [
     
     path('items/', include('items.urls')),
 
+    path('families/', include('items.urls')),
+
+
     #path('about/', include('items.urls')),
 
 

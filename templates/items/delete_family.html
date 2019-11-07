@@ -1,0 +1,40 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+
+<h2>Eliminar Familia ?</h2>
+<br>
+<h3>{{ family.name }}</h3>
+<br>
+<br>
+
+
+<div class="container">
+<form action="{% url 'delete_family' family.id %}" method="post">
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <td><input type="submit" value="Si"></td>
+</form>
+<br>
+
+
+<form action="{% url 'thanks' %}" method="post">
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <td><input type="submit" value="No"></td>
+</form>
+</div>
+
+
+
+<br>
+<a href="{% url 'families' %}"><< Inicio</a>
+<br>
+<br>
+
+{% endblock %}

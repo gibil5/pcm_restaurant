@@ -45,14 +45,14 @@
 
 
           <li
-              {% if 'about' in request.path %}
+              {% if 'famil' in request.path %}
                 class="nav-item active mr-3"
               {% else %}
                 class="nav-item mr-3"
               {% endif %}
           >
+            <a class="nav-link" href="{% url 'families' %}">Familias</a>
 
-            <a class="nav-link" href="{% url 'about' %}">Desafio</a>
 
           </li>
 
