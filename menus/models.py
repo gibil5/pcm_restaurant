@@ -17,10 +17,20 @@ class Menu(models.Model):
 
 	
 
-	#title = models.CharField(
 	name = models.CharField(
-		'nombre',
+		#'nombre',
+		verbose_name='nombre',
 		max_length=200,
+	)
+
+
+	date = models.DateTimeField(
+		#'date',
+		'fecha',
+
+		#default=datetime.date.today
+		#django.utils.timezone.now
+		default=datetime.datetime.now()
 	)
 
 
@@ -63,11 +73,6 @@ class Menu(models.Model):
 	#	return	timezone.now() - datetime.timedelta(days=7) <= self.pub_date <= now
 
 
-	date = models.DateTimeField(
-		#'date',
-		'fecha',
-		default=datetime.date.today
-	)
 
 
 	def __str__(self): 

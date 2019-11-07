@@ -19,6 +19,7 @@ class Family(models.Model):
 		verbose_name_plural = 'Familias'
 
 	name = models.CharField(
+		'nombre',
 		max_length=100,
 		blank=True
 	)
@@ -32,10 +33,12 @@ class Item(models.Model):
 
 	class Meta:
 		ordering = ('family',)
+		verbose_name = 'Plato'
+		verbose_name_plural = 'Platos'
 
 
-	#title = models.CharField(
 	name = models.CharField(
+		'nombre',
 		max_length=200,
 		blank=True
 	)

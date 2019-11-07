@@ -1,13 +1,18 @@
 {% extends 'menus/base.html' %}
 
-
 {% block content %}
 
-<h2>Lista de platos</h2>
+
+<h2>Platos</h2>
+<br>
+<a href="{% url 'add' %}">Crear Plato</a>
+<br>
 <br>
 
 
 {% if items_dic %}
+
+<div class="container">
 
 {% for key in items_dic %}
 
@@ -29,8 +34,8 @@
 	<p>
 		You haven't uploaded any Item yet.
 	</p>
+
 {% endif %}
-
-
+</div>
 
 {% endblock %}

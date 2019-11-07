@@ -87,15 +87,17 @@ class MenuForm(forms.ModelForm):
 					'items',
 				]
 	
-	name = forms.CharField(max_length=100)
+	name = forms.CharField(max_length=100, label='Nombre')
 	
-	date = forms.DateField(required=False)
+	date = forms.DateField(required=False, label='Fecha')
 	
-	#family = forms.CharField(max_length=100)
+	family = forms.CharField(max_length=100, label='Familia')
 
 	#family_id = forms.IntegerField()
 
-	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple)
+
+	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+
 	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
 	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=family_id), widget=forms.widgets.CheckboxSelectMultiple)
 
@@ -231,6 +233,9 @@ def add_item(request, menu_id, family_id):
 		#form.fields['family'] = family.name
 
 
+		form.fields['name'].label = "Nombre"
+
+
 		ctx = {
 				'menu': menu,
 				'menu_id': menu.id,
@@ -358,6 +363,7 @@ def add(request):
 		#form = MenuForm(instance=menu)
 		form = NewMenuForm(instance=menu)
 
+		form.fields['name'].label = "Nombre"
 
 
 		# Context

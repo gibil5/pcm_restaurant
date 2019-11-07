@@ -1,16 +1,17 @@
 {% extends 'menus/base.html' %}
 
-
 {% block content %}
-
 
 
 <h2>Menus</h2>
 <br>
+<a href="{% url 'add' %}">Crear Menú</a>
+<br>
+<br>
 
 {% if latest_menu_list %}
 
-<div class="container_">
+<div class="container">
 
 	<ul>
 	{% for menu in latest_menu_list %}
@@ -38,10 +39,10 @@
 {% endif %}
 </div>
 
-
+<!--
 <br>
 <a href="{% url 'add' %}">Crear Menú</a>
 <br>
 <br>
-
+-->
 {% endblock %}
