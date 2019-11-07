@@ -2,31 +2,43 @@
 
 {% block content %}
 
+<div class="row">
+	<div class="col-sm-4">
+		<h2>Menus</h2>
+	</div>
+	<div class="col-sm-4">
+		<a href="{% url 'add' %}">Crear Menú</a>
+	</div>
+	<div class="col-sm-4">
+	</div>
+</div>
 
-<h2>Menus</h2>
-<br>
-<a href="{% url 'add' %}">Crear Menú</a>
-<br>
-<br>
 
+<br>
 {% if latest_menu_list %}
 
 <div class="container">
 
-	<ul>
+
+<ul class="list-group">
 	{% for menu in latest_menu_list %}
 
-		<li>
+
+	<li class="list-group-item">
+
+		<div class="row">
+			<div class="col-sm-4">
 			<a href='{% url "menu" menu.id %}'>
-
 				<h5>{{menu.name}}</h5>
-
-				<a href="{% url 'delete_menu' menu.id %}">Eliminar</a>
-		
 			</a>
-		</li>
+			</div>
+			<div class="col-sm-8">
+				<a href="{% url 'delete_menu' menu.id %}">Eliminar</a>
+			</div>
+		</div>
+		
+	</li>
 
-		<br>
 	{% endfor %}
 	</ul>
 
@@ -37,12 +49,7 @@
 		You haven't uploaded any menu yet.
 	</p>
 {% endif %}
+
 </div>
 
-<!--
-<br>
-<a href="{% url 'add' %}">Crear Menú</a>
-<br>
-<br>
--->
 {% endblock %}

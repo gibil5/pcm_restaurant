@@ -3,40 +3,62 @@
 {% block content %}
 
 
-<h2>Platos</h2>
-<br>
+
+<div class="row">
+	<div class="col-sm-4">
+		<h2>Platos</h2>
+	</div>
+	
+	<div class="col-sm-4">
 <a href="{% url 'add_item' %}">Crear Plato</a>
-<br>
+	</div>
+
+	<div class="col-sm-4">
+	</div>
+</div>
+
+
 <br>
 
 
 {% if items_dic %}
 
-<div class="container">
+<div class="container_">
+
 
 {% for key in items_dic %}
 
-	<h4>{{key}}</h4>
+<h5>{{key}}</h5>
 
+
+
+<ul class="list-group">
 		{% for kkey in items_dic|get_item:key %}
 
-			<li>
-				<a href='{% url "item" kkey.id %}'>
-					{{kkey.name}}
+
+	<li class="list-group-item">
 	
-
+		<div class="row">
+			<div class="col-sm-4">
+				<a href='{% url "item" kkey.id %}'>
+					<h5>{{kkey.name}}</h5>
 				</a>
+			</div>
+			<div class="col-sm-8">
+					<a href="{% url 'delete_item' kkey.id %}">Eliminar</a>
+			</div>
+		</div>
 
-<ul style="list-style-type:none;">
-<li>
-	<a href="{% url 'delete_item' kkey.id %}">Eliminar</a>
-</li>
-</ul>
 
-			</li>
+		</li>
+
 
 		{% endfor %}
 		<br>
+		</ul>
+
+<br>
+
 {% endfor %}
 
 {% else %}

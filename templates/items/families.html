@@ -2,32 +2,42 @@
 
 {% block content %}
 
+<div class="row">
+	<div class="col-sm-4">
+		<h2>Familias</h2>
+	</div>
+	<div class="col-sm-4">
+		<a href="{% url 'add_family' %}">Crear Famlia</a>
+	</div>
+	<div class="col-sm-4">
+	</div>
+</div>
 
-<h2>Familias</h2>
-<br>
-<a href="{% url 'add_family' %}">Crear Famlia</a>
-<br>
-<br>
 
-
+<br>
 {% if families %}
 
 <div class="container">
+	
 
-	<ul>
+<ul class="list-group">
+
 	{% for family in families %}
 
-		<li>
+	<li class="list-group-item">
+
+		<div class="row">
+			<div class="col-sm-4">
 			<a href='{% url "family" family.id %}'>
-
 				<h5>{{family.name}}</h5>
-
-				<a href="{% url 'delete_family' family.id %}">Eliminar</a>
-		
 			</a>
-		</li>
-
-		<br>
+			</div>
+			<div class="col-sm-8">
+				<a href="{% url 'delete_family' family.id %}">Eliminar</a>
+			</div>
+		</div>
+			
+	</li>
 
 	{% endfor %}
 	</ul>
@@ -38,8 +48,8 @@
 	<p>
 		Todavía no ha creado ninguna Familia.
 	</p>
-
 {% endif %}
+
 </div>
 
 {% endblock %}
