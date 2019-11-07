@@ -3,7 +3,7 @@
 
 ## Historia
 - Creado:         28 Oct 2019
-- Actualizacion:   4 Nov 2019
+- Actualizacion:   6 Nov 2019
 
 ## Autor
 Javier Revilla
