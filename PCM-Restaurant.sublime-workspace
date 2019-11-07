@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"fa",
+				"families"
+			],
+			[
+				"fami",
+				"families"
+			],
+			[
+				"it",
+				"item"
+			],
+			[
+				"famil",
+				"families"
+			],
+			[
+				"famli",
+				"families"
+			],
+			[
+				"N",
+				"Nombre"
+			],
+			[
 				"cl",
 				"cleaned_data"
 			],
@@ -20,10 +44,6 @@
 				"Family"
 			],
 			[
-				"fa",
-				"family"
-			],
-			[
 				"itme",
 				"items"
 			],
@@ -34,10 +54,6 @@
 			[
 				"me",
 				"menu"
-			],
-			[
-				"fami",
-				"family"
 			],
 			[
 				"MEn",
@@ -52,16 +68,8 @@
 				"family_id"
 			],
 			[
-				"it",
-				"items"
-			],
-			[
 				"ite",
 				"items_dic"
-			],
-			[
-				"famil",
-				"family"
 			],
 			[
 				"fmil",
@@ -506,24 +514,16 @@
 			[
 				"du",
 				"duration_total"
-			],
-			[
-				"amou",
-				"amount_total"
-			],
-			[
-				"data",
-				"data_amount"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "readme.md",
+			"file": "rutter.txt",
 			"settings":
 			{
-				"buffer_size": 923,
+				"buffer_size": 1193,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,7 +532,8 @@
 			"file": "pcm/settings.py",
 			"settings":
 			{
-				"buffer_size": 4075,
+				"buffer_size": 4104,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -540,7 +541,8 @@
 			"file": "pcm/urls.py",
 			"settings":
 			{
-				"buffer_size": 1021,
+				"buffer_size": 338,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -548,25 +550,34 @@
 			"file": "menus/urls.py",
 			"settings":
 			{
-				"buffer_size": 720,
+				"buffer_size": 743,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "items/admin.py",
+			"file": "families/urls.py",
 			"settings":
 			{
-				"buffer_size": 142,
+				"buffer_size": 431,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "items/models.py",
+			"file": "items/urls.py",
 			"settings":
 			{
-				"buffer_size": 877,
+				"buffer_size": 700,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "menus/tests.py",
+			"settings":
+			{
+				"buffer_size": 1784,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -584,51 +595,25 @@
 			"file": "menus/views.py",
 			"settings":
 			{
-				"buffer_size": 6081,
+				"buffer_size": 6739,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/menus/delete_menu.html",
+			"file": "items/views.py",
 			"settings":
 			{
-				"buffer_size": 783,
+				"buffer_size": 3034,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/menus/menus.html",
+			"file": "families/views.py",
 			"settings":
 			{
-				"buffer_size": 565,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/items/items.html",
-			"settings":
-			{
-				"buffer_size": 482,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/menus/add.html",
-			"settings":
-			{
-				"buffer_size": 291,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/menus/menu.html",
-			"settings":
-			{
-				"buffer_size": 287,
+				"buffer_size": 2923,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -707,43 +692,65 @@
 	},
 	"file_history":
 	[
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/delete.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/menus.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/add.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/families/families.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/add.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/items.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/views.DEP.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/pcm/settings.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/admin.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/families/admin.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/edit.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/families/edit.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/families/thanks.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/families.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/edit.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/readme.md",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/untitled",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_topbar.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_navbar.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/delete_item.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_threecols.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/add_item.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/add_family.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/menu.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/add_item.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/delete_menu.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/views.DEP.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/delete_family.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_navbar.DEP.html",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/models.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/models.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/rutter.txt",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/models.DEP.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/migrations/0001_initial.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/migrations/0040_auto_20191031_1628.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/admin.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/migrations/0039_auto_20191031_1625.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/urls.py",
+		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/pcm/urls.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/thanks.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_itemdic.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/items.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/rutter.txt",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/about.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/add_item.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/add.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/admin.DEP.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/models.DEP.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/admin.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/add_item.DEP.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/item.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/menus.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_gohome.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/base.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/models.DEP.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/urls.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/urls.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/pcm/urls.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/models.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/admin.DEP.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/menus.DEP.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/menu.DEP.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/pcm/settings.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/views.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_itemdic.DEP.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/lib.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_navbar.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/add.DEP.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/partials/_navbar.DEP.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/items/items.DEP.html",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/views.DEP.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/runtime.txt",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/pcm/static/css/lightbox.min.css",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/items/admin.py",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/templates/menus/menu.html",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/migrations/0002_item.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/migrations/0011_remove_item_family.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/migrations/0009_auto_20191030_1756.py",
@@ -757,11 +764,9 @@
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/Procfile",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/requirements.txt",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/buff",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/readme.md",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/views.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/gitignore",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/readme.txt",
-		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/models.py",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/gitignotr",
 		"/Users/gibil/Virtualenvs/pcm_restaurant/pcm_restaurant/menus/menus.urls",
 		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/templates/partials/_topbar.html",
@@ -814,31 +819,11 @@
 		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/lists.py",
 		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/basics.py",
 		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/my_file.txt",
-		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/validate.py",
-		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/json.py",
-		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/myfile.txt",
-		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/python_fundamentals.py",
-		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/funcs.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/djangoproject/wsgi.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/templates/posts/buff.html",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/templates/posts/base.html",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/templates/posts/index.html",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/templates/posts/details.html",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/views.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/models.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/admin.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/urls.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/djangoproject/urls.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/djangoproject/settings.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/readme.txt",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/python_fundamentals.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/python.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/posts/views.DEP.py",
-		"/Users/gibil/Virtualenvs/brad_traversy_v2/django_crash_course/djangoproject/manage.py"
+		"/Users/gibil/Virtualenvs/btre_dev_and_deploy/btre_project/python_fund/validate.py"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
@@ -849,9 +834,24 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"class",
+			"_family",
+			"_item",
+			"_menu",
+			"thanks",
+			"item",
+			"Item",
+			"item",
+			"menu",
+			"Menu",
+			"menu",
+			"delete",
+			"family",
+			"dele",
+			"menu",
 			"dishes",
 			"items",
 			"dishes",
@@ -876,6 +876,16 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"family",
+			"Family",
+			"family",
+			"item",
+			"Item",
+			"item",
+			"update",
+			"item",
+			"family",
 			"items",
 			"name",
 			"h4",
@@ -894,35 +904,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "readme.md",
+					"file": "rutter.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 923,
+						"buffer_size": 1193,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								423,
-								423
+								315,
+								315
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -931,15 +941,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4075,
+						"buffer_size": 4104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3056,
-								3056
+								1753,
+								1753
 							]
 						],
 						"settings":
@@ -949,10 +959,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1905.0,
+						"translation.y": 870.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -961,15 +971,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1021,
+						"buffer_size": 338,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								476,
-								476
+								242,
+								242
 							]
 						],
 						"settings":
@@ -991,15 +1001,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 720,
+						"buffer_size": 743,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								669,
-								669
+								450,
+								450
 							]
 						],
 						"settings":
@@ -1016,19 +1026,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "items/admin.py",
+					"file": "families/urls.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 142,
+						"buffer_size": 431,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								142
+								424,
+								424
 							]
 						],
 						"settings":
@@ -1039,24 +1049,82 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "items/models.py",
+					"file": "items/urls.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 877,
+						"buffer_size": 700,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								220,
-								220
+								646,
+								646
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "menus/tests.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1784,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1625,
+								1625
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1250.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "menus/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								130
 							]
 						],
 						"settings":
@@ -1072,20 +1140,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "menus/models.py",
+					"buffer": 8,
+					"file": "menus/views.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1512,
+						"buffer_size": 6739,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								429,
-								429
+								317,
+								398
 							]
 						],
 						"settings":
@@ -1094,27 +1162,56 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 156.0,
+						"translation.y": 952.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "items/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3034,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								351,
+								351
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "menus/views.py",
+					"buffer": 10,
+					"file": "families/views.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6081,
+						"buffer_size": 2923,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								833,
-								833
+								356,
+								438
 							]
 						],
 						"settings":
@@ -1123,154 +1220,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 165.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "templates/menus/delete_menu.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 783,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								706,
-								706
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 172.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "templates/menus/menus.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 565,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								154,
-								178
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "templates/items/items.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 482,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4,
-								4
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "templates/menus/add.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 291,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								291
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "templates/menus/menu.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 287,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								167,
-								167
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1327,7 +1280,7 @@
 	"project": "PCM-Restaurant.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":

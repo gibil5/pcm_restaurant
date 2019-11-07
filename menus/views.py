@@ -11,14 +11,59 @@ from .models import *
 
 
 
+# ------------------------------------------------ Classes ---------------------
+class DeleteMenuForm(forms.Form):
+	pass
+	#your_name = forms.CharField(label='Your name', max_length=100)
 
-def thanks(request):
-	print()
-	print('Thanks')
-	ctx = {}
-	output = render(request, 'menus/thanks.html', ctx)
-	return HttpResponse(output)
 
+class MenuForm(forms.ModelForm):
+	#print()
+	#print('MenuForm')
+
+	#def __init__(self, *args, **kwargs):
+	#	print('MF - Init')		
+	#	super().__init__(*args, **kwargs)
+
+	class Meta:
+
+		model = Menu
+
+		fields = [
+					'name',
+					'date',
+					'family',
+					#'family_id',
+					'items',
+				]
+	
+	name = forms.CharField(max_length=100, label='Nombre')
+	
+	date = forms.DateField(required=False, label='Fecha')
+	
+	#family = forms.CharField(max_length=100, label='Familia')
+
+	#family_id = forms.IntegerField()
+
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=family_id), widget=forms.widgets.CheckboxSelectMultiple)
+	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+
+
+
+# New Form
+class NewMenuForm(forms.ModelForm):
+	#print()
+	#print('NewMenuForm')
+
+	class Meta:
+
+		model = Menu
+
+		fields = [
+					'name',
+					'date',
+				]
 
 
 
@@ -27,7 +72,7 @@ def thanks(request):
 def index(request):
 	
 	latest_menu_list = Menu.objects.all()
-	print(latest_menu_list)
+	#print(latest_menu_list)
 
 	ctx = {
 			'latest_menu_list': latest_menu_list,
@@ -178,9 +223,6 @@ def update(request, menu_id):
 
 
 
-class DeleteMenuForm(forms.Form):
-	pass
-	#your_name = forms.CharField(label='Your name', max_length=100)
 
 
 def delete(request, menu_id):
@@ -225,45 +267,6 @@ def delete(request, menu_id):
 
 
 
-
-
-class MenuForm(forms.ModelForm):
-	print()
-	print('MenuForm')
-
-	#def __init__(self, *args, **kwargs):
-	#	print('MF - Init')		
-	#	super().__init__(*args, **kwargs)
-
-
-	class Meta:
-
-		model = Menu
-
-		fields = [
-					'name',
-
-					'date',
-
-					'family',
-					#'family_id',
-
-					'items',
-				]
-	
-	name = forms.CharField(max_length=100, label='Nombre')
-	
-	date = forms.DateField(required=False, label='Fecha')
-	
-	#family = forms.CharField(max_length=100, label='Familia')
-
-	#family_id = forms.IntegerField()
-
-
-	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
-
-	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=1), widget=forms.widgets.CheckboxSelectMultiple)
-	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.filter(family=family_id), widget=forms.widgets.CheckboxSelectMultiple)
 
 
 
@@ -340,19 +343,6 @@ def add_item_form(request):
 
 
 
-# New Form
-class NewMenuForm(forms.ModelForm):
-	print()
-	print('NewMenuForm')
-
-	class Meta:
-
-		model = Menu
-
-		fields = [
-					'name',
-					'date',
-				]
 
 
 
@@ -409,4 +399,9 @@ def add(request):
 
 
 
-
+def thanks(request):
+	print()
+	print('Thanks')
+	ctx = {}
+	output = render(request, 'menus/thanks.html', ctx)
+	return HttpResponse(output)

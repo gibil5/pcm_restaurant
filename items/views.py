@@ -9,12 +9,25 @@ from . import lib
 
 
 
-def item_thanks(request):
-	print()
-	print('Items Thanks')
-	ctx = {}
-	output = render(request, 'items/thanks.html', ctx)
-	return HttpResponse(output)
+# ------------------------------------------------ Classes ---------------------
+
+# New Form
+class NewItemForm(forms.ModelForm):
+	#print()
+	#print('NewItemForm')
+
+	class Meta:
+
+		model = Item
+
+		fields = [
+					'name',
+					'family',
+				]
+
+class DeleteItemForm(forms.Form):
+	pass
+
 
 
 
@@ -54,20 +67,6 @@ def item(request, item_id):
 	return	render(request, 'items/item.html', ctx)
 
 
-
-# New Form
-class NewItemForm(forms.ModelForm):
-	print()
-	print('NewItemForm')
-
-	class Meta:
-
-		model = Item
-
-		fields = [
-					'name',
-					'family',
-				]
 
 
 
@@ -109,8 +108,6 @@ def add(request):
 
 
 
-class DeleteItemForm(forms.Form):
-	pass
 
 
 def delete(request, item_id):
@@ -197,3 +194,9 @@ def update(request, item_id):
 
 
 
+def item_thanks(request):
+	print()
+	print('Items Thanks')
+	ctx = {}
+	output = render(request, 'items/thanks.html', ctx)
+	return HttpResponse(output)
