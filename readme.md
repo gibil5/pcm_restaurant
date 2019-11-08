@@ -34,15 +34,19 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Item: el plato en sí. 
 	- Campos
 		- name
-		- family
+		- family (relación ManyToMany)
 		- description 
 		- price
 		- image
 		- notes_cook
 		- notes_waiter
 
-- Menu: el menú. Contiene los diferentes platos que se van a servir durante el día. 
-
+- Menu: el menú del día. Contiene los diferentes platos que se van a servir durante el día. 
+	- Campos
+		- name 
+		- date 
+		- items	(relación ManyToMany)
+		- family (auxiliar)
 
 ## Manejo de imágenes por URL
 - Todas la imágenes son URLs que pueden ser modificados por el usuario. 
