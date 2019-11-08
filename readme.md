@@ -23,6 +23,27 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Para asistir a los Mozos y Cocineros, en sus tareas cotidianas.
 
 
+## Descripción Orientada Objeto
+- Existen 3 Clases fundamentales: Menu, Item (platos) y Familia. 
+
+- Familias: los tipos de platos que van a ser manejados en el Restaurante. 
+	- Campos
+		- name
+		- idx (ordenamiento)
+
+- Item: el plato en sí. 
+	- Campos
+		- name
+		- family
+		- description 
+		- price
+		- image
+		- notes_cook
+		- notes_waiter
+
+- Menu: el menú. Contiene los diferentes platos que se van a servir durante el día. 
+
+
 ## Manejo de imágenes por URL
 - Todas la imágenes son URLs que pueden ser modificados por el usuario. 
 - Actualmente, mis imágenes están en Cloudinary (https://cloudinary.com/).
