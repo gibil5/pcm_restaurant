@@ -13,10 +13,28 @@ jrevilla55@gmail.com
 https://pcm-restaurant-jrevilla.herokuapp.com
 
 
-## Documentación
+## Documentación Django
 - https://docs.djangoproject.com/es/2.2/	(ES)
 
 
+## Descripción
+- Aplicación web para la atención de menús de restaurantes.
+- Para asistir a los Mozos y Cocineros, en sus tareas cotidianas.
+
+
+## Arquitectura
+- Base de Datos: Postgres.
+- Hosting en la nube: Heroku. 
+- Plataforma de desarrollo: Django-Python. 
+
+
+## Dependencias
+- Whitenoise (https://github.com/evansd/whitenoise).
+- Gunicorn (https://github.com/benoitc/gunicorn).
+- Dj-Database-Url (https://github.com/jacobian/dj-database-url).
+
+
+## Tests
 
 
 
