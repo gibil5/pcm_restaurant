@@ -1,9 +1,6 @@
 # PCM Restaurante - v. 1.0
 
 
-## Historia
-- Creación:         28 Oct 2019
-- Actualizacion:   7 Nov 2019
 
 ## Autor
 Javier Revilla
@@ -12,6 +9,11 @@ jrevilla55@gmail.com
 
 ## Sitio web en Heroku
 https://pcm-restaurant-jrevilla.herokuapp.com
+
+
+## Historia
+- Creación:         28 Oct 2019
+- Actualizacion:   7 Nov 2019
 
 
 
