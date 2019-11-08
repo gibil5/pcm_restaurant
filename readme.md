@@ -17,7 +17,7 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 
 ## Historia
 - Creación:         28 Oct 2019
-- Actualizacion:   7 Nov 2019
+- Actualizacion:   	8 Nov 2019
 
 
 
