@@ -37,7 +37,7 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 	- Javascript, 
 	- HTML5.
 - Interface usuario Responsiva. Puede ser utilizada en cualquier plataforma (pc, mac, smartphones, tablets, etc..)
-- Utilizando la biblioteca Twitter-Bootstrap (https://getbootstrap.com/). 
+- Utiliza la biblioteca Twitter-Bootstrap (https://getbootstrap.com/). 
 
 
 ## Descripción Orientada Objeto
