@@ -55,6 +55,18 @@ class Item(models.Model):
 
 
 
+	notes_cook = models.TextField(
+			'notas cocinero',
+			blank=True
+		)
+
+	notes_waiter = models.TextField(
+			'notas mozo',
+			blank=True
+		)
+
+
+
 
 	def __str__(self): 
 		return self.name

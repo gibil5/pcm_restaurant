@@ -29,6 +29,9 @@ class NewItemForm(forms.ModelForm):
 					'name',
 					'family',
 					'image',
+
+					'notes_cook',
+					'notes_waiter',
 				]
 		widgets = {
           
