@@ -12,7 +12,6 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 
 
 ## Documentación
-- https://docs.djangoproject.com/en/2.2/	(EN)
 - https://docs.djangoproject.com/es/2.2/	(ES)
 
 
