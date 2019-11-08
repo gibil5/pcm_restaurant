@@ -2,7 +2,7 @@
 
 
 ## Historia
-- Creado:         28 Oct 2019
+- Creación:         28 Oct 2019
 - Actualizacion:   7 Nov 2019
 
 ## Autor
