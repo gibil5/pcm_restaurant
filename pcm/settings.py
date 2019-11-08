@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-#import cloudinary 
 
-#import dj_database_url
 import django_heroku
 
 
@@ -39,7 +37,7 @@ ALLOWED_HOSTS = ['desolate-chamber-64593.herokuapp.com']
 
 INSTALLED_APPS = [
 
-    # jx
+    # Created by JRevilla
    'families.apps.FamiliesConfig',
    'items.apps.ItemsConfig',
    'menus.apps.MenusConfig',
@@ -102,14 +100,8 @@ WSGI_APPLICATION = 'pcm.wsgi.application'
 DATABASES = {
 
     'default': {
-
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-
         'ENGINE': 'django.db.backends.postgresql',
-
         'NAME': 'pcmdb',
-
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -165,7 +157,7 @@ USE_TZ = True
 
 
 
-# Btre
+# Pcm
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
@@ -175,21 +167,7 @@ STATICFILES_DIRS = [
 ]
 
 
-
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-
 django_heroku.settings(locals())
 
-
-
-
-#cloudinary.config( 
-#    cloud_name = "sample", 
-#    api_key = "874837483274837", 
-#    api_secret = "a676b67565c6767a6767d6767f676fe1" 
-#)
 
 
