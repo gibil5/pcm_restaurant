@@ -18,14 +18,25 @@ class Family(models.Model):
 	"""
 
 	class Meta:
+
+		ordering = ('idx',)
+
 		verbose_name = 'Familia'
 		verbose_name_plural = 'Familias'
+
 
 	name = models.CharField(
 		'nombre',
 		max_length=100,
 		blank=True
 	)
+
+
+	idx = models.IntegerField(
+		'orden',
+		default=0
+	)
+
 
 	def __str__(self):
 		return self.name

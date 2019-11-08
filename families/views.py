@@ -63,6 +63,7 @@ class NewFamilyForm(forms.ModelForm):
 
 		fields = [
 					'name',
+					'idx',
 				]
 
 # Add Family
