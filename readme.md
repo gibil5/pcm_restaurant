@@ -10,7 +10,7 @@ Javier Revilla
 jrevilla55@gmail.com
 
 
-## Sitio web - Heroku
+## Sitio web en Heroku
 https://pcm-restaurant-jrevilla.herokuapp.com
 
 
