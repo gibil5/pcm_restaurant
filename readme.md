@@ -110,8 +110,9 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 
 
 ## Entregables
-1. Código fuente en Github
-2. Aplicación web funcionando (url) de preferencia en Heroku
+1. Código fuente en Github.
+2. Aplicación web funcionando (url) de preferencia en Heroku.
+
 
 
 ## Tiempo máximo
