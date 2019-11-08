@@ -23,7 +23,7 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Para asistir a los Mozos y Cocineros, en sus tareas cotidianas.
 
 
-## Manejo de imâgenes por URL
+## Manejo de imágenes por URL
 - Todas la imágenes son URLs que pueden ser modificados por el usuario. 
 - Actualmente, mis imágenes están en Cloudinary (https://cloudinary.com/).
 - Pero el usuario puede utilizar cualquier repositorio. 
