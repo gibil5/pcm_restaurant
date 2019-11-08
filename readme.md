@@ -103,6 +103,7 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Registro de usuarios
 - Cobros en línea y facturación. 
 - Análisis de tráfico usando Google Analytics. 
+- Escalamiento para un alto número de usarios: Amazon Web Services. 
 
 
 
