@@ -33,7 +33,7 @@ class MenuForm(forms.ModelForm):
 					'name',
 					'date',
 					'family',
-					#'family_id',
+					#'family_id', # Dep
 					'items',
 				]
 	
@@ -292,9 +292,6 @@ def add_item_form(request):
 
 		print(form.data)
 		print()
-
-
-		#name = 'Viernes 1 Nov'
 
 		name = form.data['name']
 

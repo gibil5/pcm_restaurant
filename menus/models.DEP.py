@@ -1,3 +1,43 @@
+# TRASH
+
+	#family_id = models.IntegerField(  	# Dep
+	#		default=0,
+	#	)
+
+# 8 nov
+#import datetime
+
+	#def clean_items_by_family(self, family): 
+	#	print()
+	#	print('Clean Items by Family')
+	#	print(family)
+
+		#items = menu.dishes.through.objects.all()
+	#	items = menu.items.through.objects.all()
+
+		#items = menu.dishes.through.objects.filter(family=family)
+	#	print(items)
+
+		#i = self.dishes.get(title='Causa')
+	#	i = self.items.get(title='Causa')
+	#	print(i)
+
+		#query_set = m.dishes.filter(family=1)
+	#	query_set = m.items.filter(family=1)
+	#	print(query_set)
+
+
+
+	#get_date():
+	#	now = timezone.now()
+	#	#return self.pub_date >= timezone.now() - datetime.timedelta(days=7)
+	#	return	timezone.now() - datetime.timedelta(days=7) <= self.pub_date <= now
+
+
+
+
+
+
 # 6 nov
 @register.filter
 def get_item(dictionary, key):

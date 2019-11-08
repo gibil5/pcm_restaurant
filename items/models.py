@@ -13,6 +13,9 @@ def get_item(dictionary, key):
 
 
 class Family(models.Model):
+	"""
+	Familia
+	"""
 
 	class Meta:
 		verbose_name = 'Familia'
@@ -30,11 +33,15 @@ class Family(models.Model):
 
 
 class Item(models.Model):
+	"""
+	Plato 
+	"""
 
 	class Meta:
 		ordering = ('family',)
 		verbose_name = 'Plato'
 		verbose_name_plural = 'Platos'
+
 
 	name = models.CharField(
 		'nombre',
@@ -42,9 +49,8 @@ class Item(models.Model):
 		blank=True
 	)
 
+
 	price = models.FloatField(default=0)
-
-
 
 
 	image = models.CharField(
@@ -54,11 +60,11 @@ class Item(models.Model):
 	)
 
 
-
 	notes_cook = models.TextField(
 			'notas cocinero',
 			blank=True
 		)
+
 
 	notes_waiter = models.TextField(
 			'notas mozo',
@@ -66,21 +72,21 @@ class Item(models.Model):
 		)
 
 
+	family = models.ForeignKey(
+		Family, 
+		on_delete=models.PROTECT,
+		blank=True
+	)
 
 
 	def __str__(self): 
 		return self.name
 
 
-	def get_family():
-		pass
+	#def get_family():
+	#	pass
 	    #return Family.objects.get(id=1)
 	    #return Family.objects.get(name='x').id
 		#return Family.objects.get(name=False).id
 
-	family = models.ForeignKey(
-		Family, 
-		on_delete=models.PROTECT,
-		blank=True
-	)
 
