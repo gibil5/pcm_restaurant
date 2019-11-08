@@ -32,13 +32,12 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 
 
 ## Front-End
-- El tema del diseño gráfico es 100% configurable. 
-- Interface usuario Responsiva. Puede ser utilizada en cualquier plataforma (pc, mac, smartphones, tablets, etc..)
-- Utilizando la biblioteca Twitter-Bootstrap (https://getbootstrap.com/). 
-- Codificación de Estilo:
+- El diseño gráfico es 100% configurable. Usando:
 	- CSS, 
 	- Javascript, 
 	- HTML5.
+- Interface usuario Responsiva. Puede ser utilizada en cualquier plataforma (pc, mac, smartphones, tablets, etc..)
+- Utilizando la biblioteca Twitter-Bootstrap (https://getbootstrap.com/). 
 
 
 ## Descripción Orientada Objeto
