@@ -59,6 +59,7 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Base de Datos: Postgres.
 - Hosting en la nube: Heroku. 
 - Plataforma de desarrollo: Django-Python. 
+- Repositorio del código fuente: GitHub.
 
 
 ## Dependencias
