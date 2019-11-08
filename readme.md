@@ -96,6 +96,16 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - También testeamos algunas funciones de nuestros Clases. 
 
 
+
+## Ejes de mejoramiento
+- Manego más sofisticado de imágenes usando la biblioteca LightBox (https://lokeshdhakar.com/projects/lightbox2/).
+- Reporting: impresión de menús en PDF. 
+- registro de usuarios
+- cobros en línea y facturación. 
+
+
+
+
 ## Entregables
 1. Código fuente en Github
 2. Aplicación web funcionando (url) de preferencia en Heroku
