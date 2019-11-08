@@ -29,6 +29,15 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 	Password: admin_user
 
 
+## Front-End
+- El tema del diseño gráfico es 100% configurable. 
+- Interface usuario Responsiva. Puede ser utilizada en cualquier plataforma (pc, mac, smartphones, tablets, etc..)
+- Utilizando la biblioteca Twitter-Bootstrap (https://getbootstrap.com/). 
+- Codificación de Estilo:
+	- CSS, 
+	- Javascript, 
+	- HTML5.
+
 
 ## Descripción Orientada Objeto
 - Existen 3 Clases fundamentales: Menu, Item (platos) y Familia. 
