@@ -17,9 +17,17 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - https://docs.djangoproject.com/es/2.2/	(ES)
 
 
+
 ## Descripción
 - Aplicación web para la atención de menús de restaurantes.
 - Para asistir a los Mozos y Cocineros, en sus tareas cotidianas.
+
+
+## Manejo de imâgenes por URL
+- Todas la imágenes son URLs que pueden ser modificados por el usuario. 
+- Actualmente, mis imágenes están en Cloudinary (https://cloudinary.com/).
+- Pero el usuario puede utilizar cualquier repositorio. 
+
 
 
 ## Arquitectura
