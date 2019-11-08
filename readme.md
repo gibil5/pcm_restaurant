@@ -22,7 +22,8 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Aplicación web para la atención de menús de restaurantes.
 - Para asistir a los Mozos y Cocineros, en sus tareas cotidianas.
 - Mozos y cocineros pueden Visualizar, Crear, Editar y Eliminar todos los objetos. Se puede establecer restrcciones. 
-- Consola de Administración. Usando las herramientas de Django. 
+
+## Consola de Administración. Usando las herramientas de Django. 
 	Usuario: admin_user
 	Password: admin_user
 
