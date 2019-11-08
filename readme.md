@@ -11,6 +11,11 @@ jrevilla55@gmail.com
 https://pcm-restaurant-jrevilla.herokuapp.com
 
 
+## Documentación
+https://docs.djangoproject.com/en/2.2/
+
+
+
 ## Historia
 - Creación:         28 Oct 2019
 - Actualizacion:   7 Nov 2019
