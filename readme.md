@@ -77,8 +77,9 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - Django tiene herramientas sofisticadas para la construcción de Tests unitarios y de integración
 - Incluímos algunos tests que verifican el funcionamiento de las páginas HTML generadas por el servidor. 
 - También testeamos algunas funciones de nuestros Clases. 
+'''
 	python manage.py test
-
+'''
 
 
 Desafío 
