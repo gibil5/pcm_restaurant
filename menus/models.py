@@ -16,6 +16,9 @@ class Menu(models.Model):
 	"""
 
 	class Meta:
+
+		ordering = ('-date',)
+
 		verbose_name = 'Menu'
 		verbose_name_plural = 'Menus'
 
