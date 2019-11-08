@@ -29,9 +29,14 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 
 
 ## Dependencias
-- Whitenoise (https://github.com/evansd/whitenoise).
-- Gunicorn (https://github.com/benoitc/gunicorn).
-- Dj-Database-Url (https://github.com/jacobian/dj-database-url).
+- Whitenoise 		(https://github.com/evansd/whitenoise).
+- Gunicorn 			(https://github.com/benoitc/gunicorn).
+- Dj-Database-Url 	(https://github.com/jacobian/dj-database-url).
+- psycopg2 			(https://github.com/psycopg/psycopg2)
+- pytz				(https://github.com/stub42/pytz)
+- sqlparse			(https://github.com/andialbrecht/sqlparse)
+- ProjetoLMS		(https://github.com/adrriano/projeto-lms-pagina-principal)
+
 
 
 ## Tests
