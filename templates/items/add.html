@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<!-- Go Items -->
+{% include 'partials/_goitems.html' %}
+
 
 <h2>Agregar Plato</h2>
 <br>
@@ -14,11 +17,6 @@
 
     <input type="submit" value="Submit">
 </form>
-
-
-<br>
-<a href="{% url 'items' %}"><< Platos</a>
-<br>
 <br>
 
 {% endblock %}

@@ -2,10 +2,13 @@
 
 {% block content %}
 
+<!-- Go Families -->
+{% include 'partials/_gofamilies.html' %}
+
 
 <h2>Eliminar Familia ?</h2>
 <br>
-<h3>{{ family.name }}</h3>
+<h4>{{ family.name }}</h4>
 <br>
 <br>
 
@@ -24,10 +27,6 @@
     <td><input type="submit" value="No"></td>
 </form>
 </div>
-
-<br>
-<a href="{% url 'families' %}"><< Inicio</a>
-<br>
 <br>
 
 {% endblock %}

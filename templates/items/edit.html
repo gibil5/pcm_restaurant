@@ -2,26 +2,21 @@
 
 {% block content %}
 
+<!-- Go Items -->
+{% include 'partials/_goitems.html' %}
+
 
 <h2>Modificar</h2>
 <br>
 
 
 <form action="{% url 'update_item' item.id %}" method="post">
-
     {% csrf_token %}
 
 	{{ form.as_p }}
 
     <input type="submit" value="Submit">
 </form>
-
-
-
-
-<br>
-<a href="{% url 'items' %}"><< Inicio</a>
-<br>
 <br>
 
 {% endblock %}

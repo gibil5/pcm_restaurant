@@ -3,9 +3,10 @@
 
 {% load static %}
 
-
-
 {% block content %}
+
+<!-- Go Items -->
+{% include 'partials/_goitems.html' %}
 
 
 <h1>{{item.name}}</h1>
@@ -65,16 +66,6 @@
 	<div class="col-sm-1">
 	</div>
 </div>
-
-
-
-
-
-<br>
-<br>
-<a href="{% url 'menus' %}"><< Regresar a la Lista de Menus</a>
-
-<br>
 <br>
 
 
