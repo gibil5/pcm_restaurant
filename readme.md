@@ -5,6 +5,8 @@
 ## Autor
 Javier Revilla
 jrevilla55@gmail.com
+- Creación:         28 Oct 2019
+- Actualizacion:   	8 Nov 2019
 
 
 ## Sitio web en Heroku
@@ -15,9 +17,6 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 - https://docs.djangoproject.com/es/2.2/	(ES)
 
 
-## Historia
-- Creación:         28 Oct 2019
-- Actualizacion:   	8 Nov 2019
 
 
 
