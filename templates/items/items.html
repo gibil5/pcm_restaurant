@@ -45,11 +45,23 @@
 				</a>
 			</div>
 
-			<div class="col-sm-4">
+
+			<div class="col-sm-2">
+<!--
+				<img src={{ kkey.image }} >
+				<img src={{ kkey.image }} class="img-rounded" alt="Cinque Terre">
+-->
+				<img src={{ kkey.image }} class="img-thumbnail" alt="Cinque Terre"  style="max-height: 100px; max-width: 60px;">
+
+
+			</div>
+
+
+			<div class="col-sm-3">
 				<a href="{% url 'update_item' kkey.id %}">Modificar</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 					<a href="{% url 'delete_item' kkey.id %}">Eliminar</a>
 			</div>
 		</div>
