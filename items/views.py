@@ -30,12 +30,15 @@ class NewItemForm(forms.ModelForm):
 					'family',
 					'image',
 
+					'description',
 					'notes_cook',
 					'notes_waiter',
 				]
 		widgets = {
           
 			'image': forms.Textarea(attrs={'rows':1, 'cols':100}),  
+
+			'description': forms.Textarea(attrs={'rows':1, 'cols':100}),  
 		}
 
 class DeleteItemForm(forms.Form):

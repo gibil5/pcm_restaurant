@@ -60,12 +60,17 @@ class Item(models.Model):
 		blank=True
 	)
 
+	description = models.CharField(
+		'descripción',
+		max_length=200,
+		blank=True
+	)
 
 	price = models.FloatField(default=0)
 
 
 	image = models.CharField(
-		'imágen',
+		'imagen',
 		max_length=200,
 		blank=True
 	)
