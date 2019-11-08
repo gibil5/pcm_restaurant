@@ -93,3 +93,8 @@ heroku pg:reset DATABASE_URL --confirm pcm-restaurante
 
 
 
+Cloudinary
+---------
+CloudinaryImage("pcm/causa_1.jpg").image()
+
+

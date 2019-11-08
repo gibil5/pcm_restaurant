@@ -44,6 +44,18 @@ class Item(models.Model):
 
 	price = models.FloatField(default=0)
 
+
+
+
+	image = models.CharField(
+		'imágen',
+		max_length=200,
+		blank=True
+	)
+
+
+
+
 	def __str__(self): 
 		return self.name
 

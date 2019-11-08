@@ -8,6 +8,11 @@ from .models import *
 from . import lib
 
 
+#import cloudinary
+#import cloudinary.uploader
+#import cloudinary.api
+
+
 
 # ------------------------------------------------ Classes ---------------------
 
@@ -23,7 +28,12 @@ class NewItemForm(forms.ModelForm):
 		fields = [
 					'name',
 					'family',
+					'image',
 				]
+		widgets = {
+          
+			'image': forms.Textarea(attrs={'rows':1, 'cols':100}),  
+		}
 
 class DeleteItemForm(forms.Form):
 	pass
@@ -59,10 +69,21 @@ def items(request):
 
 
 def item(request, item_id):
-	
+	print()
+	print('Item')
+
 	item = get_object_or_404(Item, pk=item_id)  	# Get Object
 
-	ctx = {'item': item,}
+
+	#img = 'img/logo_pcm_2.png'
+	#img = cloudinary.CloudinaryImage("pcm/icecream_1.jpg").image()
+	#print(img)
+
+
+	ctx = {
+			'item': item,
+			#'img': img,
+			}
 
 	return	render(request, 'items/item.html', ctx)
 

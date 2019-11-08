@@ -1,11 +1,23 @@
+
 {% extends "menus/base.html" %}
+
+{% load static %}
+
+
 
 {% block content %}
 
 
 <h1>{{item.name}}</h1>
+<br>
+<!--
+<div class="container">
+	<img src="{% static item.image %}" class="logo" alt=""/>
+</div>
+-->
 
-<h2>{{item.price}}</h2>
+<img src={{ item.image }} >
+
 
 <br>
 <a href="{% url 'menus' %}"><< Regresar a la Lista de Menus</a>
