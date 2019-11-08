@@ -5,8 +5,8 @@
 ## Autor
 Javier Revilla
 jrevilla55@gmail.com
-- Creación:         28 Oct 2019
-- Actualizacion:   	8 Nov 2019
+- Creado:         28 Oct 2019
+- Actualizado:   	8 Nov 2019
 
 
 ## Sitio web en Heroku
