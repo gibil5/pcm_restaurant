@@ -98,10 +98,11 @@ https://pcm-restaurant-jrevilla.herokuapp.com
 
 
 ## Ejes de mejoramiento
-- Manego más sofisticado de imágenes usando la biblioteca LightBox (https://lokeshdhakar.com/projects/lightbox2/).
+- Manego más sofisticado de imágenes usando la biblioteca LightBox (https://lokeshdhakar.com/projects/lightbox2).
 - Reporting: impresión de menús en PDF. 
-- registro de usuarios
-- cobros en línea y facturación. 
+- Registro de usuarios
+- Cobros en línea y facturación. 
+- Análisis de tráfico usando Google Analytics. 
 
 
 
