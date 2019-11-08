@@ -26,7 +26,8 @@ class Menu(models.Model):
 	)
 
 
-	date = models.DateTimeField(
+	#date = models.DateTimeField(
+	date = models.DateField(
 		'fecha',
 		default=timezone.now
 	)
