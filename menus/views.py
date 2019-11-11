@@ -71,7 +71,9 @@ class NewMenuForm(forms.ModelForm):
 
 def index(request):
 	
-	latest_menu_list = Menu.objects.all()
+	#latest_menu_list = Menu.objects.all()
+	latest_menu_list = Menu.objects.filter(active=True)
+	
 	#print(latest_menu_list)
 
 	ctx = {

@@ -38,8 +38,16 @@ class Family(models.Model):
 	)
 
 
+
+	# Active
+	active = models.BooleanField(
+			default=True,
+		)
+
+
 	def __str__(self):
 		return self.name
+
 
 
 
@@ -93,6 +101,13 @@ class Item(models.Model):
 		on_delete=models.PROTECT,
 		blank=True
 	)
+
+
+
+	# Active
+	active = models.BooleanField(
+			default=True,
+		)
 
 
 	def __str__(self): 

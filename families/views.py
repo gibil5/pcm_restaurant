@@ -23,7 +23,9 @@ def families(request):
 	print()
 	print('Families')
 
-	families = Family.objects.all()
+	#families = Family.objects.all()
+	families = Family.objects.filter(active=True)
+
 
 	print(families)
 
