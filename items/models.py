@@ -77,11 +77,17 @@ class Item(models.Model):
 	price = models.FloatField(default=0)
 
 
+
 	image = models.CharField(
 		'imagen',
 		max_length=200,
-		blank=True
+
+		#blank=True
+
+		#default='https://res.cloudinary.com/dam0dmleq/image/upload/v1573501282/pcm/empty_mount_2.png'
+		default='https://res.cloudinary.com/dam0dmleq/image/upload/v1573501278/pcm/empty_black.png'
 	)
+
 
 
 	notes_cook = models.TextField(
