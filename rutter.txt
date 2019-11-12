@@ -27,6 +27,10 @@ python manage.py startapp items
 python manage.py startapp families 
 
 
+python manage.py startapp employees 
+
+
+
 
 
 # Create Models

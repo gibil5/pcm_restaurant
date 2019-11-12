@@ -1,7 +1,6 @@
 """
 
-Items
-(Platos)
+Items (Platos)
 
 """
 from django.urls import path

@@ -76,9 +76,12 @@ def index(request):
 	
 	#print(latest_menu_list)
 
+	err_msg = "No existe ningún Menú todavía."
+
 	ctx = {
 			'latest_menu_list': latest_menu_list,
-			}
+			'err_msg': err_msg,
+		}
 
 	output = render(request, 'menus/menus.html', ctx)
 
