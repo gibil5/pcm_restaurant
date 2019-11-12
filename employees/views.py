@@ -8,39 +8,64 @@ from .models import *
 # Create your views here.
 
 
+# New Form
+class NewEmployeeForm(forms.ModelForm):
+
+	class Meta:
+
+		model = Employee
+
+		fields = [
+					'name',
+					'active',
+
+					'category',
+					'image',
+					'description',
+				]
+
+		widgets = {          
+			'image': forms.Textarea(attrs={'rows':1, 'cols':100}),  
+			'description': forms.Textarea(attrs={'rows':1, 'cols':100}),  
+		}
+
+
 # ------------------------------------------------ Employees ---------------------
 
-def employees(request):
+# Index
+def index(request):
 	print()
 	print('Employees')
 
 	
 	# Employees
-	employees = Employee.objects.all()
+	objs = Employee.objects.all()
+	print(objs)
 
 	err_msg = "No existe ningún Empleado todavía."
 
 	ctx = {
-			'employees': employees,
+			'objs': objs,
 			'err_msg': err_msg,
 		}
 
 
-	output = render(request, 'employees/employees.html', ctx)
+	output = render(request, 'employees/index.html', ctx)
 
 	return HttpResponse(output)
 
 
 
+# Employee
 def employee(request, employee_id):
 	print()
 	print('Employee')
 
-	employee = get_object_or_404(Employee, pk=employee_id)  	# Get Object
-
+	obj = get_object_or_404(Employee, pk=employee_id)  	# Get Object
 
 	ctx = {
-			'employee': employee,
+			#'employee': employee,
+			'obj': obj,
 			}
 
 	return	render(request, 'employees/employee.html', ctx)

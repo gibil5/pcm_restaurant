@@ -34,10 +34,8 @@ class NewItemForm(forms.ModelForm):
 					'notes_cook',
 					'notes_waiter',
 				]
-		widgets = {
-          
+		widgets = {          
 			'image': forms.Textarea(attrs={'rows':1, 'cols':100}),  
-
 			'description': forms.Textarea(attrs={'rows':1, 'cols':100}),  
 		}
 

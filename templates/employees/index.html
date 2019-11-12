@@ -7,11 +7,11 @@
 <div class="row">
 
 	<div class="col-sm-4">
-		<h2>Employee</h2>
+		<h2>Empleado</h2>
 	</div>
 	
 	<div class="col-sm-4">
-		<a href="{% url 'add_employee' %}">Crear Empleado</a>
+		<a href="{% url 'add_employee' %}">Crear</a>
 	</div>
 
 	<div class="col-sm-4">
@@ -21,7 +21,7 @@
 
 
 <!-- Conditional -->
-{% if employees %}
+{% if objs %}
 
 <div class="container">
 
@@ -29,7 +29,7 @@
 
 
 <!-- Loop -->
-{% for employee in employees %}
+{% for obj in objs %}
 
 	<li class="list-group-item">
 
@@ -37,19 +37,19 @@
 		<!-- Row -->
 		<div class="row">
 			<div class="col-sm-4">
-				<a href='{% url "employee" employee.id %}'>
-					<h5>{{employee.name}}</h5>
+				<a href='{% url "employee" obj.id %}'>
+					<h5>{{obj.name}}</h5>
 				</a>
 			</div>
 
 			<div class="col-sm-4">
-				<a href="{% url 'update_employee' employee.id %}">
+				<a href="{% url 'update_employee' obj.id %}">
 					Modificar
 				</a>
 			</div>
 
 			<div class="col-sm-4">
-				<a href="{% url 'delete_employee' employee.id %}">
+				<a href="{% url 'delete_employee' obj.id %}">
 					Eliminar
 				</a>
 			</div>

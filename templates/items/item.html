@@ -1,76 +1,57 @@
-
 {% extends "menus/base.html" %}
-
 {% load static %}
-
 {% block content %}
+
+
 
 <!-- Go Items -->
 {% include 'partials/_goitems.html' %}
 
 
+<!-- Name -->
 <h1>{{item.name}}</h1>
 <br>
-<!--
-<div class="container">
-	<img src="{% static item.image %}" class="logo" alt=""/>
-</div>
--->
 
-
+<!-- Description -->
 <h4>Descripción</h4>
-
 <div class="container">
-<div class="row">
-	<div class="col-sm-1">
+	<div class="row">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-10">
+			{{ item.description }}
+		</div>
+		<div class="col-sm-1">
+		</div>
 	</div>
-	
-	<div class="col-sm-10">
-
-		{{ item.description }}
-
-	</div>
-
-	<div class="col-sm-1">
-	</div>
-</div>
 </div>
 <br>
 
 
-
-
+<!-- Notes Cook -->
 <h4>Notas Cocinero</h4>
-
 <div class="container">
-<div class="row">
-	<div class="col-sm-1">
+	<div class="row">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-10">
+			{{ item.notes_cook }}
+		</div>
+		<div class="col-sm-1">
+		</div>
 	</div>
-	
-	<div class="col-sm-10">
-
-		{{ item.notes_cook }}
-
-	</div>
-
-	<div class="col-sm-1">
-	</div>
-</div>
 </div>
 <br>
 
 
+<!-- Notes Waiter -->
 <h4>Notas Mozo</h4>
 <div class="row">
 	<div class="col-sm-1">
 	</div>
-	
 	<div class="col-sm-10">
-
 		{{ item.notes_waiter }}
-
 	</div>
-
 	<div class="col-sm-1">
 	</div>
 </div>
@@ -78,14 +59,13 @@
 
 
 
+<!-- Image -->
 <div class="row">
 	<div class="col-sm-1">
 	</div>
-	
 	<div class="col-sm-10">
 		<img src={{ item.image }} >
 	</div>
-
 	<div class="col-sm-1">
 	</div>
 </div>
