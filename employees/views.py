@@ -19,6 +19,9 @@ class NewEmployeeForm(forms.ModelForm):
 					'name',
 					'active',
 
+					'is_waiter',
+					'is_cook',
+
 					'category',
 					'image',
 					'description',

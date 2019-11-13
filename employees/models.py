@@ -49,7 +49,10 @@ class Employee(models.Model):
 	"""
 
 	class Meta:
-		ordering = ('name',)
+
+		#ordering = ('name',)
+		ordering = ('category',)
+
 		verbose_name = 'Empleado'
 		verbose_name_plural = 'Empleados'
 
@@ -87,6 +90,16 @@ class Employee(models.Model):
 		on_delete=models.PROTECT,
 		blank=True
 	)
+
+
+
+	is_waiter = models.BooleanField(
+			default=False,
+		)
+
+	is_cook = models.BooleanField(
+			default=False,
+		)
 
 
 	def __str__(self): 
