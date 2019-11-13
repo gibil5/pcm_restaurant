@@ -1,14 +1,16 @@
+"""
+Items - Models
+"""
+
 from django.db import models
 from django.template.defaulttags import register
 
 # Create your models here.
 
 
-
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
-
 
 
 
