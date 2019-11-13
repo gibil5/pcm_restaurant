@@ -77,7 +77,7 @@ def waiters(request):
 	objs = Employee.objects.filter(category=category.id)
 	print(objs)
 
-	err_msg = "No existe ningún Empleado todavía."
+	err_msg = "No existe ningún Mozo todavía."
 
 	ctx = {
 			'title': title,
@@ -107,7 +107,7 @@ def cooks(request):
 	objs = Employee.objects.filter(category=category.id)
 	print(objs)
 
-	err_msg = "No existe ningún Empleado todavía."
+	err_msg = "No existe ningún Cocinero todavía."
 
 	ctx = {
 			'title': title,
