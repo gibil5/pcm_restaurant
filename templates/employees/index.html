@@ -36,19 +36,24 @@
 		
 		<!-- Row -->
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<a href='{% url "employee" obj.id %}'>
 					<h5>{{obj.name}}</h5>
 				</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-3">
+				{{obj.category}}
+			</div>
+
+
+			<div class="col-sm-3">
 				<a href="{% url 'update_employee' obj.id %}">
 					Modificar
 				</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<a href="{% url 'delete_employee' obj.id %}">
 					Eliminar
 				</a>

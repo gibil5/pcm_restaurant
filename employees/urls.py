@@ -10,7 +10,16 @@ from . import views
 
 urlpatterns = [
 
-	path('', views.index, name='employees'),
+
+	#path('', views.index, name='employees'),
+	path('all', views.index, name='employees_all'),
+
+
+	path('waiters', views.waiters, name='waiters'),
+
+	path('cooks', views.cooks, name='cooks'),
+
+
 
 	path('<int:employee_id>', views.employee, name='employee'),
 

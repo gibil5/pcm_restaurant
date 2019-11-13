@@ -59,6 +59,66 @@ def index(request):
 
 
 
+# Waiters
+def waiters(request):
+	print()
+	print('Waiters')
+
+
+	# Categ
+	category = Category.objects.filter(name='Mozo')[0]
+	print(category)
+
+
+	# Cooks
+	objs = Employee.objects.filter(category=category.id)
+	print(objs)
+
+	err_msg = "No existe ningún Empleado todavía."
+
+	ctx = {
+			'objs': objs,
+			'err_msg': err_msg,
+		}
+
+	output = render(request, 'employees/index.html', ctx)
+
+	return HttpResponse(output)
+
+
+
+# Cooks
+def cooks(request):
+	print()
+	print('Cooks')
+
+
+	# Categ
+	category = Category.objects.filter(name='Cocinero')[0]
+	print(category)
+
+
+	# Cooks
+	objs = Employee.objects.filter(category=category.id)
+	print(objs)
+
+	err_msg = "No existe ningún Empleado todavía."
+
+	ctx = {
+			'objs': objs,
+			'err_msg': err_msg,
+		}
+
+	output = render(request, 'employees/index.html', ctx)
+
+	return HttpResponse(output)
+
+
+
+
+
+
+
 # Employee
 def employee(request, employee_id):
 	print()
