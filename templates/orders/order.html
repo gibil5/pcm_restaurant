@@ -1,0 +1,44 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+<!-- Go -->
+{% include 'partials/_goorders.html' %}
+
+
+
+
+<!-- Name -->
+<h2>{{obj.name}}</h2>
+<br>
+
+<div class="container">
+
+	<!-- Date -->
+	<h4>{{obj.date}}</h4>
+	<br>
+
+	<!-- Table -->
+	<h4>{{obj.table}}</h4>
+	<br>
+
+	<!-- Waiter -->
+	<h4>{{obj.waiter}}</h4>
+	<br>
+
+
+	<!-- Cook -->
+	<h4>{{obj.cook}}</h4>
+	<br>
+
+
+	<!-- Items -->
+	<h4>{{obj.items}}</h4>
+	<br>
+
+
+
+
+</div>
+
+{% endblock %}

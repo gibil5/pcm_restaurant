@@ -32,7 +32,10 @@ class Order(models.Model):
 			#[self.table.name, '-', self.waiter.name, '-', self.cook.name]
 			#[str(self.date), '_', self.table.name, '_', self.waiter.name, '_', self.cook.name]
 			#[self.date.strftime('%Y-%m-%d %H:%M'), '_', self.table.name, '_', self.waiter.name, '_', self.cook.name]
-			[self.date.strftime('%d/%m/%Y-%H:%M'), '_', self.table.name, '_', self.waiter.name, '_', self.cook.name]
+			#[self.date.strftime('%d/%m/%Y-%H:%M'), '_', self.table.name, '_', self.waiter.name, '_', self.cook.name]
+			#[self.date.strftime('%d/%m/%Y-%H:%M'), '_', self.table.name, ]
+			#['Mesa ', self.table.name, '-', self.date.strftime('%d/%m/%Y-%H:%M'),  ]
+			['Mesa ', self.table.name, '-', self.date.strftime('%d %b-%H:%M'),  ]
 		)	
 
 
