@@ -3,14 +3,14 @@
 {% block content %}
 
 <!-- Go -->
-{% include 'partials/_goemployees.html' %}
+{% include 'partials/_goorders.html' %}
 
 
 <h2>Modificar</h2>
 <br>
 
 
-<form action="{% url 'update_employee' obj.id %}" method="post">
+<form action="{% url 'update_order' obj.id %}" method="post">
     {% csrf_token %}
 
 	{{ form.as_p }}

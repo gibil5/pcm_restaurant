@@ -18,15 +18,15 @@ class NewOrderForm(forms.ModelForm):
 		fields = [
 					'date',
 					'active',
+
+					'table',
 					'waiter',
 					'cook',
 					'items',
 				]
 
-		widgets = {          
-			#'image': forms.Textarea(attrs={'rows':1, 'cols':100}),  
-			#'description': forms.Textarea(attrs={'rows':1, 'cols':100}),  
-		}
+	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+
 
 class DeleteForm(forms.Form):
 	pass
@@ -92,6 +92,7 @@ def add(request):
 			new_order = form_instance.save()
 
 			return HttpResponseRedirect('/orders/thanks/')
+
 
 	# Create a blank form
 	else:

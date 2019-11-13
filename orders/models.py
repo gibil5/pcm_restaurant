@@ -63,7 +63,9 @@ class Order(models.Model):
 	# Waiter
 	waiter = models.ForeignKey(
 		Employee, 
+
 		on_delete=models.PROTECT,
+
 		related_name='waiter',
 
 		limit_choices_to={'is_waiter': True},
@@ -73,11 +75,14 @@ class Order(models.Model):
 	# Cook
 	cook = models.ForeignKey(
 		Employee, 
+
 		on_delete=models.PROTECT,
-		#blank=True
+
 		related_name='cook',
 
 		limit_choices_to={'is_cook': True},
+
+		blank=True
 	)
 
 
@@ -86,6 +91,27 @@ class Order(models.Model):
 		Item, 
 		blank=True,
 	)
+
+
+
+	def get_items(self):
+
+		s = ''
+		
+		#s = self.items.through()
+		#s = Item.objects.all()
+
+		items = Item.objects.filter(order=self.id)
+		for item in items:
+			s += item.name + ', '
+
+
+		print(s)
+
+		#for item in self.items.through:
+		#	s += item.name
+
+		return s
 
 
 
