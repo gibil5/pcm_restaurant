@@ -40,7 +40,8 @@ def index(request):
 	print()
 	print('Employees')
 
-	
+	title = 'Empleados'
+
 	# Employees
 	objs = Employee.objects.all()
 	print(objs)
@@ -48,6 +49,7 @@ def index(request):
 	err_msg = "No existe ningún Empleado todavía."
 
 	ctx = {
+			'title': title,
 			'objs': objs,
 			'err_msg': err_msg,
 		}
@@ -64,6 +66,7 @@ def waiters(request):
 	print()
 	print('Waiters')
 
+	title = 'Mozos'
 
 	# Categ
 	category = Category.objects.filter(name='Mozo')[0]
@@ -77,6 +80,7 @@ def waiters(request):
 	err_msg = "No existe ningún Empleado todavía."
 
 	ctx = {
+			'title': title,
 			'objs': objs,
 			'err_msg': err_msg,
 		}
@@ -92,6 +96,7 @@ def cooks(request):
 	print()
 	print('Cooks')
 
+	title = 'Cocineros'
 
 	# Categ
 	category = Category.objects.filter(name='Cocinero')[0]
@@ -105,6 +110,7 @@ def cooks(request):
 	err_msg = "No existe ningún Empleado todavía."
 
 	ctx = {
+			'title': title,
 			'objs': objs,
 			'err_msg': err_msg,
 		}
