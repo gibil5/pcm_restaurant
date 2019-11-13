@@ -30,6 +30,7 @@ python manage.py startapp employees
 
 python manage.py startapp tables  
 
+python manage.py startapp orders  
 
 
 
