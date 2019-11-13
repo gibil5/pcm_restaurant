@@ -1,0 +1,22 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+<!-- Go -->
+{% include 'partials/_gotables.html' %}
+
+
+<h2>Modificar</h2>
+<br>
+
+
+<form action="{% url 'update_table' obj.id %}" method="post">
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <input type="submit" value="Submit">
+</form>
+<br>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+<!-- Go -->
+{% include 'partials/_gotables.html' %}
+
+<h2>Eliminar ?</h2>
+<br>
+<h4>{{ obj.name }}</h4>
+<br>
+<br>
+
+
+<div class="container">
+<form action="{% url 'delete_table' obj.id %}" method="post">
+    {% csrf_token %}
+	{{ form.as_p }}
+    <td><input type="submit" value="Si"></td>
+</form>
+<br>
+
+<form action="{% url 'thanks_table' %}" method="post">
+    {% csrf_token %}
+	{{ form.as_p }}
+    <td><input type="submit" value="No"></td>
+</form>
+</div>
+<br>
+
+{% endblock %}

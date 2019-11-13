@@ -42,9 +42,7 @@ def index(request):
 
 	title = 'Empleados'
 
-	# Employees
 	objs = Employee.objects.all()
-	print(objs)
 
 	err_msg = "No existe ningún Empleado todavía."
 
@@ -53,7 +51,6 @@ def index(request):
 			'objs': objs,
 			'err_msg': err_msg,
 		}
-
 
 	output = render(request, 'employees/index.html', ctx)
 
@@ -122,18 +119,12 @@ def cooks(request):
 
 
 
-
-
-
 # Employee
 def employee(request, employee_id):
-	print()
-	print('Employee')
 
 	obj = get_object_or_404(Employee, pk=employee_id)  	# Get Object
 
 	ctx = {
-			#'employee': employee,
 			'obj': obj,
 			}
 
@@ -159,7 +150,7 @@ def add(request):
 
 			new_employee = form_instance.save()
 
-			return HttpResponseRedirect('/thanks/')
+			return HttpResponseRedirect('/employees/thanks/')
 
 	# Create a blank form
 	else:
@@ -188,7 +179,6 @@ def delete(request, employee_id):
 	print('Delete Employee')
 
 
-	#employee = get_object_or_404(Employee, pk=employee_id)
 	obj = get_object_or_404(Employee, pk=employee_id)
 
 
@@ -196,26 +186,22 @@ def delete(request, employee_id):
 	if request.method == 'POST':
 		print('mark')
 
-		#form = DeleteEmployeeForm(request.POST)
 		form = DeleteForm(request.POST)
 
 		if form.is_valid():
 
-			#employee.delete()					# Delete !!!
 			obj.delete()					# Delete !!!
 
-			return HttpResponseRedirect('/thanks/')
+			return HttpResponseRedirect('/employees/thanks/')
 
 
 
 	# Create delete form
 	else:
 
-		#form = DeleteEmployeeForm()
 		form = DeleteForm()
 
 		ctx = {
-				#'employee': employee,
 				'obj': obj,
 				'form': form,
 		}
@@ -231,7 +217,6 @@ def update(request, employee_id):
 	print('update Employee')
 
 
-	#employee = get_object_or_404(Employee, pk=employee_id)
 	obj = get_object_or_404(Employee, pk=employee_id)
 
 
@@ -244,7 +229,6 @@ def update(request, employee_id):
 		# check whether it's valid:
 		if form.is_valid():
 			
-			#form_instance = NewEmployeeForm(request.POST, instance=employee)
 			form_instance = NewEmployeeForm(request.POST, instance=obj)
 
 			form_instance.save()
@@ -256,14 +240,10 @@ def update(request, employee_id):
 	else:
 
 		# Form from a Model
-		#form = NewEmployeeForm(instance=employee)
 		form = NewEmployeeForm(instance=obj)
-
-		#form.fields['name'].label = "Nombre"
 
 		# Context
 		ctx = {
-				#'employee': employee,
 				'obj': obj,
 				'form': form,
 			}

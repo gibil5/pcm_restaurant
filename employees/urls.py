@@ -1,7 +1,5 @@
 """
-
 Employees
-
 """
 
 from django.urls import path
@@ -18,7 +16,6 @@ urlpatterns = [
 	path('waiters', views.waiters, name='waiters'),
 
 	path('cooks', views.cooks, name='cooks'),
-
 
 
 	path('<int:employee_id>', views.employee, name='employee'),

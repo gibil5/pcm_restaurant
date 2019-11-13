@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # Created by JRevilla
 
+   'tables.apps.TablesConfig',
    'employees.apps.EmployeesConfig',
 
    'families.apps.FamiliesConfig',
