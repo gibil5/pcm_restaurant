@@ -108,12 +108,9 @@ class Order(models.Model):
 		items = Item.objects.filter(order=self.id)
 		for item in items:
 			s += item.name + ', '
+			#s += item.name + '<br>'
 
-
-		print(s)
-
-		#for item in self.items.through:
-		#	s += item.name
+		#print(s)
 
 		return s
 
