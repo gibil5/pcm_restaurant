@@ -27,4 +27,6 @@ urlpatterns = [
     path('tables/', include('tables.urls')),
     
     path('orders/', include('orders.urls')),
+
+    path('lines/', include('lines.urls')),
 ]

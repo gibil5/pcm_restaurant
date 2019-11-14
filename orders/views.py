@@ -69,8 +69,6 @@ def order(request, order_id):
 	print('Order')
 
 	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
-
-	#order = get_object_or_404(Order, pk=order_id.id)  	# Get Object
 	
 	lines = OrderLine.objects.filter(order=order_id)
 
