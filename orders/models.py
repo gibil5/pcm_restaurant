@@ -5,6 +5,7 @@ Orders - Models
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
 
 from tables.models import Table 
@@ -21,6 +22,17 @@ class Order(models.Model):
 		#ordering = ('name',)
 		verbose_name = 'Pedido'
 		verbose_name_plural = 'Pedidos'
+
+
+
+
+	# Items - ManyToMany
+	items = models.ManyToManyField(
+		Item, 
+		blank=True,
+	)
+
+
 
 
 	name = models.CharField(
@@ -90,30 +102,43 @@ class Order(models.Model):
 	)
 
 
-	# Items
-	items = models.ManyToManyField(
+	def get_items(self):
+		s = ''		
+		items = Item.objects.filter(order=self.id)
+		for item in items:
+			s += item.name + ', '
+		return s
+
+
+	def __str__(self): 
+		return self.name
+
+
+
+
+class OrderLine(models.Model):
+	"""
+	Order Line
+	"""
+
+	name = models.CharField(
+		max_length=200,
+	)
+
+	order = models.ForeignKey(
+		Order, 
+        on_delete=models.CASCADE,
+	)
+
+
+	item = models.ForeignKey(
 		Item, 
+        on_delete=models.CASCADE,
 		blank=True,
 	)
 
 
-
-	def get_items(self):
-
-		s = ''
-		
-		#s = self.items.through()
-		#s = Item.objects.all()
-
-		items = Item.objects.filter(order=self.id)
-		for item in items:
-			s += item.name + ', '
-			#s += item.name + '<br>'
-
-		#print(s)
-
-		return s
-
+	qty = models.IntegerField()
 
 
 	def __str__(self): 

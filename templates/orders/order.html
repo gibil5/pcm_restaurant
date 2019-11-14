@@ -9,35 +9,60 @@
 
 
 <!-- Name -->
-<h2>{{obj.name}}</h2>
+<h3>{{obj.name}}</h3>
 <br>
 
 <div class="container">
 
 	<!-- Date -->
-	<h4>{{obj.date}}</h4>
+	<h6>{{obj.date}}</h6>
 	<br>
 
 	<!-- Table -->
-	<h4>{{obj.table}}</h4>
+	<h6>{{obj.table}}</h6>
 	<br>
 
 	<!-- Waiter -->
-	<h4>{{obj.waiter}}</h4>
+	<h6>{{obj.waiter}}</h6>
 	<br>
 
 
 	<!-- Cook -->
-	<h4>{{obj.cook}}</h4>
+	<h6>{{obj.cook}}</h6>
 	<br>
 
 
-	<!-- Items -->
-<!--	
-	<h4>{{obj.items.all}}</h4>
+<h5>Líneas</h5>
+<br>
+
+<ul>
+{% for line in lines %}
+	<li>	
+		
+<div class="row">
+<!--
+	<div class="col-sm-3">
+		{{line.name}}
+	</div>
+	<div class="col-sm-3">
+		{{line.order}}
+	</div>
 -->
-	<h4>{{obj.get_items}}</h4>
-	<br>
+
+	<div class="col-sm-3">
+		{{line.item}}
+	</div>
+
+	<div class="col-sm-3">
+		{{line.qty}}
+	</div>
+</div>
+<br>
+
+	</li>
+{% endfor %}
+</ul>
+
 
 
 
