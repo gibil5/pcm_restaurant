@@ -1,0 +1,23 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+<!-- Go Employees -->
+{% include 'partials/_goorders.html' %}
+
+
+<h2>Agregar</h2>
+<br>
+
+
+<form action="{% url 'add_order' %}" method="post">
+
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+    <input type="submit" value="Submit">
+</form>
+<br>
+
+{% endblock %}
