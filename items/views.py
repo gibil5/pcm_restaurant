@@ -1,7 +1,6 @@
 """
 Items - Views
 """
-
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
@@ -12,13 +11,8 @@ from .models import *
 from . import lib
 
 
-#import cloudinary
-#import cloudinary.uploader
-#import cloudinary.api
 
-
-
-# ------------------------------------------------ Classes ---------------------
+# ------------------------------------------------ Forms ---------------------
 
 # New Form
 class NewItemForm(forms.ModelForm):

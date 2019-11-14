@@ -38,7 +38,6 @@ ALLOWED_HOSTS = ['desolate-chamber-64593.herokuapp.com']
 INSTALLED_APPS = [
 
     # Created by JRevilla
-
    'orders.apps.OrdersConfig',
    'tables.apps.TablesConfig',
    'employees.apps.EmployeesConfig',
@@ -57,7 +56,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',

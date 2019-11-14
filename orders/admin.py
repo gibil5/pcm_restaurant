@@ -25,8 +25,6 @@ class OrderLineAdmin(admin.ModelAdmin):
 	list_filter = ['order']
 
 
-
-
 #admin.site.register(OrderLine)
 admin.site.register(OrderLine, OrderLineAdmin)
 
