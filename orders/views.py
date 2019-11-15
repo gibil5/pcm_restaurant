@@ -21,14 +21,13 @@ class NewOrderForm(forms.ModelForm):
 		fields = [
 					'date',
 					'active',
-
 					'table',
 					'waiter',
 					'cook',
-					'items',
+					#'items',
 				]
 
-	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
 
 
 class DeleteForm(forms.Form):

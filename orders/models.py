@@ -4,6 +4,10 @@ Orders - Models
 from django.db import models
 from django.utils import timezone
 
+import locale
+
+
+
 # Create your models here.
 
 from tables.models import Table 
@@ -17,7 +21,7 @@ class Order(models.Model):
 	"""
 
 	class Meta:
-		#ordering = ('name',)
+		ordering = ('-date',)
 		verbose_name = 'Pedido'
 		verbose_name_plural = 'Pedidos'
 
@@ -41,6 +45,14 @@ class Order(models.Model):
 
 	@property
 	def name(self):
+
+		#locale.setlocale(locale.LC_TIME, '')
+		locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+		
+		#time.strptime(date_string, "%a, %d/%m/%Y")
+
+		#se = '-'
+		se = '_'
 		return ''.join(
 			#[self.date,'-', self.table, '-', self.waiter, '-', self.cook]
 			#[self.table.name, '-', self.waiter.name, '-', self.cook.name]
@@ -49,8 +61,10 @@ class Order(models.Model):
 			#[self.date.strftime('%d/%m/%Y-%H:%M'), '_', self.table.name, '_', self.waiter.name, '_', self.cook.name]
 			#[self.date.strftime('%d/%m/%Y-%H:%M'), '_', self.table.name, ]
 			#['Mesa ', self.table.name, '-', self.date.strftime('%d/%m/%Y-%H:%M'),  ]
-			['Mesa ', self.table.name, '-', self.date.strftime('%d %b-%H:%M'),  ]
-		)	
+			#['M', self.table.name, se, self.date.strftime('%d %b_%H:%M'),  ]
+			#[self.date.strftime('%A %d %b-%H:%M'),]
+			[self.date.strftime('%a %d %b-%H:%M'),]
+		).title()	
 
 
 
@@ -61,8 +75,9 @@ class Order(models.Model):
 
 
 	active = models.BooleanField(
-			default=True,
-		)
+		'activo',
+		default=True,
+	)
 
 
 
@@ -71,36 +86,35 @@ class Order(models.Model):
 		Table, 
 		on_delete=models.PROTECT,
 		#blank=True
+		verbose_name='mesa',
 	)
 
 
 	# Waiter
 	waiter = models.ForeignKey(
 		Employee, 
-
 		on_delete=models.PROTECT,
-
 		related_name='waiter',
-
 		limit_choices_to={'is_waiter': True},
+		verbose_name='mozo',
 	)
 
 
 	# Cook
 	cook = models.ForeignKey(
 		Employee, 
-
 		on_delete=models.PROTECT,
-
 		related_name='cook',
-
 		limit_choices_to={'is_cook': True},
-
-		blank=True
+		blank=True,
+		verbose_name='cocinero',
 	)
 
 
 	def get_items(self):
+		"""
+		Used by Order - Index
+		"""
 		s = ''		
 		items = Item.objects.filter(order=self.id)
 		for item in items:

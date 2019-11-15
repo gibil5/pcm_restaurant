@@ -2,6 +2,22 @@
 
 {% block content %}
 
+<style type="text/css">
+
+.jx-title {
+/*
+  font-family: Arial, Helvetica, sans-serif;  
+  #background-color: #333;
+  text-align: center;
+*/
+  
+  font-weight: bold;
+  text-align: left;
+}
+
+</style>
+
+
 <!-- Employees -->
 
 <!-- Title -->
@@ -11,11 +27,16 @@
 		<h2>{{title}}</h2>
 	</div>
 	
-	<div class="col-sm-4">
+	<div class="col-sm-5">
 		<a href="{% url 'add_order' %}">Crear</a>
 	</div>
 
-	<div class="col-sm-4">
+	<div class="col-sm-3">
+
+		<a href="{% url 'lines' %}">
+		<h3>Líneas</h3>            
+        </a>
+
 	</div>
 </div>
 <br>
@@ -26,7 +47,41 @@
 
 <div class="container">
 
+
+<!-- Title -->
 <ul class="list-group">
+
+	<li class="list-group-item">
+
+<div class="row jx-title">
+
+	<div class="col-sm-3">
+		Fecha
+	</div>
+
+	<div class="col-sm-2">
+		Mesa
+	</div>
+
+	<div class="col-sm-2">
+		Resumen
+	</div>
+
+	<div class="col-sm-1">
+		Mozo
+	</div>
+
+	<div class="col-sm-1">
+		Cocinero
+	</div>
+
+	<div class="col-sm-1"></div>
+
+	<div class="col-sm-1"></div>
+
+</div>
+
+	</li>
 
 
 <!-- Loop -->
@@ -38,27 +93,32 @@
 		<!-- Row -->
 		<div class="row">
 
+
 			<div class="col-sm-3">
+					<h6>{{obj.name}}</h6>
+			</div>
+
+
+			<div class="col-sm-2">
 				<a href='{% url "order" obj.id %}'>
-					<h5>{{obj.name}}</h5>
+<!--
+-->
+					<h6> {{obj.table}}</h6>
 				</a>
 			</div>
-<!--
-			<div class="col-sm-2">
-				{{obj.date}}
-			</div>
--->
+
+
 
 			<div class="col-sm-2">
 				{{obj.get_items}}
 			</div>
 
 
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 				{{obj.waiter}}
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 				{{obj.cook}}
 			</div>
 
