@@ -3,24 +3,25 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+
+    <!-- Container -->
     <div class="container">
 
+      <!-- Logo -->
       <a class="navbar-brand" href="https://www.gob.pe/pcm">
-
-
         <img src="{% static 'img/logo_pcm_2.png' %}" class="logo" alt="">
-<!--
-        <img src="{% static 'img/logo_pcm_3.jpg' %}" class="logo" alt="">
--->
-
-
       </a>
+
+<!--
+-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
 
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <ul class="navbar-nav">
 
           <li
               {% if 'menu' in request.path %}
@@ -29,9 +30,7 @@
                 class="nav-item mr-3"
               {% endif %}
           >
-
             <a class="nav-link" href="{% url 'menus' %}">Menus</a>
-
           </li>
 
 
@@ -60,7 +59,17 @@
 
 
 
+<!-- Employees -->
+          <li
+              {% if 'all' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+          >
+            <a class="nav-link" href="{% url 'employees_all' %}">Empleados</a>
 
+<!--
           <li
               {% if 'waiter' in request.path %}
                 class="nav-item active mr-3"
@@ -70,7 +79,6 @@
           >
             <a class="nav-link" href="{% url 'waiters' %}">Mozos</a>
 
-
           <li
               {% if 'cook' in request.path %}
                 class="nav-item active mr-3"
@@ -79,18 +87,10 @@
               {% endif %}
           >
             <a class="nav-link" href="{% url 'cooks' %}">Cocineros</a>
-
-
-<!--
-          <li
-              {% if 'all' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'employees_all' %}">Empleados</a>
 -->
+
+
+
 
           <li
               {% if 'table' in request.path %}
@@ -119,11 +119,11 @@
               {% endif %}
           >
             <a class="nav-link" href="{% url 'lines' %}">Líneas</a>
-
-
-
           </li>
+
         </ul>
+
+
         <ul class="navbar-nav ml-auto">
 <!--
           <li class="nav-item mr-3">
