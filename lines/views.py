@@ -58,6 +58,7 @@ def index_order(request, order_id):
 			'title': title,
 			'objs': objs,
 			'err_msg': err_msg,
+			'order': order,
 		}
 
 	output = render(request, 'lines/index.html', ctx)

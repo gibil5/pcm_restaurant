@@ -15,40 +15,83 @@
 
 <div class="container">
 
-	<!-- Date -->
-	<h6>{{obj.date}}</h6>
-	<br>
+<ul class="list-group">
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-3">
+				<b>
+				Fecha
+				</b>
+			</div>
+			<div class="col-sm-4">
+				{{obj.date}}
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-3">
+				<b>
+				Mesa
+				</b>
+			</div>
+			<div class="col-sm-4">
+				{{obj.table}}
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-3">
+				<b>
+				Mozo
+				</b>
+			</div>
+			<div class="col-sm-4">
+				{{obj.waiter}}
+			</div>
+		</div>
+	</li>
+
+</ul>
+<br>
 
 	<!-- Table -->
+	<!-- Date -->
+	<!-- Waiter -->
+	<!-- Cook -->
+<!--
+	<h6>{{obj.date}}</h6>
+	<br>
 	<h6>{{obj.table}}</h6>
 	<br>
-
-	<!-- Waiter -->
 	<h6>{{obj.waiter}}</h6>
 	<br>
-
-
-	<!-- Cook -->
 	<h6>{{obj.cook}}</h6>
 	<br>
+-->
 
 
 <h5>Líneas</h5>
 <br>
 
-<ul>
+
+<ul class="list-group">
 {% for line in lines %}
-	<li>	
+	<li class="list-group-item">
+
 		
 <div class="row">
-<!--
+	<!--
 	<div class="col-sm-3">
 		{{line.name}}
 	</div>
 	<div class="col-sm-3">
 		{{line.order}}
 	</div>
--->
+	-->
 
 	<div class="col-sm-3">
 		{{line.item}}
@@ -58,7 +101,7 @@
 		{{line.qty}}
 	</div>
 </div>
-<br>
+
 
 	</li>
 {% endfor %}

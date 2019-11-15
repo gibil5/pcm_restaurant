@@ -2,6 +2,7 @@
 Orders - Models
 """
 from django.db import models
+
 from django.utils import timezone
 
 import locale
@@ -46,6 +47,9 @@ class Order(models.Model):
 	@property
 	def name(self):
 
+		date = timezone.localtime(self.date)
+
+
 		#locale.setlocale(locale.LC_TIME, '')
 		locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 		
@@ -63,7 +67,10 @@ class Order(models.Model):
 			#['Mesa ', self.table.name, '-', self.date.strftime('%d/%m/%Y-%H:%M'),  ]
 			#['M', self.table.name, se, self.date.strftime('%d %b_%H:%M'),  ]
 			#[self.date.strftime('%A %d %b-%H:%M'),]
-			[self.date.strftime('%a %d %b-%H:%M'),]
+
+			#[self.date.strftime('%a %d %b-%H:%M'),]
+			[date.strftime('%a %d %b-%H:%M'),]
+		
 		).title()	
 
 
@@ -101,14 +108,15 @@ class Order(models.Model):
 
 
 	# Cook
-	cook = models.ForeignKey(
-		Employee, 
-		on_delete=models.PROTECT,
-		related_name='cook',
-		limit_choices_to={'is_cook': True},
-		blank=True,
-		verbose_name='cocinero',
-	)
+	#cook = models.ForeignKey(
+	#	Employee, 
+	#	on_delete=models.PROTECT,
+	#	related_name='cook',
+	#	limit_choices_to={'is_cook': True},
+
+	#	verbose_name='cocinero',
+	#	blank=True,
+	#)
 
 
 

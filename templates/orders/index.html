@@ -71,14 +71,14 @@
 		Líneas
 	</div>
 
-	<div class="col-sm-1">
+	<div class="col-sm-2">
 		Mozo
 	</div>
-
+<!--
 	<div class="col-sm-1">
 		Cocinero
 	</div>
-
+-->
 	<div class="col-sm-1"></div>
 
 	<div class="col-sm-1"></div>
@@ -112,7 +112,9 @@
 
 
 			<div class="col-sm-2">
+				
 				<a href='{% url "lines_order" obj.id %}'>
+				
 					{{obj.get_lines}}
 				</a>
 			</div>
@@ -127,14 +129,14 @@
 
 
 
-			<div class="col-sm-1">
+			<div class="col-sm-2">
 				{{obj.waiter}}
 			</div>
-
+<!--
 			<div class="col-sm-1">
 				{{obj.cook}}
 			</div>
-
+-->
 
 
 			<div class="col-sm-1">

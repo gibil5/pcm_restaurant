@@ -17,6 +17,8 @@ urlpatterns = [
 
 
 	path('add', views.add, name='add_line'),
+	#path('add/<int:order_id>', views.add_line_order, name='add_line'),
+
 
 	path('add_line_order/<int:order_id>', views.add_line_order, name='add_line_order'),
 

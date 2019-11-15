@@ -1,5 +1,5 @@
 """
-Orders - Views
+Orders
 """
 
 from django.shortcuts import render, get_object_or_404
@@ -23,7 +23,7 @@ class NewOrderForm(forms.ModelForm):
 					'active',
 					'table',
 					'waiter',
-					'cook',
+					#'cook',
 
 					#'items',
 				]
@@ -96,6 +96,10 @@ def add(request):
 		if form.is_valid():
 
 			form_instance = NewOrderForm(request.POST)
+
+
+			form_instance.cook_id = 1
+
 
 			new_order = form_instance.save()
 
