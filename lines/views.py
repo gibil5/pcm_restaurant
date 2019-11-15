@@ -66,11 +66,11 @@ def line(request, line_id):
 
 	obj = get_object_or_404(OrderLine, pk=line_id)  		# Get Object
 	
-	lines = OrderLine.objects.filter(line=line_id)
+	#lines = OrderLine.objects.filter(line=line_id)
 
 	ctx = {
 			'obj': obj,
-			'lines':	lines,
+			#'lines':	lines,
 		}
 
 	return	render(request, 'lines/line.html', ctx)

@@ -15,56 +15,16 @@
 <div class="container">
 
 	<!-- Date -->
-	<h6>{{obj.date}}</h6>
+	<h6>{{obj.order}}</h6>
 	<br>
 
 	<!-- Table -->
-	<h6>{{obj.table}}</h6>
+	<h6>{{obj.item}}</h6>
 	<br>
 
 	<!-- Waiter -->
-	<h6>{{obj.waiter}}</h6>
+	<h6>{{obj.qty}}</h6>
 	<br>
-
-
-	<!-- Cook -->
-	<h6>{{obj.cook}}</h6>
-	<br>
-
-
-<h5>Líneas</h5>
-<br>
-
-<ul>
-{% for line in lines %}
-	<li>	
-		
-<div class="row">
-<!--
-	<div class="col-sm-3">
-		{{line.name}}
-	</div>
-	<div class="col-sm-3">
-		{{line.line}}
-	</div>
--->
-
-	<div class="col-sm-3">
-		{{line.item}}
-	</div>
-
-	<div class="col-sm-3">
-		{{line.qty}}
-	</div>
-</div>
-<br>
-
-	</li>
-{% endfor %}
-</ul>
-
-
-
 
 
 </div>
