@@ -19,4 +19,36 @@
 </form>
 <br>
 
+
+<h5>Líneas</h5>
+
+<ul>
+{% for line in lines %}
+	<li>	
+		
+<div class="row">
+	<!--
+	<div class="col-sm-3">
+		{{line.name}}
+	</div>
+	<div class="col-sm-3">
+		{{line.order}}
+	</div>
+	-->
+
+	<div class="col-sm-3">
+		{{line.item}}
+	</div>
+
+	<div class="col-sm-3">
+		{{line.qty}}
+	</div>
+</div>
+<br>
+
+	</li>
+{% endfor %}
+</ul>
+
+
 {% endblock %}

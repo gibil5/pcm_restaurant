@@ -24,6 +24,7 @@ class NewOrderForm(forms.ModelForm):
 					'table',
 					'waiter',
 					'cook',
+
 					#'items',
 				]
 
@@ -168,6 +169,8 @@ def update(request, order_id):
 
 	obj = get_object_or_404(Order, pk=order_id)
 
+	lines = OrderLine.objects.filter(order=order_id)
+
 
 	# Create and populate
 	if request.method == 'POST':
@@ -195,6 +198,7 @@ def update(request, order_id):
 		ctx = {
 				'obj': obj,
 				'form': form,
+				'lines':	lines,
 			}
 
 		output = render(request, 'orders/edit.html', ctx)

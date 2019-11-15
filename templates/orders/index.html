@@ -59,7 +59,7 @@
 		Fecha
 	</div>
 
-	<div class="col-sm-2">
+	<div class="col-sm-1">
 		Mesa
 	</div>
 
@@ -68,10 +68,14 @@
 	</div>
 
 	<div class="col-sm-2">
+		Líneas
+	</div>
+
+	<div class="col-sm-1">
 		Mozo
 	</div>
 
-	<div class="col-sm-2">
+	<div class="col-sm-1">
 		Cocinero
 	</div>
 
@@ -95,30 +99,39 @@
 
 
 			<div class="col-sm-2">
+				<a href='{% url "order" obj.id %}'>
 					<h6>{{obj.name}}</h6>
+				</a>
+			</div>
+
+
+			<div class="col-sm-1">
+					<h6> {{obj.table}}</h6>
+			</div>
+
+
+
+			<div class="col-sm-2">
+				<a href='{% url "lines_order" obj.id %}'>
+					{{obj.get_lines}}
+				</a>
 			</div>
 
 
 			<div class="col-sm-2">
-				<a href='{% url "order" obj.id %}'>
-<!--
--->
-					<h6> {{obj.table}}</h6>
+
+				<a href='{% url "add_line_order" obj.id %}'>
+					Agregar
 				</a>
 			</div>
 
 
 
-			<div class="col-sm-2">
-				{{obj.get_items}}
-			</div>
-
-
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 				{{obj.waiter}}
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 				{{obj.cook}}
 			</div>
 

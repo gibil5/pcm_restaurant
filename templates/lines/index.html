@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<!-- Employees -->
+<!-- Lines -->
 
 <!-- Title -->
 <div class="row">
 
-	<div class="col-sm-4">
-		<h2>{{title}}</h2>
+	<div class="col-sm-5">
+		<h3>{{title}}</h3>
 	</div>
 	
-	<div class="col-sm-4">
-		<a href="{% url 'add_line' %}">Crear</a>
+	<div class="col-sm-3">
+		<a href="{% url 'add_line' %}">Agregar</a>
 	</div>
 
 	<div class="col-sm-4">
@@ -38,39 +38,37 @@
 		<!-- Row -->
 		<div class="row">
 
+<!--
 			<div class="col-sm-3">
 				<a href='{% url "line" obj.id %}'>
-					<h5>{{obj.name}}</h5>
+					<h5>{{obj.order}}</h5>
 				</a>
 			</div>
-<!--
+
 			<div class="col-sm-2">
 				{{obj.date}}
 			</div>
 -->
 
 			<div class="col-sm-2">
-				{{obj.get_items}}
+				{{obj.item}}
 			</div>
 
 
 			<div class="col-sm-2">
-				{{obj.waiter}}
+				{{obj.qty}}
 			</div>
+
+
+
 
 			<div class="col-sm-2">
-				{{obj.cook}}
-			</div>
-
-
-
-			<div class="col-sm-1">
 				<a href="{% url 'update_line' obj.id %}">
 					Modificar
 				</a>
 			</div>
 
-			<div class="col-sm-1">
+			<div class="col-sm-2">
 				<a href="{% url 'delete_line' obj.id %}">
 					Eliminar
 				</a>

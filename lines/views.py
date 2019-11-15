@@ -20,7 +20,7 @@ class NewOrderLineForm(forms.ModelForm):
 		model = OrderLine
 
 		fields = [
-					'name',
+					#'name',
 					'order',
 					'item',
 					'qty',
@@ -35,6 +35,37 @@ class DeleteForm(forms.Form):
 
 
 # ------------------------------------------------ OrderLineLineLines ---------------------
+
+# Index
+def index_order(request, order_id):
+	print()
+	print('OrderLine')
+
+	order = get_object_or_404(Order, pk=order_id)  		# Get Object
+
+	#title = 'Líneas'
+	title = order
+
+
+	#objs = OrderLine.objects.all()
+	objs = OrderLine.objects.filter(order=order_id)
+
+
+	err_msg = "No existe ningún Linea todavía."
+
+
+	ctx = {
+			'title': title,
+			'objs': objs,
+			'err_msg': err_msg,
+		}
+
+	output = render(request, 'lines/index.html', ctx)
+
+	return HttpResponse(output)
+
+
+
 
 # Index
 def index(request):
@@ -59,6 +90,8 @@ def index(request):
 
 
 
+
+
 # OrderLineLine
 def line(request, line_id):
 	print()
@@ -74,6 +107,55 @@ def line(request, line_id):
 		}
 
 	return	render(request, 'lines/line.html', ctx)
+
+
+
+
+
+def add_line_order(request, order_id):
+	print()
+	print('Add line Order')
+
+	order = get_object_or_404(Order, pk=order_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewOrderLineForm(request.POST)
+
+		if form.is_valid():
+			print('Is Valid')
+
+			form_instance = NewOrderLineForm(request.POST)
+
+			new_line = form_instance.save()
+			print(new_line)
+
+			#return HttpResponseRedirect('/lines/thanks/')
+			return HttpResponseRedirect('/orders/thanks/')
+
+
+	# Create a blank form
+	else:
+
+		line = OrderLine()
+
+		line.order = order
+
+
+		form = NewOrderLineForm(instance=line)
+
+		ctx = {
+				'form': form,
+				'order': order,
+			}
+
+		#output = render(request, 'lines/add.html', ctx)
+		output = render(request, 'lines/add_line_order.html', ctx)
+
+		return HttpResponse(output)
 
 
 

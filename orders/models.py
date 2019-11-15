@@ -111,6 +111,7 @@ class Order(models.Model):
 	)
 
 
+
 	def get_items(self):
 		"""
 		Used by Order - Index
@@ -122,8 +123,24 @@ class Order(models.Model):
 		return s
 
 
+	def get_lines(self):
+		"""
+		Used by Order - Index
+		"""
+		s = ''
+		
+		lines = OrderLine.objects.filter(order=self.id)
+
+		for line in lines:
+			s += line.item.name + ':' + str(line.qty) + ', '
+		
+		return s
+
+
 	def __str__(self): 
 		return self.name
+
+
 
 
 
@@ -137,9 +154,19 @@ class OrderLine(models.Model):
 		max_length=200,
 	)
 
+	@property
+	def name(self):
+		se = '_'
+		return ''.join(
+			[self.order.name,'-', self.item.name, '-', str(self.qty), ]
+		).title()	
+
+
+
 	order = models.ForeignKey(
 		Order, 
         on_delete=models.CASCADE,
+		verbose_name='pedido',
 	)
 
 
@@ -147,10 +174,13 @@ class OrderLine(models.Model):
 		Item, 
         on_delete=models.CASCADE,
 		blank=True,
+		verbose_name='plato',
 	)
 
 
-	qty = models.IntegerField()
+	qty = models.IntegerField(
+		'cantidad',
+		)
 
 
 	def __str__(self): 
