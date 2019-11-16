@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<!-- Go -->
+{% include 'partials/_gostyle.html' %}
+
 
 
 <div class="row">
@@ -10,15 +13,14 @@
 	</div>
 	
 	<div class="col-sm-4">
-<a href="{% url 'add_item' %}">Crear</a>
+		<a href="{% url 'add_item' %}">Crear</a>
 	</div>
 
 	<div class="col-sm-4">
 	</div>
 </div>
-
-
 <br>
+
 
 
 {% if items_dic %}

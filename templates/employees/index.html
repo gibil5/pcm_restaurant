@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<!-- Go -->
+{% include 'partials/_gostyle.html' %}
+
 <!-- Employees -->
 
 <!-- Title -->
@@ -31,14 +34,37 @@
 
 <div class="container">
 
-<ul class="list-group">
 
+<!-- Header -->
+<ul class="list-group">
+	<li class="list-group-item">
+
+		<!-- Row -->
+		<div class="row jx-header">
+			<div class="col-sm-3">
+				Nombre
+			</div>
+
+			<div class="col-sm-1">
+				Mozo
+			</div>
+
+			<div class="col-sm-1">
+				Cocinero
+			</div>
+		</div>
+
+
+	</li>
+</ul>
+
+
+<ul class="list-group">
 
 <!-- Loop -->
 {% for obj in objs %}
 
 	<li class="list-group-item">
-
 		
 		<!-- Row -->
 		<div class="row">
@@ -49,17 +75,12 @@
 			</div>
 
 			<div class="col-sm-1">
-				{{obj.category}}
-			</div>
-
-			<div class="col-sm-1">
 				{{obj.is_waiter}}
 			</div>
 
 			<div class="col-sm-3">
 				{{obj.is_cook}}
 			</div>
-
 
 
 			<div class="col-sm-2">
