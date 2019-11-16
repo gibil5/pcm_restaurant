@@ -51,7 +51,8 @@ class Employee(models.Model):
 	class Meta:
 
 		#ordering = ('name',)
-		ordering = ('category',)
+		#ordering = ('category',)
+		ordering = ('is_waiter',)
 
 		verbose_name = 'Empleado'
 		verbose_name_plural = 'Empleados'
@@ -81,23 +82,26 @@ class Employee(models.Model):
 
 	# Active
 	active = models.BooleanField(
-			default=True,
-		)
-
-
-	category = models.ForeignKey(
-		Category, 
-		on_delete=models.PROTECT,
-		blank=True
+		'activo',
+		default=True,
 	)
+
+
+	#category = models.ForeignKey(
+	#	Category, 
+	#	on_delete=models.PROTECT,
+	#	blank=True
+	#)
 
 
 
 	is_waiter = models.BooleanField(
+			'es mozo ?',
 			default=False,
 		)
 
 	is_cook = models.BooleanField(
+			'es cocinero ?',
 			default=False,
 		)
 

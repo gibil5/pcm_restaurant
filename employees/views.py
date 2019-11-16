@@ -26,7 +26,7 @@ class NewEmployeeForm(forms.ModelForm):
 					'is_waiter',
 					'is_cook',
 
-					'category',
+					#'category',
 					'image',
 					'description',
 				]
@@ -49,7 +49,9 @@ def index(request):
 
 	title = 'Empleados'
 
+
 	objs = Employee.objects.all()
+
 
 	err_msg = "No existe ningún Empleado todavía."
 
@@ -73,12 +75,13 @@ def waiters(request):
 	title = 'Mozos'
 
 	# Categ
-	category = Category.objects.filter(name='Mozo')[0]
-	print(category)
+	#category = Category.objects.filter(name='Mozo')[0]
+	#print(category)
 
 
 	# Cooks
-	objs = Employee.objects.filter(category=category.id)
+	#objs = Employee.objects.filter(category=category.id)
+	objs = Employee.objects.filter(is_waiter=True)
 	print(objs)
 
 	err_msg = "No existe ningún Mozo todavía."
@@ -103,12 +106,13 @@ def cooks(request):
 	title = 'Cocineros'
 
 	# Categ
-	category = Category.objects.filter(name='Cocinero')[0]
-	print(category)
+	#category = Category.objects.filter(name='Cocinero')[0]
+	#print(category)
 
 
 	# Cooks
-	objs = Employee.objects.filter(category=category.id)
+	#objs = Employee.objects.filter(category=category.id)
+	objs = Employee.objects.filter(is_cook=True)
 	print(objs)
 
 	err_msg = "No existe ningún Cocinero todavía."
