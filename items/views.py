@@ -31,12 +31,17 @@ class NewItemForm(forms.ModelForm):
 					'image',
 
 					'description',
+
 					'notes_cook',
 					'notes_waiter',
 				]
 		widgets = {          
-			'image': forms.Textarea(attrs={'rows':1, 'cols':100}),  
-			'description': forms.Textarea(attrs={'rows':1, 'cols':100}),  
+			'image': forms.Textarea(attrs={'rows':1, 'cols':120}),  
+
+			'description': forms.Textarea(attrs={'rows':1, 'cols':120}),  
+			
+			'notes_cook': forms.Textarea(attrs={'rows':2, 'cols':120}),  
+			'notes_waiter': forms.Textarea(attrs={'rows':2, 'cols':120}),  
 		}
 
 class DeleteItemForm(forms.Form):

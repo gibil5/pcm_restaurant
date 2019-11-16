@@ -9,14 +9,19 @@
 <h2>Modificar</h2>
 <br>
 
-
+<div class='container'>
 <form action="{% url 'update_employee' obj.id %}" method="post">
     {% csrf_token %}
 
-	{{ form.as_p }}
+	<table>
+		{{ form.as_table }}
+	</table>
 
+	<br>
     <input type="submit" value="Entrar">
 </form>
+</div>
+
 <br>
 
 {% endblock %}
