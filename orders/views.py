@@ -23,6 +23,7 @@ def order_lines(request, order_id):
 	print()
 	print('Order Lines')
 
+
 	order = get_object_or_404(Order, pk=order_id)  		# Get Object
 
 	#title = 'Líneas'
@@ -52,6 +53,8 @@ def order_lines(request, order_id):
 def add_line_order(request, order_id):
 	print()
 	print('Add line Order')
+
+	title = 'Agregar Línea en Pedido'
 
 	order = get_object_or_404(Order, pk=order_id)
 
@@ -84,6 +87,7 @@ def add_line_order(request, order_id):
 		form = lib.NewOrderLineForm(instance=line)
 
 		ctx = {
+				'title': title,
 				'form': form,
 				'order': order,
 			}
@@ -160,9 +164,12 @@ def order(request, order_id):
 
 	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
 	
+	title = obj.name
+
 	lines = OrderLine.objects.filter(order=order_id)
 
 	ctx = {
+			'title': title,
 			'obj': obj,
 			'lines':	lines,
 		}
@@ -176,6 +183,8 @@ def order(request, order_id):
 def add(request):
 	print()
 	print('Add order')
+
+	title = 'Agregar Pedido'
 
 	# Create and populate
 	if request.method == 'POST':
@@ -203,6 +212,7 @@ def add(request):
 		form = lib.NewOrderForm(instance=order)
 
 		ctx = {
+				'title': title,
 				'form': form,
 			}
 
@@ -221,6 +231,7 @@ def delete(request, order_id):
 	print()
 	print('Delete Order')
 
+	title = 'Eliminar Pedido ?'
 
 	obj = get_object_or_404(Order, pk=order_id)
 
@@ -229,7 +240,7 @@ def delete(request, order_id):
 	if request.method == 'POST':
 		print('mark')
 
-		form = DeleteForm(request.POST)
+		form = lib.DeleteForm(request.POST)
 
 		if form.is_valid():
 
@@ -242,9 +253,10 @@ def delete(request, order_id):
 	# Create delete form
 	else:
 
-		form = DeleteForm()
+		form = lib.DeleteForm()
 
 		ctx = {
+				'title': title,
 				'obj': obj,
 				'form': form,
 		}
@@ -259,6 +271,7 @@ def update(request, order_id):
 	print()
 	print('update Order')
 
+	title = 'Modificar Pedido'
 
 	obj = get_object_or_404(Order, pk=order_id)
 
@@ -289,6 +302,7 @@ def update(request, order_id):
 
 		# Context
 		ctx = {
+				'title': title,
 				'obj': obj,
 				'form': form,
 				'lines':	lines,

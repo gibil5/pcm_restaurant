@@ -210,7 +210,8 @@ class OrderLine(models.Model):
 	)
 
 
-	qty = models.IntegerField(
+	#qty = models.IntegerField(
+	qty = models.PositiveIntegerField(
 		'cantidad',
 		)
 
