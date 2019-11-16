@@ -78,7 +78,9 @@ class Item(models.Model):
 		blank=True
 	)
 
-	price = models.FloatField(default=0)
+
+	#price = models.FloatField(default=0)
+	price = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 

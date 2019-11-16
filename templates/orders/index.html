@@ -72,7 +72,7 @@
 		Líneas
 	</div>
 
-	<div class="col-sm-1">
+	<div class="col-sm-2">
 		Mozo
 	</div>
 <!--
@@ -80,13 +80,15 @@
 		Cocinero
 	</div>
 -->
-	<div class="col-sm-1"></div>
-
-	<div class="col-sm-2"></div>
 
 	<div class="col-sm-1">
 		Estado
 	</div>
+
+	<div class="col-sm-1"></div>
+
+	<div class="col-sm-1"></div>
+
 </div>
 
 	</li>
@@ -133,10 +135,13 @@
 			</div>
 
 
-			<div class="col-sm-1">
+			<div class="col-sm-2">
 				{{obj.waiter}}
 			</div>
 
+			<div class="col-sm-1">
+				{{obj.state}}
+			</div>
 
 			<div class="col-sm-1">
 				<a href="{% url 'update_order' obj.id %}">
@@ -151,9 +156,6 @@
 			</div>
 
 
-			<div class="col-sm-2">
-				{{obj.state}}
-			</div>
 		</div>
 	</li>
 

@@ -35,19 +35,19 @@
 
 		<!-- Row -->
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-8">
 				<a href='{% url "menu" menu.id %}'>
 					<h5>{{menu.name}}</h5>
 				</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-2">
 				<a href="{% url 'update_menu' menu.id %}">
 					Modificar
 				</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-2">
 				<a href="{% url 'delete_menu' menu.id %}">
 					Eliminar
 				</a>

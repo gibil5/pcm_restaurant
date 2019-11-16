@@ -26,6 +26,8 @@ class NewItemForm(forms.ModelForm):
 		fields = [
 					'name',
 					'family',
+					'price',
+
 					'image',
 
 					'description',

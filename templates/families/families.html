@@ -27,7 +27,7 @@
 	<li class="list-group-item">
 
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-8">
 
 			<a href='{% url "family" family.id %}'>
 				<h5>{{family.name}}</h5>
@@ -35,11 +35,11 @@
 
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-2">
 				<a href="{% url 'update_family' family.id %}">Modificar</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-2">
 				<a href="{% url 'delete_family' family.id %}">Eliminar</a>
 			</div>
 		</div>
