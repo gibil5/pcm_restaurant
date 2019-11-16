@@ -61,7 +61,10 @@ class Item(models.Model):
 	"""
 
 	class Meta:
-		ordering = ('family',)
+
+		#ordering = ('family',)
+		ordering = ('family', 'name', )
+
 		verbose_name = 'Plato'
 		verbose_name_plural = 'Platos'
 
@@ -80,7 +83,11 @@ class Item(models.Model):
 
 
 	#price = models.FloatField(default=0)
-	price = models.DecimalField(max_digits=6, decimal_places=2)
+	price = models.DecimalField(
+		'precio',
+		max_digits=6, 
+		decimal_places=2
+	)
 
 
 
@@ -111,7 +118,8 @@ class Item(models.Model):
 	family = models.ForeignKey(
 		Family, 
 		on_delete=models.PROTECT,
-		blank=True
+		blank=True,
+		verbose_name='familia',
 	)
 
 
