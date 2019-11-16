@@ -182,6 +182,12 @@ class OrderLine(models.Model):
 	Order Line
 	"""
 
+	class Meta:
+		#ordering = ('-date',)
+		verbose_name = 'Línea'
+		verbose_name_plural = 'Líneas'
+
+
 	name = models.CharField(
 		max_length=200,
 	)
