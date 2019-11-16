@@ -73,8 +73,7 @@ class Order(models.Model):
 
 
 		#locale.setlocale(locale.LC_TIME, '')
-		locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
-		
+		#locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 		#time.strptime(date_string, "%a, %d/%m/%Y")
 
 		#se = '-'
