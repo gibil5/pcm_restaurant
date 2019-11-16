@@ -27,6 +27,27 @@ class Order(models.Model):
 		verbose_name_plural = 'Pedidos'
 
 
+	draft = 'Inicio'
+	preparation = 'Preparación'
+	served = 'Servido'
+	paid = 'Pagado'
+	cancel = 'Cancelado'
+
+
+	STATES = [
+			    (draft, 'Inicio'),
+			    (preparation, 'En preparacion'),
+				(served, 'Servido'),
+				(paid, 'Pagado'),
+			    (cancel, 'Cancelado'),
+			]
+
+	state = models.CharField(
+			max_length=100,
+			choices=STATES,
+			default = draft,
+		)
+
 
 
 	# Items - ManyToMany
@@ -136,11 +157,12 @@ class Order(models.Model):
 		Used by Order - Index
 		"""
 		s = ''
+		se = ' x '
 		
 		lines = OrderLine.objects.filter(order=self.id)
 
 		for line in lines:
-			s += line.item.name + ':' + str(line.qty) + ', '
+			s += line.item.name + se + str(line.qty) + ', '
 		
 		return s
 
@@ -173,14 +195,14 @@ class OrderLine(models.Model):
 
 	order = models.ForeignKey(
 		Order, 
-        on_delete=models.CASCADE,
+		on_delete=models.CASCADE,
 		verbose_name='pedido',
 	)
 
 
 	item = models.ForeignKey(
 		Item, 
-        on_delete=models.CASCADE,
+		on_delete=models.CASCADE,
 		blank=True,
 		verbose_name='plato',
 	)

@@ -67,11 +67,12 @@
 		Resumen
 	</div>
 
-	<div class="col-sm-2">
+
+	<div class="col-sm-1">
 		Líneas
 	</div>
 
-	<div class="col-sm-2">
+	<div class="col-sm-1">
 		Mozo
 	</div>
 <!--
@@ -81,8 +82,11 @@
 -->
 	<div class="col-sm-1"></div>
 
-	<div class="col-sm-1"></div>
+	<div class="col-sm-2"></div>
 
+	<div class="col-sm-1">
+		Estado
+	</div>
 </div>
 
 	</li>
@@ -120,7 +124,7 @@
 			</div>
 
 
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 
 				<a href='{% url "add_line_order" obj.id %}'>
 					Agregar
@@ -128,15 +132,9 @@
 			</div>
 
 
-
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 				{{obj.waiter}}
 			</div>
-<!--
-			<div class="col-sm-1">
-				{{obj.cook}}
-			</div>
--->
 
 
 			<div class="col-sm-1">
@@ -145,10 +143,15 @@
 				</a>
 			</div>
 
-			<div class="col-sm-1">
+			<div class="col-sm-2">
 				<a href="{% url 'delete_order' obj.id %}">
 					Eliminar
 				</a>
+			</div>
+
+
+			<div class="col-sm-2">
+				{{obj.state}}
 			</div>
 		</div>
 	</li>
