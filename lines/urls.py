@@ -10,7 +10,7 @@ urlpatterns = [
 
 	path('', views.index, name='lines'),
 	
-	path('lines/<int:order_id>', views.index_order, name='lines_order'),
+	#path('lines/<int:order_id>', views.index_order, name='lines_order'),
 
 
 	path('<int:line_id>', views.line, name='line'),
@@ -20,7 +20,7 @@ urlpatterns = [
 	#path('add/<int:order_id>', views.add_line_order, name='add_line'),
 
 
-	path('add_line_order/<int:order_id>', views.add_line_order, name='add_line_order'),
+	#path('add_line_order/<int:order_id>', views.add_line_order, name='add_line_order'),
 
 
 	path('delete/<int:line_id>', views.delete, name='delete_line'),

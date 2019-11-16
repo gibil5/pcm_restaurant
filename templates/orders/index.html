@@ -117,16 +117,17 @@
 
 			<div class="col-sm-2">
 				
-				<a href='{% url "lines_order" obj.id %}'>
+				<a href='{% url "order_lines" obj.id %}'>
 				
 					{{obj.get_lines}}
+
 				</a>
 			</div>
 
 
 			<div class="col-sm-1">
 
-				<a href='{% url "add_line_order" obj.id %}'>
+				<a href='{% url "order_add_line" obj.id %}'>
 					Agregar
 				</a>
 			</div>

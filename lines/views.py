@@ -10,63 +10,10 @@ from django import forms
 
 from orders.models import *
 
-
-
-# New Form
-class NewOrderLineForm(forms.ModelForm):
-
-	class Meta:
-
-		model = OrderLine
-
-		fields = [
-					#'name',
-					'order',
-					'item',
-					'qty',
-				]
-
-	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
-
-
-class DeleteForm(forms.Form):
-	pass
-
+from orders import lib
 
 
 # ------------------------------------------------ OrderLineLineLines ---------------------
-
-# Index
-def index_order(request, order_id):
-	print()
-	print('OrderLine')
-
-	order = get_object_or_404(Order, pk=order_id)  		# Get Object
-
-	#title = 'Líneas'
-	title = order
-
-
-	#objs = OrderLine.objects.all()
-	objs = OrderLine.objects.filter(order=order_id)
-
-
-	err_msg = "No existe ningún Linea todavía."
-
-
-	ctx = {
-			'title': title,
-			'objs': objs,
-			'err_msg': err_msg,
-			'order': order,
-		}
-
-	output = render(request, 'lines/index.html', ctx)
-
-	return HttpResponse(output)
-
-
-
 
 # Index
 def index(request):
@@ -113,51 +60,6 @@ def line(request, line_id):
 
 
 
-def add_line_order(request, order_id):
-	print()
-	print('Add line Order')
-
-	order = get_object_or_404(Order, pk=order_id)
-
-
-	# Create and populate
-	if request.method == 'POST':
-		print('Create and populate')
-
-		form = NewOrderLineForm(request.POST)
-
-		if form.is_valid():
-			print('Is Valid')
-
-			form_instance = NewOrderLineForm(request.POST)
-
-			new_line = form_instance.save()
-			print(new_line)
-
-			#return HttpResponseRedirect('/lines/thanks/')
-			return HttpResponseRedirect('/orders/thanks/')
-
-
-	# Create a blank form
-	else:
-
-		line = OrderLine()
-
-		line.order = order
-
-
-		form = NewOrderLineForm(instance=line)
-
-		ctx = {
-				'form': form,
-				'order': order,
-			}
-
-		#output = render(request, 'lines/add.html', ctx)
-		output = render(request, 'lines/add_line_order.html', ctx)
-
-		return HttpResponse(output)
-
 
 
 
@@ -171,11 +73,11 @@ def add(request):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = NewOrderLineForm(request.POST)
+		form = lib.NewOrderLineForm(request.POST)
 
 		if form.is_valid():
 
-			form_instance = NewOrderLineForm(request.POST)
+			form_instance = lib.NewOrderLineForm(request.POST)
 
 			new_line = form_instance.save()
 
@@ -187,7 +89,7 @@ def add(request):
 
 		line = OrderLine()
 
-		form = NewOrderLineForm(instance=line)
+		form = lib.NewOrderLineForm(instance=line)
 
 		ctx = {
 				'form': form,
@@ -216,7 +118,7 @@ def delete(request, line_id):
 	if request.method == 'POST':
 		print('mark')
 
-		form = DeleteForm(request.POST)
+		form = lib.DeleteForm(request.POST)
 
 		if form.is_valid():
 
@@ -229,7 +131,7 @@ def delete(request, line_id):
 	# Create delete form
 	else:
 
-		form = DeleteForm()
+		form = lib.DeleteForm()
 
 		ctx = {
 				'obj': obj,
@@ -254,12 +156,12 @@ def update(request, line_id):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = NewOrderLineForm(request.POST)
+		form = lib.NewOrderLineForm(request.POST)
 
 		# check whether it's valid:
 		if form.is_valid():
 			
-			form_instance = NewOrderLineForm(request.POST, instance=obj)
+			form_instance = lib.NewOrderLineForm(request.POST, instance=obj)
 
 			form_instance.save()
 
@@ -270,7 +172,7 @@ def update(request, line_id):
 	else:
 
 		# Form from a Model
-		form = NewOrderLineForm(instance=obj)
+		form = lib.NewOrderLineForm(instance=obj)
 
 		# Context
 		ctx = {

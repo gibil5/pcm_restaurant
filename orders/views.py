@@ -8,31 +8,120 @@ from django import forms
 
 from .models import *
 
+#from . import forms
+from . import lib
+
 # Create your views here.
 
 
-# New Form
-class NewOrderForm(forms.ModelForm):
-
-	class Meta:
-
-		model = Order
-
-		fields = [
-					'date',
-					'active',
-					'table',
-					'waiter',
-					#'cook',
-
-					#'items',
-				]
-
-	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
 
 
-class DeleteForm(forms.Form):
-	pass
+# ------------------------------------------------ Lines ---------------------
+
+# Index Order Lines
+def order_lines(request, order_id):
+	print()
+	print('Order Lines')
+
+	order = get_object_or_404(Order, pk=order_id)  		# Get Object
+
+	#title = 'Líneas'
+	#title = order
+	title = 'Líneas Pedido - ' + order.name
+
+
+	#objs = OrderLine.objects.all()
+	objs = OrderLine.objects.filter(order=order_id)
+
+
+	err_msg = "No existe ningún Linea todavía."
+
+
+	ctx = {
+			'title': title,
+			'objs': objs,
+			'err_msg': err_msg,
+			'order': order,
+		}
+
+	output = render(request, 'orders/order_lines.html', ctx)
+
+	return HttpResponse(output)
+
+
+def add_line_order(request, order_id):
+	print()
+	print('Add line Order')
+
+	order = get_object_or_404(Order, pk=order_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = lib.NewOrderLineForm(request.POST)
+
+		if form.is_valid():
+			print('Is Valid')
+
+			form_instance = lib.NewOrderLineForm(request.POST)
+
+			new_line = form_instance.save()
+			print(new_line)
+
+			return HttpResponseRedirect('/orders/thanks/')
+
+
+	# Create a blank form
+	else:
+
+		line = OrderLine()
+
+		line.order = order
+
+
+		form = lib.NewOrderLineForm(instance=line)
+
+		ctx = {
+				'form': form,
+				'order': order,
+			}
+
+		#output = render(request, 'lines/add.html', ctx)
+		output = render(request, 'orders/order_add_line.html', ctx)
+
+		return HttpResponse(output)
+
+
+
+
+
+
+# ------------------------------------------------ Sales ---------------------
+
+# Index
+def sales(request):
+	print()
+	print('Sales')
+
+	title = 'Ventas'
+
+	#objs = Order.objects.all()
+	objs = Order.objects.filter(state='Pagado')
+
+	err_msg = "No existe ninguna Venta todavía."
+
+	ctx = {
+			'title': title,
+			'objs': objs,
+			'err_msg': err_msg,
+		}
+
+	output = render(request, 'orders/index.html', ctx)
+
+	return HttpResponse(output)
+
 
 
 # ------------------------------------------------ Orders ---------------------
@@ -44,7 +133,8 @@ def index(request):
 
 	title = 'Pedidos'
 
-	objs = Order.objects.all()
+	#objs = Order.objects.all()
+	objs = Order.objects.exclude(state='Pagado')
 
 	err_msg = "No existe ningún Pedido todavía."
 
@@ -91,12 +181,11 @@ def add(request):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = NewOrderForm(request.POST)
+		form = lib.NewOrderForm(request.POST)
 
 		if form.is_valid():
 
-			form_instance = NewOrderForm(request.POST)
-
+			form_instance = lib.NewOrderForm(request.POST)
 
 			form_instance.cook_id = 1
 
@@ -111,7 +200,7 @@ def add(request):
 
 		order = Order()
 
-		form = NewOrderForm(instance=order)
+		form = lib.NewOrderForm(instance=order)
 
 		ctx = {
 				'form': form,
@@ -180,12 +269,12 @@ def update(request, order_id):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = NewOrderForm(request.POST)
+		form = lib.NewOrderForm(request.POST)
 
 		# check whether it's valid:
 		if form.is_valid():
 			
-			form_instance = NewOrderForm(request.POST, instance=obj)
+			form_instance = lib.NewOrderForm(request.POST, instance=obj)
 
 			form_instance.save()
 
@@ -196,7 +285,7 @@ def update(request, order_id):
 	else:
 
 		# Form from a Model
-		form = NewOrderForm(instance=obj)
+		form = lib.NewOrderForm(instance=obj)
 
 		# Context
 		ctx = {

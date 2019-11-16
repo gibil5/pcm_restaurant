@@ -1,0 +1,96 @@
+{% extends 'menus/base.html' %}
+
+{% block content %}
+
+<!-- Order Lines -->
+
+<!-- Title -->
+<div class="row">
+
+	<div class="col-sm-5">
+		<h3>{{title}}</h3>
+	</div>
+	
+	<div class="col-sm-3">
+
+		<a href="{% url 'order_add_line' order.id %}">Agregar</a>
+
+	</div>
+
+	<div class="col-sm-4">
+	</div>
+</div>
+<br>
+
+
+<!-- Conditional -->
+{% if objs %}
+
+<div class="container">
+
+<ul class="list-group">
+
+
+<!-- Loop -->
+{% for obj in objs %}
+
+	<li class="list-group-item">
+
+		
+		<!-- Row -->
+		<div class="row">
+
+<!--
+			<div class="col-sm-3">
+				<a href='{% url "line" obj.id %}'>
+					<h5>{{obj.order}}</h5>
+				</a>
+			</div>
+
+			<div class="col-sm-2">
+				{{obj.date}}
+			</div>
+-->
+
+			<div class="col-sm-2">
+				{{obj.item}}
+			</div>
+
+
+			<div class="col-sm-2">
+				{{obj.qty}}
+			</div>
+
+
+
+
+			<div class="col-sm-2">
+				<a href="{% url 'update_line' obj.id %}">
+					Modificar
+				</a>
+			</div>
+
+			<div class="col-sm-2">
+				<a href="{% url 'delete_line' obj.id %}">
+					Eliminar
+				</a>
+			</div>
+		</div>
+	</li>
+
+{% endfor %}
+</ul>
+
+
+<!-- Error -->
+{% else %}
+	<p>
+		{{err_msg}}		
+	</p>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+

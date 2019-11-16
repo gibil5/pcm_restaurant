@@ -2,11 +2,8 @@
 Orders - Models
 """
 from django.db import models
-
 from django.utils import timezone
-
 import locale
-
 
 
 # Create your models here.
@@ -16,6 +13,10 @@ from employees.models import Employee
 from items.models import Item
 
 
+
+
+
+# ------------------------------------------------ Orders ---------------------
 class Order(models.Model):
 	"""
 	Order
@@ -175,6 +176,7 @@ class Order(models.Model):
 
 
 
+# ------------------------------------------------ Lines ---------------------
 class OrderLine(models.Model):
 	"""
 	Order Line
