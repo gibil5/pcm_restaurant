@@ -42,11 +42,11 @@ INSTALLED_APPS = [
    'orders.apps.OrdersConfig',
    'tables.apps.TablesConfig',
    'employees.apps.EmployeesConfig',
-
    'families.apps.FamiliesConfig',
    'items.apps.ItemsConfig',
    'menus.apps.MenusConfig',
 
+    # Django Std
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,9 +56,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Heroku
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
+    # Django Std
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -102,7 +104,6 @@ WSGI_APPLICATION = 'pcm.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pcmdb',
@@ -178,6 +179,4 @@ STATICFILES_DIRS = [
 
 
 django_heroku.settings(locals())
-
-
 
