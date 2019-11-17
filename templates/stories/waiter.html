@@ -1,0 +1,67 @@
+{% extends 'menus/base.html' %}
+
+{% block content %}
+
+
+<h3>
+	{{title}}
+</h3>
+<br>
+
+
+<!-- Conditional -->
+{% if obj %}
+
+<div class="container">
+
+
+	{{obj}}
+
+	<ul class="list-group">
+
+		{% for order in orders %}
+
+		<li class="list-group-item">
+		
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-sm-4">
+					<a href='{% url "order" order.id %}'>
+						<h6>{{order.name}}</h6>
+					</a>
+				</div>
+
+				<div class="col-sm-2">
+						<h6>{{order.table}}</h6>
+				</div>
+
+				<div class="col-sm-2">
+						<h6>{{order.state}}</h6>
+				</div>
+
+				<div class="col-sm-2">
+						<h6>{{order.get_lines}}</h6>
+				</div>
+
+				<div class="col-sm-2">
+						<h6>{{order.total}}</h6>
+				</div>
+			</div>
+
+		
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+
+<!-- Error -->
+{% else %}
+	<p>
+		{{err_msg}}		
+	</p>
+{% endif %}
+
+
+
+{% endblock %}

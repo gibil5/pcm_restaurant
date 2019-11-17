@@ -29,4 +29,7 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
 
     path('lines/', include('lines.urls')),
+
+
+    path('stories/', include('stories.urls')),
 ]

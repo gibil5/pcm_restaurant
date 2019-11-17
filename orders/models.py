@@ -99,7 +99,9 @@ class Order(models.Model):
 
 
 		#locale.setlocale(locale.LC_TIME, '')
-		#locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+
+		locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+
 		#time.strptime(date_string, "%a, %d/%m/%Y")
 
 		#se = '-'
@@ -116,7 +118,7 @@ class Order(models.Model):
 			#[self.date.strftime('%A %d %b-%H:%M'),]
 
 			#[self.date.strftime('%a %d %b-%H:%M'),]
-			[date.strftime('%a %d %b-%H:%M'),]
+			[date.strftime('%A %d %b-%H:%M'),]
 		
 		).title()	
 

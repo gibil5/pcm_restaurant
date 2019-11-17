@@ -38,6 +38,9 @@ ALLOWED_HOSTS = ['desolate-chamber-64593.herokuapp.com']
 INSTALLED_APPS = [
 
     # Created by JRevilla
+
+   'stories.apps.StoriesConfig',
+
    'lines.apps.LinesConfig',
    'orders.apps.OrdersConfig',
    'tables.apps.TablesConfig',

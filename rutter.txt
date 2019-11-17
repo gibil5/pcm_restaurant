@@ -24,8 +24,8 @@ admin_user
 
 
 
-# Create Applications
-
+# Applications
+# ------------------------
 python manage.py startapp menus 
 
 python manage.py startapp items 
@@ -38,7 +38,11 @@ python manage.py startapp tables
 
 python manage.py startapp orders  
 
-python manage.py startapp orderlines  
+python manage.py startapp lines  
+
+
+python manage.py startapp stories 
+
 
 
 

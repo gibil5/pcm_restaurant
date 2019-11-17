@@ -12,8 +12,6 @@
         <img src="{% static 'img/logo_pcm_2.png' %}" class="logo" alt="">
       </a>
 
-<!--
--->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,6 +20,34 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
         <ul class="navbar-nav">
+
+
+          <!-- Waiter -->
+          <li
+              {% if 'waiter' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+          >
+            <a class="nav-link" href="{% url 'waiters' %}">Mozos</a>
+          </li>
+
+
+          <!-- Cook -->
+          <li
+              {% if 'cook' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+          >
+            <a class="nav-link" href="{% url 'cooks' %}">Cocineros</a>
+          </li>
+
+
+
+
 
           <li
               {% if 'menu' in request.path %}
