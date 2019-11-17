@@ -21,5 +21,4 @@ urlpatterns = [
 	path('update/<int:family_id>', views.update, name='update_family'),
 
 	path('thanks/', views.family_thanks, name='thanks_family'),
-
 ]

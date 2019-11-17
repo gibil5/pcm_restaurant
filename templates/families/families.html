@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<!-- Families -->
+
 <div class="row">
 	<div class="col-sm-4">
 		<h2>Familias</h2>
@@ -27,12 +29,15 @@
 	<li class="list-group-item">
 
 		<div class="row">
-			<div class="col-sm-8">
 
-			<a href='{% url "family" family.id %}'>
-				<h5>{{family.name}}</h5>
-			</a>
+			<div class="col-sm-4">
+                <a href='{% url "family" family.id %}'>
+				    <h5>{{family.name}}</h5>
+                </a>
+			</div>
 
+			<div class="col-sm-4">
+				    {{family.idx}}
 			</div>
 
 			<div class="col-sm-2">

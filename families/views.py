@@ -9,12 +9,6 @@ from django import forms
 from items.models import *
 
 
-def family_thanks(request):
-	print()
-	print('Family Thanks')
-	ctx = {}
-	output = render(request, 'families/thanks.html', ctx)
-	return HttpResponse(output)
 
 
 
@@ -85,7 +79,8 @@ def add(request):
 
 			new_family = form_instance.save()
 
-			return HttpResponseRedirect('/thanks/')
+			return HttpResponseRedirect('/families/thanks/')
+
 
 	# Create a blank form
 	else:
@@ -182,3 +177,11 @@ def update(request, family_id):
 		return HttpResponse(output)
 
 
+
+
+def family_thanks(request):
+	print()
+	print('Family Thanks')
+	ctx = {}
+	output = render(request, 'families/thanks.html', ctx)
+	return HttpResponse(output)
