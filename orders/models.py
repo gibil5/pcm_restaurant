@@ -152,6 +152,18 @@ class Order(models.Model):
 		return s
 
 
+
+
+
+	def get_lines_2(self):
+
+		lines = OrderLine.objects.filter(order=self.id)
+
+		return lines
+
+
+
+
 	def get_lines(self):
 		"""
 		Used by Order - Index

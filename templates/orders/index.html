@@ -23,7 +23,7 @@
 	<div class="col-sm-3">
 
 		<a href="{% url 'lines' %}">
-		<h3>Líneas</h3>            
+			<h3>Líneas</h3>            
         </a>
 
 	</div>
@@ -104,14 +104,14 @@
 
 
 
-			<div class="col-sm-3">
-				
+			<div class="col-sm-3">				
 				<a href='{% url "order_lines" obj.id %}'>
 				
-					{{obj.get_lines}}
+					{{ obj.get_lines }}
 
 				</a>
 			</div>
+
 
 
 			<div class="col-sm-1">

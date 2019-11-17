@@ -128,6 +128,7 @@ def sales(request):
 
 
 
+
 # ------------------------------------------------ Orders ---------------------
 
 # Index
@@ -137,7 +138,6 @@ def index(request):
 
 	title = 'Pedidos'
 
-	#objs = Order.objects.all()
 	objs = Order.objects.exclude(state='Pagado')
 
 	err_msg = "No existe ningún Pedido todavía."
