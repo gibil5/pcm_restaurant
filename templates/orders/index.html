@@ -7,7 +7,7 @@
 {% include 'partials/_gostyle.html' %}
 
 
-<!-- Employees -->
+<!-- Orders -->
 
 <!-- Title -->
 <div class="row">
@@ -72,6 +72,11 @@
 		Estado
 	</div>
 
+	<div class="col-sm-1">
+		Total
+	</div>
+
+
 	<div class="col-sm-1"></div>
 
 	<div class="col-sm-1"></div>
@@ -126,9 +131,16 @@
 				{{obj.waiter}}
 			</div>
 
+
 			<div class="col-sm-1">
 				{{obj.state}}
 			</div>
+
+
+			<div class="col-sm-1">
+				{{obj.total}}
+			</div>
+
 
 			<div class="col-sm-1">
 				<a href="{% url 'update_order' obj.id %}">
@@ -136,13 +148,11 @@
 				</a>
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-sm-1">
 				<a href="{% url 'delete_order' obj.id %}">
 					Eliminar
 				</a>
 			</div>
-
-
 		</div>
 	</li>
 

@@ -51,6 +51,17 @@ class Order(models.Model):
 
 
 
+
+	total = models.DecimalField(
+		'total',
+		max_digits=6, 
+		decimal_places=2,
+		default=0,
+	)
+
+
+
+
 	# Items - ManyToMany
 	items = models.ManyToManyField(
 		Item, 
@@ -170,11 +181,13 @@ class Order(models.Model):
 		"""
 		s = ''
 		se = ' x '
+		#se_li = ', '
+		se_li = ' | '
 		
 		lines = OrderLine.objects.filter(order=self.id)
 
 		for line in lines:
-			s += line.item.name + se + str(line.qty) + ', '
+			s += line.item.name + se + str(line.qty) + se_li
 		
 		return s
 
@@ -212,6 +225,16 @@ class OrderLine(models.Model):
 
 
 
+
+	total = models.DecimalField(
+		'total',
+		max_digits=6, 
+		decimal_places=2,
+		default=0,
+	)
+
+
+
 	order = models.ForeignKey(
 		Order, 
 		on_delete=models.CASCADE,
@@ -227,10 +250,9 @@ class OrderLine(models.Model):
 	)
 
 
-	#qty = models.IntegerField(
 	qty = models.PositiveIntegerField(
 		'cantidad',
-		)
+	)
 
 
 	def __str__(self): 
