@@ -59,6 +59,21 @@ class Order(models.Model):
 		default=0,
 	)
 
+	@property
+	def total(self):
+
+		total = 0
+
+		lines = OrderLine.objects.filter(order=self.id)
+
+		for line in lines:
+
+			total += line.total
+
+
+		return total
+
+
 
 
 
@@ -232,6 +247,15 @@ class OrderLine(models.Model):
 		decimal_places=2,
 		default=0,
 	)
+
+	@property
+	def total(self):
+		return self.item.price * self.qty
+
+
+
+
+
 
 
 
