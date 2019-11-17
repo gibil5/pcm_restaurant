@@ -15,12 +15,11 @@ class NewOrderForm(forms.ModelForm):
 
 		fields = [
 					'date',
+					'state',
+
 					'active',
 					'table',
 					'waiter',
-					#'cook',
-
-					#'items',
 				]
 
 	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')

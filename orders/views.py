@@ -8,7 +8,6 @@ from django import forms
 
 from .models import *
 
-#from . import forms
 from . import lib
 
 # Create your views here.
