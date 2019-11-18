@@ -68,7 +68,7 @@ def waiter(request, waiter_id):
 	print()
 	print('Waiter')
 
-	title = 'Hello Waiter !'
+	title = 'Día del Mesero'
 
 
 	obj = get_object_or_404(Employee, pk=waiter_id)  		# Shortcut !

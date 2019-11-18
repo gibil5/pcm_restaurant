@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<!-- Go -->
+{% include 'partials/_gostyle.html' %}
+
 
 <h3>
 	{{title}}
@@ -9,16 +12,49 @@
 <br>
 
 
+
 <!-- Conditional -->
 {% if obj %}
 
 <div class="container">
-
-
+<h4>	
 	{{obj}}
+</h4>
+<br>
 
+	<!-- Header -->
+	<ul class="list-group">
+		<li class="list-group-item">
+		
+			<!-- Row -->
+			<div class="row jx-header">
+		
+				<div class="col-sm-4">
+					Fecha y Hora
+				</div>
+
+				<div class="col-sm-2">
+					Mesa
+				</div>
+
+				<div class="col-sm-2">
+					Estado
+				</div>
+
+				<div class="col-sm-2">
+					Resumen
+				</div>
+
+				<div class="col-sm-2">
+					Total
+				</div>
+			</div>
+		</li>
+	</ul>
+	
 	<ul class="list-group">
 
+		<!-- Loop -->
 		{% for order in orders %}
 
 		<li class="list-group-item">
@@ -33,19 +69,19 @@
 				</div>
 
 				<div class="col-sm-2">
-						<h6>{{order.table}}</h6>
+						{{order.table}}
 				</div>
 
 				<div class="col-sm-2">
-						<h6>{{order.state}}</h6>
+						{{order.state}}
 				</div>
 
 				<div class="col-sm-2">
-						<h6>{{order.get_lines}}</h6>
+						{{order.get_lines}}
 				</div>
 
 				<div class="col-sm-2">
-						<h6>{{order.total}}</h6>
+						{{order.total}}
 				</div>
 			</div>
 

@@ -161,8 +161,13 @@ def order(request, order_id):
 	print()
 	print('Order')
 
+
 	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
 	
+	#url = obj.get_absolute_url
+	#url = Order.get_absolute_url()
+	#print(url)
+
 	title = obj.name
 
 	lines = OrderLine.objects.filter(order=order_id)

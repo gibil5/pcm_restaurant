@@ -3,8 +3,11 @@
 {% block content %}
 
 <!-- Go -->
+<!--
 {% include 'partials/_goorders.html' %}
+-->
 
+{% include 'partials/_goback.html' %}
 
 
 
@@ -15,66 +18,34 @@
 
 <div class="container">
 
-<ul class="list-group">
-	<li class="list-group-item">
-		<div class="row">
-			<div class="col-sm-3">
-				<b>
-				Fecha
-				</b>
-			</div>
-			<div class="col-sm-4">
-				{{obj.date}}
-			</div>
-		</div>
-	</li>
+	<ul class="list-group">
 
-	<li class="list-group-item">
-		<div class="row">
-			<div class="col-sm-3">
-				<b>
-				Mesa
-				</b>
-			</div>
-			<div class="col-sm-4">
-				{{obj.table}}
-			</div>
-		</div>
-	</li>
+		{% include 'orders/_obj_h_field.html' with name='Estado' value=obj.state %}
 
-	<li class="list-group-item">
-		<div class="row">
-			<div class="col-sm-3">
-				<b>
-				Mozo
-				</b>
-			</div>
-			<div class="col-sm-4">
-				{{obj.waiter}}
-			</div>
-		</div>
-	</li>
+		{% include 'orders/_obj_h_field.html' with name='Mesa' value=obj.table %}
 
-</ul>
+		{% include 'orders/_obj_h_field.html' with name='Mozo' value=obj.waiter %}
+
+		{% include 'orders/_obj_h_field.html' with name='Total' value=obj.total %}
+
+	</ul>
 <br>
 
-	<!-- Table -->
-	<!-- Date -->
-	<!-- Waiter -->
-	<!-- Cook -->
-<!--
-	<h6>{{obj.date}}</h6>
-	<br>
-	<h6>{{obj.table}}</h6>
-	<br>
-	<h6>{{obj.waiter}}</h6>
-	<br>
-	<h6>{{obj.cook}}</h6>
-	<br>
--->
 
 
-<h5>Líneas</h5>
+<div class="row">
+	<div class="col-sm-2">
+		<h5>Líneas</h5>
+	</div>
+
+	<div class="col-sm-2">
+
+		<a href="{% url 'order_add_line' obj.id %}">Agregar</a>
+
+		{{obj.get_absolute_url}}
+
+	</div>
+</div>
 <br>
 
 
@@ -84,33 +55,47 @@
 
 		
 <div class="row">
-	<!--
-	<div class="col-sm-3">
-		{{line.name}}
-	</div>
-	<div class="col-sm-3">
-		{{line.order}}
-	</div>
-	-->
 
 	<div class="col-sm-3">
 		{{line.item}}
 	</div>
 
-	<div class="col-sm-3">
+	<div class="col-sm-2">
 		{{line.qty}}
 	</div>
-</div>
 
+	<div class="col-sm-3">
+		{{line.total}}
+	</div>
+
+	<div class="col-sm-2">
+
+		<a href="{% url 'update_line' line.id %}">
+			
+			<input type=button value="Modificar" onClick="">
+
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="{% url 'delete_line' line.id %}">
+
+			<input type=button value="Eliminar" onClick="">
+
+		</a>
+	</div>
+</div>
 
 	</li>
 {% endfor %}
 </ul>
+<div class="row">
+
+	<div class="col-sm-3">
 
 
-
-
-
+	</div>
+</div>
 </div>
 
 {% endblock %}
