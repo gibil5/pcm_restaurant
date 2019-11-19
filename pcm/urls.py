@@ -13,7 +13,9 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
+
     path('', include('menus.urls')),  			# Root
+
 
     path('menus/', include('menus.urls')),
     

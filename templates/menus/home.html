@@ -1,0 +1,94 @@
+{% extends 'menus/base.html' %}
+
+{% block content %}
+
+
+<!-- Title and Create -->
+<div class="row">
+
+	<div class="col-sm-4">
+		<h2>Inicio</h2>
+	</div>
+
+	<div class="col-sm-4">
+	</div>
+
+	<div class="col-sm-4">
+	</div>
+</div>
+<br>
+
+
+
+<div class="container">
+
+<ul class="list-group">
+
+	<li class="list-group-item">
+
+		<!-- Row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'menus' %}">
+					Menus
+				</a>
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'items' %}">
+					Platos
+				</a>
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'families' %}">
+					Familias
+				</a>
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'employees' %}">
+					Empleados
+				</a>
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'orders' %}">
+					Pedidos
+				</a>
+			</div>
+		</div>
+	</li>
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{% url 'order_sales' %}">
+					Ventas
+				</a>
+			</div>
+		</div>
+	</li>
+
+</ul>
+
+
+</div>
+
+{% endblock %}

@@ -16,10 +16,14 @@
 <form action="{% url 'delete_line' obj.id %}" method="post">
     {% csrf_token %}
 	{{ form.as_p }}
-    <td><input type="submit" value="Si"></td>
+
+    <td>
+    	<input type="submit" value="Si"  class="btn btn-success">
+    </td>
+
 </form>
 <br>
-
+<!--
 <form action="{% url 'thanks_line' %}" method="post">
     {% csrf_token %}
 	{{ form.as_p }}
@@ -27,5 +31,5 @@
 </form>
 </div>
 <br>
-
+-->
 {% endblock %}

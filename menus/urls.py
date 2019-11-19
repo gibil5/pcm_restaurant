@@ -10,7 +10,12 @@ from . import views
 
 urlpatterns = [
 
-	path('', views.index, name='menus'),
+
+	#path('', views.index, name='menus'),
+	path('', views.home, name='home'),
+
+
+	path('menus', views.index, name='menus'),
 
 	path('<int:menu_id>', views.detail, name='menu'),
 

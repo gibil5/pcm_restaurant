@@ -2,6 +2,9 @@
 
 {% block content %}
 
+{% include 'partials/_gostyle.html' %}
+
+
 <!-- Go -->
 <!--
 {% include 'partials/_goorders.html' %}
@@ -40,9 +43,11 @@
 
 	<div class="col-sm-2">
 
-		<a href="{% url 'order_add_line' obj.id %}">Agregar</a>
+		<a href="{% url 'order_add_line' obj.id %}">
 
-		{{obj.get_absolute_url}}
+			<input type=button value="Agregar" onClick="" class="btn btn-warning">
+
+		</a>
 
 	</div>
 </div>
@@ -71,8 +76,10 @@
 	<div class="col-sm-2">
 
 		<a href="{% url 'update_line' line.id %}">
-			
-			<input type=button value="Modificar" onClick="">
+<!--
+			<input type=button value="Modificar" onClick=""  class="button">
+-->
+			<input type=button value="Modificar" onClick=""  class="btn btn-success">
 
 		</a>
 	</div>
@@ -80,7 +87,7 @@
 	<div class="col-sm-2">
 		<a href="{% url 'delete_line' line.id %}">
 
-			<input type=button value="Eliminar" onClick="">
+			<input type=button value="Eliminar" onClick=""	class="btn btn-danger">
 
 		</a>
 	</div>
