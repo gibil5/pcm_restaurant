@@ -74,14 +74,10 @@ def waiter(request, waiter_id):
 	obj = get_object_or_404(Employee, pk=waiter_id)  		# Shortcut !
 
 
-	#orders = Order.objects.filter(waiter=waiter_id)
-	orders = Order.objects.filter(waiter=waiter_id)
-
 	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
 	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
 
-	#Invoice.objects.get(user=user, date__range=(today_min, today_max))
-
+	#orders = Order.objects.filter(waiter=waiter_id)
 	orders = Order.objects.filter(waiter=waiter_id, date__range=(today_min, today_max))
 
 
@@ -109,7 +105,7 @@ def cooks(request):
 	print()
 	print('Cooks')
 
-	title = 'Hello Cooks !'
+	title = 'Cocineros'
 
 	objs = Employee.objects.filter(is_cook=True)
 
@@ -128,23 +124,35 @@ def cooks(request):
 
 
 # Cook
-def cook(request):
+def cook(request, cook_id):
 	print()
 	print('Cook')
 
-	title = 'Hello Cook !'
+	title = 'Día del Cocinero'
 
-	#objs = Order.objects.exclude(state='Pagado')
 
-	#err_msg = "No existe ningún Pedido todavía."
+	obj = get_object_or_404(Employee, pk=cook_id)  		# Shortcut !
+
+
+	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+
+	orders = Order.objects.filter(cook=cook_id, date__range=(today_min, today_max))
+
+
+	err_msg = "Cocinero no existe."
 
 	ctx = {
 			'title': title,
-			#'objs': objs,
-			#'err_msg': err_msg,
+			'obj': obj,
+			'orders': orders,
+			'err_msg': err_msg,
 		}
 
-	output = render(request, 'stories/cook.html', ctx)
+
+
+	#output = render(request, 'stories/cook.html', ctx)
+	output = render(request, 'stories/waiter.html', ctx)
 
 	return HttpResponse(output)
 

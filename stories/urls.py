@@ -13,12 +13,11 @@ urlpatterns = [
 	# Waiter 
 	path('waiters', views.waiters, name='waiters'),
 
-	#path('waiter', views.waiter, name='waiter'),
 	path('waiter/<int:waiter_id>', views.waiter, name='waiter'),
 
 
 	# Cook
 	path('cooks', views.cooks, name='cooks'),
 
-	path('cook', views.cook, name='cook'),
+	path('cook/<int:cook_id>', views.cook, name='cook'),
 ]

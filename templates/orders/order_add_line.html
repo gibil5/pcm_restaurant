@@ -3,14 +3,7 @@
 {% block content %}
 
 
-<!-- Go Lines -->
-<!--
-{% include 'partials/_golines.html' %}
-<input type=button value="Regresar" onClick="javascript:history.go(-1);">
-<br>
-<br>
--->
-
+<!-- Go Back -->
 {% include 'partials/_goback.html' %}
 
 
@@ -26,7 +19,8 @@
 
 	{{ form.as_p }}
 
-    <input type="submit" value="Entrar">
+    <input type="submit" value="Continuar"	class="btn btn-success">
+
 </form>
 <br>
 

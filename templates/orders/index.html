@@ -54,7 +54,7 @@
 	</div>
 
 
-	<div class="col-sm-3">
+	<div class="col-sm-2">
 		Resumen
 	</div>
 
@@ -67,6 +67,9 @@
 		Mozo
 	</div>
 
+	<div class="col-sm-1">
+		Cocinero
+	</div>
 
 	<div class="col-sm-1">
 		Estado
@@ -109,18 +112,15 @@
 
 
 
-			<div class="col-sm-3">				
+			<div class="col-sm-2">				
 				<a href='{% url "order_lines" obj.id %}'>
-				
 					{{ obj.get_lines }}
-
 				</a>
 			</div>
 
 
 
 			<div class="col-sm-1">
-
 				<a href='{% url "order_add_line" obj.id %}'>
 					Agregar
 				</a>
@@ -129,6 +129,11 @@
 
 			<div class="col-sm-1">
 				{{obj.waiter}}
+			</div>
+
+
+			<div class="col-sm-1">
+				{{obj.cook}}
 			</div>
 
 

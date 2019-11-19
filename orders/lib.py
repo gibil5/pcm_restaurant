@@ -20,6 +20,7 @@ class NewOrderForm(forms.ModelForm):
 					'active',
 					'table',
 					'waiter',
+					'cook',
 				]
 
 	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')

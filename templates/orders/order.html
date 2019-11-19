@@ -29,6 +29,8 @@
 
 		{% include 'orders/_obj_h_field.html' with name='Mozo' value=obj.waiter %}
 
+		{% include 'orders/_obj_h_field.html' with name='Cocinero' value=obj.cook %}
+
 		{% include 'orders/_obj_h_field.html' with name='Total' value=obj.total %}
 
 	</ul>
@@ -96,13 +98,11 @@
 	</li>
 {% endfor %}
 </ul>
-<div class="row">
 
-	<div class="col-sm-3">
-
-
-	</div>
 </div>
-</div>
+
+<br>
+<br>
+
 
 {% endblock %}

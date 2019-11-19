@@ -157,15 +157,15 @@ class Order(models.Model):
 
 
 	# Cook
-	#cook = models.ForeignKey(
-	#	Employee, 
-	#	on_delete=models.PROTECT,
-	#	related_name='cook',
-	#	limit_choices_to={'is_cook': True},
+	cook = models.ForeignKey(
+		Employee, 
+		on_delete=models.PROTECT,
+		related_name='cook',
+		limit_choices_to={'is_cook': True},
 
-	#	verbose_name='cocinero',
-	#	blank=True,
-	#)
+		verbose_name='cocinero',
+		blank=True,
+	)
 
 
 
