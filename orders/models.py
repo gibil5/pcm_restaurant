@@ -105,7 +105,7 @@ class Order(models.Model):
 
 
 		# Supported ?
-		locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')  	# Not supported on Heroku !!!
+		#locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')  	# Not supported on Heroku !!!
 
 
 		#time.strptime(date_string, "%a, %d/%m/%Y")
