@@ -54,7 +54,7 @@
                 class="nav-item mr-3"
               {% endif %}
           >
-            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+            <a class="nav-link" href="{% url 'home' %}">Admin</a>
           </li>
 
 
@@ -69,17 +69,11 @@
         <ul class="navbar-nav ml-auto">
 <!--
           <li class="nav-item mr-3">
-            <a class="nav-link" href="register.html">
-              <i class="fas fa-user-plus"></i> Register</a>
-          </li>
--->
-
-          <li class="nav-item mr-3">
             <a class="nav-link" href="{% url 'admin:index' %}">
               <i class="fas fa-sign-in-alt"></i>
               Admin</a>
           </li>
-
+-->
         </ul>
       </div>
     </div>
