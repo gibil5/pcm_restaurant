@@ -20,35 +20,17 @@
 <br>
 
 
-<div class="container">
-
-	<ul class="list-group">
-
-		{% include 'orders/_obj_h_field.html' with name='Mozo' value=obj.waiter %}
-
-		{% include 'orders/_obj_h_field.html' with name='Cocinero' value=obj.cook %}
-
-		{% include 'orders/_obj_h_field.html' with name='Mesa' value=obj.table %}
-
-
-	</ul>
-<br>
-
-
-
 <div class="row">
 	<div class="col-sm-2">
 		<h5>Líneas</h5>
 	</div>
 
 	<div class="col-sm-2">
-
+		<!--
 		<a href="{% url 'order_add_line' obj.id %}">
-
 			<input type=button value="Agregar" onClick="" class="btn btn-warning">
-
 		</a>
-
+		-->
 	</div>
 </div>
 <br>
@@ -80,24 +62,14 @@
 
 
 	<div class="col-sm-1">
-<!--
-		<a href="{% url 'update_line' line.id %}">
-			<input type=button value="Modificar" onClick=""  class="btn btn-success">
-		</a>
--->
+
 		<a href="{% url 'update_line_state_plus' line.id %}">			
 			<input type=button value=">>" onClick=""  class="btn btn-success">
 		</a>
 
-
 	</div>
 
 	<div class="col-sm-1">
-<!--
-		<a href="{% url 'delete_line' line.id %}">
-			<input type=button value="Eliminar" onClick=""	class="btn btn-danger">
-		</a>
--->
 		<a href="{% url 'update_line_state_minus' line.id %}">
 			<input type=button value="<<" onClick=""	class="btn btn-danger">
 		</a>
@@ -109,7 +81,6 @@
 </ul>
 
 </div>
-
 <br>
 <br>
 

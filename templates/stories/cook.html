@@ -1,3 +1,143 @@
+{% extends 'menus/base.html' %}
+
+{% block content %}
+
+<!-- Go -->
+{% include 'partials/_gostyle.html' %}
 
 
-{{title}}
+<!-- Refresh -->
+<a href="{% url 'waiter' obj.id %}">
+	<input type=button value="Refrescar" onClick="" class="btn btn-success">
+</a>
+<br>
+<br>
+
+
+<!-- Title -->
+<h3>
+	{{title}}
+</h3>
+<br>
+
+
+
+<!-- Conditional -->
+{% if obj %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<h4>	
+				{{obj}}
+			</h4>
+		</div>
+		<div class="col-sm-4">
+<!--
+			<a href="{% url 'add_order' %}">
+				<input type=button value="Agregar Pedido" onClick="" class="btn btn-warning">
+			</a>
+-->
+		</div>
+	</div>
+</div>
+<br>
+
+<!-- Orders -->
+<div class="container">
+
+{% if orders %}
+
+	<!-- Header -->
+	<ul class="list-group">
+		<li class="list-group-item">
+		
+			<!-- Row -->
+			<div class="row jx-header">
+		
+				<div class="col-sm-4">
+					Fecha y Hora
+				</div>
+
+				<div class="col-sm-2">
+					Mesa
+				</div>
+
+				<div class="col-sm-1">
+					Estado
+				</div>
+
+				<div class="col-sm-3">
+					Total
+				</div>
+
+				<div class="col-sm-1"></div>
+
+				<div class="col-sm-1"></div>
+			</div>
+		</li>
+	</ul>
+	
+	<ul class="list-group">
+
+
+		<!-- Loop -->
+		{% for order in orders %}
+
+		<li class="list-group-item">
+		
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-sm-4">
+
+					<a href='{% url "order_cook" order.id %}'>
+						<h6>{{order.name}}</h6>
+					</a>
+
+				</div>
+
+				<div class="col-sm-2">
+						{{order.table}}
+				</div>
+
+				<div class="col-sm-1">
+						{{order.state}}
+				</div>
+
+				<div class="col-sm-2">
+						{{order.total}}
+				</div>
+
+				<div class="col-sm-2">
+				</div>
+
+				<div class="col-sm-1">
+				</div>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+
+
+<!-- Error Orders -->
+{% else %}
+	<p>
+		<br>
+		{{err_msg_orders}}
+	</p>
+{% endif %}
+
+</div>
+
+
+<!-- Error -->
+{% else %}
+	<p>
+		{{err_msg}}		
+	</p>
+{% endif %}
+
+
+
+{% endblock %}

@@ -1,52 +1,26 @@
 #from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-
 import datetime
-
 from employees.models import *
 from orders.models import *
-
 
 # Create your views here.
 
 
 
-# ------------------------------------------------ Stories ---------------------
-
-# Indes
-def index(request):
-	print()
-	print('Index')
-
-	title = 'Hello Stories !'
-
-	#objs = Order.objects.exclude(state='Pagado')
-
-	#err_msg = "No existe ningún Pedido todavía."
-
-	ctx = {
-			'title': title,
-			#'objs': objs,
-			#'err_msg': err_msg,
-		}
-
-	output = render(request, 'stories/index.html', ctx)
-
-	return HttpResponse(output)
-
-
 
 
 # ------------------------------------------------ Waiters ---------------------
-# Waiter
+
+# Waiters
 def waiters(request):
 	print()
 	print('Waiters')
 
 	title = 'Mozos'
 
-	objs = Employee.objects.filter(is_waiter=True)
+	objs = Employee.objects.filter(is_waiter=True, active=True)
 
 	err_msg = "No existe ningún Mozo todavía."
 
@@ -76,19 +50,19 @@ def waiter(request, waiter_id):
 
 	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
 	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
-
-	#orders = Order.objects.filter(waiter=waiter_id)
 	orders = Order.objects.filter(waiter=waiter_id, date__range=(today_min, today_max))
 
-
-
 	err_msg = "Mozo no existe."
+	
+	err_msg_orders = "No existe ningún Pedido Abierto."
 
+	
 	ctx = {
 			'title': title,
 			'obj': obj,
 			'orders': orders,
 			'err_msg': err_msg,
+			'err_msg_orders': err_msg_orders,
 		}
 
 	output = render(request, 'stories/waiter.html', ctx)
@@ -107,7 +81,7 @@ def cooks(request):
 
 	title = 'Cocineros'
 
-	objs = Employee.objects.filter(is_cook=True)
+	objs = Employee.objects.filter(is_cook=True, active=True)
 
 	err_msg = "No existe ningún Cocinero todavía."
 
@@ -151,9 +125,33 @@ def cook(request, cook_id):
 
 
 
-	#output = render(request, 'stories/cook.html', ctx)
-	output = render(request, 'stories/waiter.html', ctx)
+	#output = render(request, 'stories/waiter.html', ctx)
+	output = render(request, 'stories/cook.html', ctx)
 
 	return HttpResponse(output)
 
 
+
+
+# ------------------------------------------------ Stories ---------------------
+
+# Index
+def index(request):
+	print()
+	print('Index')
+
+	title = 'Hello Stories !'
+
+	#objs = Order.objects.exclude(state='Pagado')
+
+	#err_msg = "No existe ningún Pedido todavía."
+
+	ctx = {
+			'title': title,
+			#'objs': objs,
+			#'err_msg': err_msg,
+		}
+
+	output = render(request, 'stories/index.html', ctx)
+
+	return HttpResponse(output)

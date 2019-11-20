@@ -49,6 +49,7 @@ def order_lines(request, order_id):
 	return HttpResponse(output)
 
 
+
 def add_line_order(request, order_id):
 	print()
 	print('Add line Order')
@@ -157,18 +158,38 @@ def index(request):
 
 
 # Order
+def order_cook(request, order_id):
+	print()
+	print('Order Cook')
+
+	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
+	
+	title = 'Día del Cocinero - ' + obj.name
+
+	lines = OrderLine.objects.filter(order=order_id)
+
+	ctx = {
+			'title': title,
+			'obj': obj,
+			'lines':	lines,
+		}
+
+	#return	render(request, 'orders/order.html', ctx)
+	return	render(request, 'orders/order_cook.html', ctx)
+
+
+
+
+
+# Order
 def order(request, order_id):
 	print()
 	print('Order')
 
-
 	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
 	
-	#url = obj.get_absolute_url
-	#url = Order.get_absolute_url()
-	#print(url)
-
-	title = obj.name
+	#title = obj.name
+	title = 'Día del Mesero - ' + obj.name
 
 	lines = OrderLine.objects.filter(order=order_id)
 
@@ -179,7 +200,6 @@ def order(request, order_id):
 		}
 
 	return	render(request, 'orders/order.html', ctx)
-
 
 
 

@@ -34,6 +34,7 @@
           </li>
 
 
+
           <!-- Cook -->
           <li
               {% if 'cook' in request.path %}
@@ -47,7 +48,7 @@
 
 
           <li
-              {% if '' in request.path %}
+              {% if 'menu' in request.path %}
                 class="nav-item active mr-3"
               {% else %}
                 class="nav-item mr-3"
@@ -57,111 +58,9 @@
           </li>
 
 
-<!--
-
-          <li
-              {% if 'menu' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'menus' %}">Menus</a>
-          </li>
-
-
-          <li
-              {% if 'item' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'items' %}">Platos</a>
-
-
-          <li
-              {% if 'famil' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'families' %}">Familias</a>
-          </li>
--->
 
 
 
-<!-- Employees -->
-
-<!--
-          <li
-              {% if 'waiter' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'waiters' %}">Mozos</a>
-
-          <li
-              {% if 'cook' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'cooks' %}">Cocineros</a>
-
-
-          <li
-              {% if 'table' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'tables' %}">Mesas</a>
-
-          <li
-              {% if 'line' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'lines' %}">Líneas</a>
-          </li>
-
-          <li
-              {% if 'all' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'employees_all' %}">Empleados</a>
-
-
-          <li
-              {% if 'order' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'orders' %}">Pedidos</a>
-
-          <li
-              {% if 'sales' in request.path %}
-                class="nav-item active mr-3"
-              {% else %}
-                class="nav-item mr-3"
-              {% endif %}
-          >
-            <a class="nav-link" href="{% url 'order_sales' %}">Ventas</a>
--->
 
 
         </ul>

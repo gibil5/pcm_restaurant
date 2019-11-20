@@ -143,6 +143,85 @@ def delete(request, line_id):
 
 
 
+
+
+# Update Line State Minus
+def update_line_state_minus(request, line_id):
+	print()
+	print('update Line state minus')
+
+	obj = get_object_or_404(OrderLine, pk=line_id)
+
+	print(obj.state)
+
+
+
+	if obj.state in ['Pagado']:
+
+		obj.state = 'Servido'
+
+
+	elif obj.state in ['Servido']:
+
+		obj.state = 'Listo'
+
+
+	if obj.state in ['Listo']:
+
+		obj.state = 'En preparacion'
+
+
+	elif obj.state in ['En preparacion']:
+
+		obj.state = 'Inicio'
+
+
+	obj.save()
+
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+
+
+# Update Line State Plus
+def update_line_state_plus(request, line_id):
+	print()
+	print('update Line state plus')
+
+	obj = get_object_or_404(OrderLine, pk=line_id)
+
+	print(obj.state)
+
+	if obj.state in ['Inicio']:
+
+		obj.state = 'En preparacion'
+
+	elif obj.state in ['En preparacion']:
+
+		obj.state = 'Listo'
+
+	elif obj.state in ['Listo']:
+
+		obj.state = 'Servido'
+
+	elif obj.state in ['Servido']:
+
+		obj.state = 'Pagado'
+
+
+	obj.save()
+
+
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+
+
+
+
+
+
+
 # Update
 def update(request, line_id):
 	print()
@@ -183,6 +262,8 @@ def update(request, line_id):
 		output = render(request, 'lines/edit.html', ctx)
 
 		return HttpResponse(output)
+
+
 
 
 

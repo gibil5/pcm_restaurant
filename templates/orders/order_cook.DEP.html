@@ -1,0 +1,42 @@
+<!--
+<div class="container">
+	<ul class="list-group">
+		{% include 'orders/_obj_h_field.html' with name='Estado' value=obj.state %}
+		{% include 'orders/_obj_h_field.html' with name='Mesa' value=obj.table %}
+		{% include 'orders/_obj_h_field.html' with name='Mozo' value=obj.waiter %}
+		{% include 'orders/_obj_h_field.html' with name='Cocinero' value=obj.cook %}
+		{% include 'orders/_obj_h_field.html' with name='Total' value=obj.total %}
+	</ul>
+<br>
+-->
+
+
+
+
+
+
+{% if line.state == 'Inicio' %}
+
+		<a href="{% url 'update_line_preparation' line.id %}">
+			<input type=button value="En Preparación" onClick=""  class="btn btn-success">
+		</a>
+
+{% else %}
+
+	{% if line.state == 'preparation' %}
+		<a href="{% url 'update_line_ready' line.id %}">
+			<input type=button value="Listo para servir" onClick=""  class="btn btn-success">
+		</a>
+	{% else %}
+
+		{% if line.state == 'ready' %}
+			<a href="{% url 'update_line_served' line.id %}">
+				<input type=button value="Servido" onClick=""  class="btn btn-success">
+			</a>
+		{% else %}
+
+		{% endif %}
+
+	{% endif %}
+
+{% endif %}

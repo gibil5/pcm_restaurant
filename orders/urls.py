@@ -21,9 +21,22 @@ urlpatterns = [
 
 
 
+
+
 	path('<int:order_id>', views.order, name='order'),
 
+	path('order_cook/<int:order_id>', views.order_cook, name='order_cook'),
+
+
+	
+
+
 	path('add', views.add, name='add_order'),
+
+	#path('add_order/<int:employee_id>', views.add_order, name='add_order_cook'),
+
+
+
 
 	path('delete/<int:order_id>', views.delete, name='delete_order'),
 

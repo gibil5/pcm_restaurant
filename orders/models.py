@@ -28,16 +28,18 @@ class Order(models.Model):
 		verbose_name_plural = 'Pedidos'
 
 
+	# States
 	draft = 'Inicio'
 	preparation = 'Preparación'
+	ready = 'Listo'
 	served = 'Servido'
 	paid = 'Pagado'
 	cancel = 'Cancelado'
 
-
 	STATES = [
 			    (draft, 'Inicio'),
 			    (preparation, 'En preparacion'),
+			    (ready, 'Listo'),
 				(served, 'Servido'),
 				(paid, 'Pagado'),
 			    (cancel, 'Cancelado'),
@@ -46,6 +48,7 @@ class Order(models.Model):
 	state = models.CharField(
 			max_length=100,
 			choices=STATES,
+
 			default = draft,
 		)
 
@@ -224,7 +227,7 @@ class OrderLine(models.Model):
 	"""
 
 	class Meta:
-		#ordering = ('-date',)
+		ordering = ('item',)
 		verbose_name = 'Línea'
 		verbose_name_plural = 'Líneas'
 
@@ -241,8 +244,6 @@ class OrderLine(models.Model):
 		).title()	
 
 
-
-
 	total = models.DecimalField(
 		'total',
 		max_digits=6, 
@@ -257,6 +258,29 @@ class OrderLine(models.Model):
 
 
 
+	# States
+	draft = 'Inicio'
+	preparation = 'Preparación'
+	ready = 'Listo'
+	served = 'Servido'
+	paid = 'Pagado'
+	cancel = 'Cancelado'
+
+	STATES = [
+			    (draft, 'Inicio'),
+			    (preparation, 'En preparacion'),
+			    (ready, 'Listo'),
+				(served, 'Servido'),
+				(paid, 'Pagado'),
+			    (cancel, 'Cancelado'),
+			]
+
+	state = models.CharField(
+			max_length=100,
+			choices=STATES,
+
+			default = draft,
+		)
 
 
 
