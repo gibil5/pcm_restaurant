@@ -123,6 +123,27 @@ def order_cook(request, order_id):
 
 
 
+# Order Cook
+def order_waiter(request, order_id):
+	print()
+	print('Order Waiter')
+
+	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
+	
+	title = 'Día del Mesero - ' + obj.name
+
+	lines = OrderLine.objects.filter(order=order_id)
+
+	ctx = {
+			'title': title,
+			'obj': obj,
+			'lines':	lines,
+		}
+
+	#return	render(request, 'orders/order_waiter.html', ctx)
+	return	render(request, 'orders/order.html', ctx)
+
+
 
 
 # Order
@@ -132,8 +153,8 @@ def order(request, order_id):
 
 	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
 	
-	#title = obj.name
-	title = 'Día del Mesero - ' + obj.name
+	title = obj.name
+	#title = 'Día del Mesero - ' + obj.name
 
 	lines = OrderLine.objects.filter(order=order_id)
 

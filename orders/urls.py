@@ -30,6 +30,9 @@ urlpatterns = [
 
 	path('order_cook/<int:order_id>', views.order_cook, name='order_cook'),
 
+	path('order_waiter/<int:order_id>', views.order_waiter, name='order_waiter'),
+
+
 
 	
 
