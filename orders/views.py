@@ -1,10 +1,15 @@
 """
-Orders
+Views - Orders
+
+Created: 	   Oct 2019
+Last:		21 Nov 2019
 """
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
+
+import datetime
 
 from .models import *
 
@@ -14,107 +19,25 @@ from . import lib
 
 
 
+# ------------------------------------------------ Orders ---------------------
 
-# ------------------------------------------------ Lines ---------------------
-
-# Index Order Lines
-def order_lines(request, order_id):
+def orders_today(request):
+	
 	print()
-	print('Order Lines')
+	print('Orders')
 
+	title = 'Pedidos Hoy'
 
-	order = get_object_or_404(Order, pk=order_id)  		# Get Object
+	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
 
-	#title = 'Líneas'
-	#title = order
-	title = 'Líneas Pedido - ' + order.name
-
-
-	#objs = OrderLine.objects.all()
-	objs = OrderLine.objects.filter(order=order_id)
-
-
-	err_msg = "No existe ningún Linea todavía."
-
-
-	ctx = {
-			'title': title,
-			'objs': objs,
-			'err_msg': err_msg,
-			'order': order,
-		}
-
-	output = render(request, 'orders/order_lines.html', ctx)
-
-	return HttpResponse(output)
+	#objs = Order.objects.exclude(state='Pagado')
+	#objs = Order.objects.filter(waiter=waiter_id, date__range=(today_min, today_max))
+	objs = Order.objects.filter(date__range=(today_min, today_max))
 
 
 
-def add_line_order(request, order_id):
-	print()
-	print('Add line Order')
-
-	title = 'Agregar Línea en Pedido'
-
-	order = get_object_or_404(Order, pk=order_id)
-
-
-	# Create and populate
-	if request.method == 'POST':
-		print('Create and populate')
-
-		form = lib.NewOrderLineForm(request.POST)
-
-		if form.is_valid():
-			print('Is Valid')
-
-			form_instance = lib.NewOrderLineForm(request.POST)
-
-			new_line = form_instance.save()
-			print(new_line)
-
-			return HttpResponseRedirect('/orders/thanks/')
-
-
-	# Create a blank form
-	else:
-
-		line = OrderLine()
-
-		line.order = order
-
-
-		form = lib.NewOrderLineForm(instance=line)
-
-		ctx = {
-				'title': title,
-				'form': form,
-				'order': order,
-			}
-
-		#output = render(request, 'lines/add.html', ctx)
-		output = render(request, 'orders/order_add_line.html', ctx)
-
-		return HttpResponse(output)
-
-
-
-
-
-
-# ------------------------------------------------ Sales ---------------------
-
-# Index
-def sales(request):
-	print()
-	print('Sales')
-
-	title = 'Ventas'
-
-	#objs = Order.objects.all()
-	objs = Order.objects.filter(state='Pagado')
-
-	err_msg = "No existe ninguna Venta todavía."
+	err_msg = "No existe ningún Pedido todavía."
 
 	ctx = {
 			'title': title,
@@ -128,8 +51,6 @@ def sales(request):
 
 
 
-
-# ------------------------------------------------ Orders ---------------------
 
 # Index
 def index(request):
@@ -155,9 +76,33 @@ def index(request):
 
 
 
+# Index Sales
+def sales(request):
+	print()
+	print('Sales')
+
+	title = 'Ventas'
+
+	#objs = Order.objects.all()
+	objs = Order.objects.filter(state='Pagado')
+
+	err_msg = "No existe ninguna Venta todavía."
+
+	ctx = {
+			'title': title,
+			'objs': objs,
+			'err_msg': err_msg,
+		}
+
+	output = render(request, 'orders/index.html', ctx)
+
+	return HttpResponse(output)
 
 
-# Order
+
+
+
+# Order Cook
 def order_cook(request, order_id):
 	print()
 	print('Order Cook')
@@ -174,7 +119,6 @@ def order_cook(request, order_id):
 			'lines':	lines,
 		}
 
-	#return	render(request, 'orders/order.html', ctx)
 	return	render(request, 'orders/order_cook.html', ctx)
 
 
@@ -203,7 +147,7 @@ def order(request, order_id):
 
 
 
-
+# Add
 def add(request):
 	print()
 	print('Add order')
@@ -247,10 +191,7 @@ def add(request):
 
 
 
-
-
-
-
+# Delete
 def delete(request, order_id):
 	print()
 	print('Delete Order')
@@ -273,10 +214,8 @@ def delete(request, order_id):
 			return HttpResponseRedirect('/orders/thanks/')
 
 
-
 	# Create delete form
 	else:
-
 		form = lib.DeleteForm()
 
 		ctx = {
@@ -286,7 +225,6 @@ def delete(request, order_id):
 		}
 		output = render(request, 'orders/delete.html', ctx)
 		return HttpResponse(output)
-
 
 
 
@@ -337,7 +275,7 @@ def update(request, order_id):
 		return HttpResponse(output)
 
 
-
+# Thanks
 def order_thanks(request):
 	print()
 	print('Orders Thanks')
@@ -345,4 +283,80 @@ def order_thanks(request):
 	output = render(request, 'orders/thanks.html', ctx)
 	return HttpResponse(output)
 
+
+
+
+# ------------------------------------------------ Lines ---------------------
+# Index Order Lines
+def order_lines(request, order_id):
+	print()
+	print('Order Lines')
+
+	order = get_object_or_404(Order, pk=order_id)  		# Get Object
+
+	title = 'Líneas Pedido - ' + order.name
+
+	#objs = OrderLine.objects.all()
+	objs = OrderLine.objects.filter(order=order_id)
+
+	err_msg = "No existe ningún Linea todavía."
+
+	ctx = {
+			'title': title,
+			'objs': objs,
+			'err_msg': err_msg,
+			'order': order,
+		}
+
+	output = render(request, 'orders/order_lines.html', ctx)
+
+	return HttpResponse(output)
+
+
+
+def add_line_order(request, order_id):
+	print()
+	print('Add line Order')
+
+	title = 'Agregar Línea en Pedido'
+
+	order = get_object_or_404(Order, pk=order_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = lib.NewOrderLineForm(request.POST)
+
+		if form.is_valid():
+			print('Is Valid')
+
+			form_instance = lib.NewOrderLineForm(request.POST)
+
+			new_line = form_instance.save()
+			print(new_line)
+
+			return HttpResponseRedirect('/orders/thanks/')
+
+
+	# Create a blank form
+	else:
+
+		line = OrderLine()
+
+		line.order = order
+
+		form = lib.NewOrderLineForm(instance=line)
+
+		ctx = {
+				'title': title,
+				'form': form,
+				'order': order,
+			}
+
+		#output = render(request, 'lines/add.html', ctx)
+		output = render(request, 'orders/order_add_line.html', ctx)
+
+		return HttpResponse(output)
 

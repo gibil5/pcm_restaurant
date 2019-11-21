@@ -13,20 +13,33 @@
 <div class="row">
 
 	<div class="col-sm-4">
-		<h2>{{title}}</h2>
+		<h2>{{title}}
+		({{objs.count}})</h2>
 	</div>
 	
-	<div class="col-sm-5">
+	<div class="col-sm-4">
 		<a href="{% url 'add_order' %}">Crear</a>
 	</div>
-
+<!--
 	<div class="col-sm-3">
-
 		<a href="{% url 'lines' %}">
 			<h3>Líneas</h3>            
         </a>
-
 	</div>
+-->
+
+	<div class="col-sm-2">
+		<a href="{% url 'orders_today' %}">
+			<h4>Hoy</h4>            
+        </a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="{% url 'orders' %}">
+			<h4>Todos</h4>            
+        </a>
+	</div>
+
 </div>
 <br>
 

@@ -17,6 +17,9 @@ urlpatterns = [
 
 	path('menus', views.index, name='menus'),
 
+	#path('menus_today', views.menus_today, name='menus_today'),
+
+
 	path('<int:menu_id>', views.detail, name='menu'),
 
 	path('add', views.add, name='add_menu'),
