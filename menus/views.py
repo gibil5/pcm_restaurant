@@ -214,7 +214,12 @@ def update(request, menu_id):
 
 			form_instance.save()
 
-			return HttpResponseRedirect('/thanks/')
+			#return HttpResponseRedirect('/thanks/')
+			#return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+			return HttpResponseRedirect('/menus/')
+			#return HttpResponseRedirect('menus/menus.html')
+
+
 
 	# Create a blank form
 	else:
@@ -414,6 +419,13 @@ def add(request):
 def thanks(request):
 	print()
 	print('Thanks')
+	
 	ctx = {}
+	
 	output = render(request, 'menus/thanks.html', ctx)
+	
 	return HttpResponse(output)
+
+
+
+

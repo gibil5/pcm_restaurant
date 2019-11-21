@@ -14,8 +14,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
 
-    #path('', include('menus.urls')),  			# Root
-    path('', include('stories.urls')),            # Root
+    path('', include('menus.urls')),  			# Root
+    #path('', include('stories.urls')),            # Root
 
 
     path('menus/', include('menus.urls')),
