@@ -26,7 +26,7 @@ urlpatterns = [
 	path('update/<int:menu_id>', views.update, name='update_menu'),
 
 	path('thanks/', views.thanks, name='thanks_menu'),
-	#path('menu_thanks/', views.thanks, name='thanks_menu'),
+
 
 	
 	# Add item into menu

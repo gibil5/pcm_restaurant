@@ -214,10 +214,9 @@ def update(request, menu_id):
 
 			form_instance.save()
 
-			#return HttpResponseRedirect('/thanks/')
 			#return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-			return HttpResponseRedirect('/menus/')
-			#return HttpResponseRedirect('menus/menus.html')
+			#return HttpResponseRedirect('/menus/')
+			return HttpResponseRedirect('/thanks/')
 
 
 
