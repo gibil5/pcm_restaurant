@@ -1,6 +1,11 @@
 from django.db import models
 
+import datetime
+
 # Create your models here.
+#from orders.models import *
+#from orders.models import Order
+#from tables.models import Table 
 
 
 
@@ -65,6 +70,26 @@ class Employee(models.Model):
 			'es cocinero ?',
 			default=False,
 		)
+
+
+	def get_nr_open_orders(self):
+		print('mark')
+
+		from orders.models import Order
+
+		today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+		today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+
+		#objs = Order.objects.all()
+		#objs = Order.objects.filter(waiter_id=self.id)
+		objs = Order.objects.filter(waiter_id=self.id, date__range=(today_min, today_max))
+
+
+		count = objs.count()
+		#ords = orders.models.Order.objects.all()
+
+		#return orders
+		return count
 
 
 	def __str__(self): 

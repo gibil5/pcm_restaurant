@@ -44,8 +44,11 @@ INSTALLED_APPS = [
 
    'stories.apps.StoriesConfig',
    'lines.apps.LinesConfig',
+
    'orders.apps.OrdersConfig',
+
    'tables.apps.TablesConfig',
+
    'employees.apps.EmployeesConfig',
    'families.apps.FamiliesConfig',
    'items.apps.ItemsConfig',

@@ -51,7 +51,6 @@ def clean_orders(request):
 
 	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
 	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
-
 	objs = Order.objects.filter(date__range=(today_min, today_max))
 	print(objs)
 

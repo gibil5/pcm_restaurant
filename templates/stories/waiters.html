@@ -16,18 +16,32 @@
 
 	<ul class="list-group">
 
+
 	{% for obj in objs %}
 
 		<li class="list-group-item">
 
+<div class="row">
+
+	<div class="col-sm-3">
 			<a href="{% url 'waiter' obj.id %}">
-
 				{{obj}}
-
 			</a>
+	</div>
+
+	<div class="col-sm-9">
+				{{obj.get_nr_open_orders}}
+	</div>
+
+</div>
+
+
+
 		</li>
 
 	{% endfor %}
+
+
 
 	</ul>
 </div>

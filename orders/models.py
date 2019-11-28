@@ -7,7 +7,6 @@ import locale
 
 
 # Create your models here.
-
 from tables.models import Table 
 from employees.models import Employee
 from items.models import Item
