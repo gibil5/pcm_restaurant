@@ -73,7 +73,6 @@ class Employee(models.Model):
 
 
 	def get_nr_open_orders(self):
-		print('mark')
 
 		from orders.models import Order
 
@@ -82,14 +81,18 @@ class Employee(models.Model):
 
 		#objs = Order.objects.all()
 		#objs = Order.objects.filter(waiter_id=self.id)
-		objs = Order.objects.filter(waiter_id=self.id, date__range=(today_min, today_max))
+
+		if self.is_waiter:
+			objs = Order.objects.filter(waiter_id=self.id, date__range=(today_min, today_max))
+
+		elif self.is_cook:
+			objs = Order.objects.filter(cook_id=self.id, date__range=(today_min, today_max))
 
 
 		count = objs.count()
-		#ords = orders.models.Order.objects.all()
 
-		#return orders
 		return count
+
 
 
 	def __str__(self): 
