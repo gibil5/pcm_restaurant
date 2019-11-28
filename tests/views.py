@@ -82,19 +82,28 @@ def create_orders(request):
 	#objs = Order.objects.exclude(state='Pagado')
 
 
-	table = get_object_or_404(Table, name='1')  		# Get Object
+	#table = get_object_or_404(Table, name='1')  		
+	table = Table.objects.order_by('?').first()
 
-	waiter = get_object_or_404(Employee, name='Jaime')  		# Get Object
 
-	cook = get_object_or_404(Employee, name='Gastón')  		# Get Object
+	#waiter = get_object_or_404(Employee, name='Jaime')  		
+	waiter = Employee.objects.filter(is_waiter=True).order_by('?').first()
+
+
+	#cook = get_object_or_404(Employee, name='Gastón')  		
+	cook = Employee.objects.filter(is_cookr=True).order_by('?').first()
+
 
 
 
 
 	#obj = Order()
 	obj = Order.objects.create(
+			
 			table_id=table.id,
+			
 			waiter_id=waiter.id,
+			
 			cook_id=cook.id,
 		)
 	objs.append(obj)
@@ -102,27 +111,17 @@ def create_orders(request):
 
 
 	# Lines
-	#names = ['Causa', 'Sancochado', 'Helado', "Café", ]
-	#names = ['Causa', 'Sancochado', 'Helado',]
-	#names = ['Entradas', 'Platos de Fondo', 'Postres',]
-	#names = ['Entradas',]
-
-	#names = ['Entradas', 'Postres', 'Platos de Fondo', 'Bebidas Calientes' ]
 	names = ['entries', 'main_courses', 'desserts', 'hot_drinks', ]
-
 
 	for name in names:
 
 		#item = get_object_or_404(Item, name=name)  		# Get Object
 
-
 		family = get_object_or_404(Family, short_name=name)  		# Get Object
-
 
 		#MyModel.objects.order_by('?').first()
 		#item = Item.objects.order_by('?').first()
 		item = Item.objects.filter(family_id=family.id).order_by('?').first()
-
 
 
 		line = OrderLine.objects.create(
