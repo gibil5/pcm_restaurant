@@ -1,21 +1,14 @@
-from django.shortcuts import render
-
+#from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
-
 from orders.models import *
-
 from tables.models import *
-
 from employees.models import *
-
 from items.models import *
 
-
-
 import datetime
-
+import random
 
 # Create your views here.
 
@@ -52,14 +45,12 @@ def clean_orders(request):
 	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
 	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
 	objs = Order.objects.filter(date__range=(today_min, today_max))
-	print(objs)
+	#print(objs)
 
 	objs.delete()
-	print(objs)
+	#print(objs)
 
-
-	ctx = {
-		}
+	ctx = {}
 
 	output = render(request, 'tests/clean_orders.html', ctx)
 
@@ -122,10 +113,13 @@ def create_orders(request):
 		#item = Item.objects.order_by('?').first()
 		item = Item.objects.filter(family_id=family.id).order_by('?').first()
 
+		qty = random.randint(1, 5)
 
 		line = OrderLine.objects.create(
 				order_id=obj.id,
-				qty=3,
+
+				qty=qty,
+
 				item_id=item.id,
 			)
 
