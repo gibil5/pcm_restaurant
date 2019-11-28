@@ -10,6 +10,7 @@ from items.models import *
 import datetime
 import random
 
+
 # Create your views here.
 
 
@@ -37,6 +38,87 @@ def tests(request):
 
 
 
+# create orders
+def create_orders(request):
+	"""
+	Create Random Order 
+	Using:
+		qty = random.randint(1, 5)
+		MyModel.objects.order_by('?').first()
+	"""
+
+	print()
+	print('Create Orders')
+
+	objs = []
+
+	title = 'Create Orders'
+
+	#objs = Order.objects.exclude(state='Pagado')
+
+	#table = get_object_or_404(Table, name='1')  		
+	table = Table.objects.order_by('?').first()  	# Get a random object
+
+	#waiter = get_object_or_404(Employee, name='Jaime')  		
+	waiter = Employee.objects.filter(is_waiter=True).order_by('?').first()
+
+	#cook = get_object_or_404(Employee, name='Gastón')  		
+	cook = Employee.objects.filter(is_cook=True).order_by('?').first()
+
+
+
+	# Create Order
+	obj = Order.objects.create(
+			table_id=table.id,
+			waiter_id=waiter.id,
+			cook_id=cook.id,
+		)
+
+	objs.append(obj)
+
+
+
+	# Create Lines
+	names = ['drinks', 'entries', 'main_courses', 'desserts', 'hot_drinks',]
+
+	for name in names:
+
+		family = get_object_or_404(Family, short_name=name)  		# Get Object
+
+
+		count = Item.objects.filter(family_id=family.id).count()
+		print(count)
+
+
+		if count > 0:
+			#item = get_object_or_404(Item, name=name)  		# Get Object
+			#item = Item.objects.order_by('?').first()
+			item = Item.objects.filter(family_id=family.id).order_by('?').first()
+
+			qty = random.randint(1, 5)
+
+			line = OrderLine.objects.create(
+					order_id=obj.id,
+					qty=qty,
+					item_id=item.id,
+				)
+
+
+	#err_msg = "No existe ningún Pedido todavía."
+
+	ctx = {
+			'title': title,
+			'objs': objs,
+			#'err_msg': err_msg,
+		}
+
+	output = render(request, 'tests/create_orders.html', ctx)
+
+	return HttpResponse(output)
+
+
+
+
 # clean orders
 def clean_orders(request):
 	print()
@@ -55,88 +137,3 @@ def clean_orders(request):
 	output = render(request, 'tests/clean_orders.html', ctx)
 
 	return HttpResponse(output)
-
-
-
-
-# create_orders
-def create_orders(request):
-	print()
-	print('jx - Create Orders')
-
-	objs = []
-
-
-	title = 'Create Orders'
-
-	#objs = Order.objects.exclude(state='Pagado')
-
-
-	#table = get_object_or_404(Table, name='1')  		
-	table = Table.objects.order_by('?').first()
-
-
-	#waiter = get_object_or_404(Employee, name='Jaime')  		
-	waiter = Employee.objects.filter(is_waiter=True).order_by('?').first()
-
-
-	#cook = get_object_or_404(Employee, name='Gastón')  		
-	cook = Employee.objects.filter(is_cook=True).order_by('?').first()
-
-
-
-
-
-	#obj = Order()
-	obj = Order.objects.create(
-			
-			table_id=table.id,
-			
-			waiter_id=waiter.id,
-			
-			cook_id=cook.id,
-		)
-	objs.append(obj)
-
-
-
-	# Lines
-	names = ['entries', 'main_courses', 'desserts', 'hot_drinks', ]
-
-	for name in names:
-
-		#item = get_object_or_404(Item, name=name)  		# Get Object
-
-		family = get_object_or_404(Family, short_name=name)  		# Get Object
-
-		#MyModel.objects.order_by('?').first()
-		#item = Item.objects.order_by('?').first()
-		item = Item.objects.filter(family_id=family.id).order_by('?').first()
-
-		qty = random.randint(1, 5)
-
-		line = OrderLine.objects.create(
-				order_id=obj.id,
-
-				qty=qty,
-
-				item_id=item.id,
-			)
-
-
-	#err_msg = "No existe ningún Pedido todavía."
-
-	ctx = {
-			'title': title,
-			'objs': objs,
-			#'err_msg': err_msg,
-		}
-
-
-	output = render(request, 'tests/create_orders.html', ctx)
-
-	return HttpResponse(output)
-
-
-
-
