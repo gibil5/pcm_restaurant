@@ -84,7 +84,7 @@ def create_orders(request):
 
 	table = get_object_or_404(Table, name='1')  		# Get Object
 
-	waiter = get_object_or_404(Employee, name='Javier')  		# Get Object
+	waiter = get_object_or_404(Employee, name='Jaime')  		# Get Object
 
 	cook = get_object_or_404(Employee, name='Gastón')  		# Get Object
 
