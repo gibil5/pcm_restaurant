@@ -5,8 +5,19 @@ from django.contrib import admin
 from .models import *
 
 
-admin.site.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
 
-#admin.site.register(Item)
+	list_display = ('name', 'date', 'active',)
 
-#admin.site.register(Family)
+	list_display_links = ('name',)
+
+	#list_filter = ('realtor',)
+
+	list_editable = ('active',)
+
+	#search_fields = ('title', 'description', 'address', 'city', 'zipcode', 'price')
+
+	#list_per_page = 25
+
+
+admin.site.register(Menu, MenuAdmin)

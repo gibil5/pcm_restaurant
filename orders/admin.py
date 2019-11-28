@@ -5,27 +5,44 @@ from django.contrib import admin
 
 from .models import *
 
-admin.site.register(Order)
 
 
 
 class OrderLineAdmin(admin.ModelAdmin):
 	print()
 
-	#fieldsets = [
-	#				(None, 		{'fields': ['name'] }),
-	#				('order', 	{'fields': ['order'] }),
-	#				('items', 	{'fields': ['items'] }),
-	#				('qty', 	{'fields': ['qty'] }),
-	#			]
+	list_display = ['name', 'state', 'item', 'qty', 'total', ]
 
-
-	list_display = ['name', 'order', 'item', 'qty']
+	list_display_links = ('name',)
 
 	list_filter = ['order']
 
+	#list_editable = ('active',)
 
-#admin.site.register(OrderLine)
+	#search_fields = ('title', 'description', 'address', 'city', 'zipcode', 'price')
+
+	#list_per_page = 25
+
+
+
+class OrderAdmin(admin.ModelAdmin):
+	print()
+
+	list_display = ['name', 'date', 'state', 'total',  'table', 'waiter', 'cook', 'active']
+
+	list_display_links = ('name', 'date')
+
+	#list_filter = ['order']
+
+	list_editable = ('active',)
+
+	#search_fields = ('title', 'description', 'address', 'city', 'zipcode', 'price')
+
+	#list_per_page = 25
+
+
+
 admin.site.register(OrderLine, OrderLineAdmin)
 
+admin.site.register(Order, OrderAdmin)
 
