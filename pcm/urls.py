@@ -14,16 +14,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
 
-    path('', include('menus.urls')),  			# Root
-    #path('', include('stories.urls')),            # Root
-
+    path('', include('menus.urls')),  			   # Root
 
     path('menus/', include('menus.urls')),
     
     path('items/', include('items.urls')),
 
     path('families/', include('families.urls')),
-
 
     path('employees/', include('employees.urls')),
     
@@ -33,6 +30,8 @@ urlpatterns = [
 
     path('lines/', include('lines.urls')),
 
-
     path('stories/', include('stories.urls')),
+
+
+    path('tests/', include('tests.urls')),
 ]

@@ -34,6 +34,15 @@ class Family(models.Model):
 	)
 
 
+	short_name = models.CharField(
+		#'nombre',
+		max_length=100,
+		blank=True
+	)
+
+
+
+
 	idx = models.IntegerField(
 		'orden',
 		default=0

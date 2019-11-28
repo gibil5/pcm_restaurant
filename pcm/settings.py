@@ -39,8 +39,10 @@ INSTALLED_APPS = [
 
     # Created by JRevilla
 
-   'stories.apps.StoriesConfig',
+   'tests.apps.TestsConfig',
 
+
+   'stories.apps.StoriesConfig',
    'lines.apps.LinesConfig',
    'orders.apps.OrdersConfig',
    'tables.apps.TablesConfig',
