@@ -91,7 +91,7 @@ def create_orders(request):
 
 
 	#cook = get_object_or_404(Employee, name='Gastón')  		
-	cook = Employee.objects.filter(is_cookr=True).order_by('?').first()
+	cook = Employee.objects.filter(is_cook=True).order_by('?').first()
 
 
 
