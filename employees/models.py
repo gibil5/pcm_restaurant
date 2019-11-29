@@ -88,10 +88,39 @@ class Employee(models.Model):
 		elif self.is_cook:
 			objs = Order.objects.filter(cook_id=self.id, date__range=(today_min, today_max))
 
-
 		count = objs.count()
 
 		return count
+
+
+
+
+	def get_total_open_orders(self):
+
+		from orders.models import Order
+
+		today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+		today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+
+		if self.is_waiter:
+			objs = Order.objects.filter(waiter_id=self.id, date__range=(today_min, today_max))
+
+		elif self.is_cook:
+			objs = Order.objects.filter(cook_id=self.id, date__range=(today_min, today_max))
+
+
+		total = 0
+		
+		
+		for obj in objs:
+
+			total = total + obj.total
+			#total =+ obj.total
+			
+
+		return total
+
+
 
 
 
