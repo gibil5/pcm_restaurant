@@ -1,8 +1,12 @@
 """
 Items - Tests
 
+Created: 	29 Nov 2019
+Last up: 	id
+
 Tests:
 	- Views:
+		- Index
 """
 
 from django.test import TestCase
@@ -12,6 +16,8 @@ from django.test import Client
 #from django.urls import reverse
 
 from .models import Item, Family
+
+from menus import lib
 
 
 # Create your tests here.
@@ -33,26 +39,10 @@ class ItemViewTest(TestCase):
 
 		# Create Client 
 		c = Client()
+
+		path = 'items'
 		
-		# Get Response to /items/
-		response = c.post('/items/')
-		#print(response)
-
-		# Test1 - Check Status Code - Response OK
-		print()
-		print('\tItems - Check Status Code')
-		self.assertEqual(response.status_code, 200)
-
-
-
-		# Get Response to /families/
-		#response = c.post('/families/')
-		#print(response)
-
-		# Test1 - Check Status Code - Response OK
-		#print()
-		#print('\tFamilies - Check Status Code')
-		#self.assertEqual(response.status_code, 200)
+		lib.test_status_code_ok(self, c, path)
 
 
 

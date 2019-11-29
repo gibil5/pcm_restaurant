@@ -1,8 +1,12 @@
 """
 Families - Tests
 
+Created: 	29 Nov 2019
+Last up: 	id
+
 Tests:
 	- Views:
+		- Index
 """
 
 from django.test import TestCase
@@ -12,6 +16,8 @@ from django.test import Client
 #from django.urls import reverse
 
 from items.models import Family
+
+from menus import lib
 
 
 # Create your tests here.
@@ -30,18 +36,15 @@ class FamilyViewTest(TestCase):
 		print('Test Family 1: Begin')
 
 
+
 		# Create Client 
 		c = Client()
+
+		path = 'families'
 		
-		# Get Response to /items/
-		response = c.post('/families/')
-		#print(response)
+		lib.test_status_code_ok(self, c, path)
 
 
-		# Test1 - Check Status Code - Response OK
-		print()
-		print('\tFamilies - Check Status Code')
-		self.assertEqual(response.status_code, 200)
 
 
 		print()

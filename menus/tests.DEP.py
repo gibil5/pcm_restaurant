@@ -1,3 +1,6 @@
+
+
+
 # Convenience method
 def create_question(question_text, date):
 	"""
@@ -5,6 +8,7 @@ def create_question(question_text, date):
 	#time = timezone.now() + datetime.timedelta(days=days)
 
 	return Menu.objects.create(name=question_text, date=date)
+
 
 
 
