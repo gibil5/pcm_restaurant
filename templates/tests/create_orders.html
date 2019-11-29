@@ -3,6 +3,9 @@
 {% block content %}
 
 
+<!-- Go Home -->
+{% include 'partials/_gotests.html' %}
+
 
 <!-- Title -->
 <div class="row">
@@ -29,11 +32,25 @@
 		<!-- Row -->
 		<div class="row">
 
-			<div class="col-sm-12">
+			<div class="col-sm-4">
 				<a href="{% url 'order' obj.id %}">
 					{{obj}}
 				</a>
 			</div>
+
+
+			<div class="col-sm-4">
+
+					{{obj.waiter}}
+
+			</div>
+
+			<div class="col-sm-4">
+
+					{{obj.cook}}
+
+			</div>
+
 		</div>
 	</li>
 {% endfor %}

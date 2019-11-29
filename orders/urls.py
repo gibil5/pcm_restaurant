@@ -10,8 +10,10 @@ urlpatterns = [
 
 	path('', views.index, name='orders'),
 
-	path('orders_today', views.orders_today, name='orders_today'),
+	#path('', views.orders_today, name='orders'),
 
+
+	path('orders_today', views.orders_today, name='orders_today'),
 	
 	path('sales', views.sales, name='order_sales'),
 

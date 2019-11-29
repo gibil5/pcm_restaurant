@@ -2,6 +2,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
+from django import forms
+
 from orders.models import *
 from tables.models import *
 from employees.models import *
@@ -13,6 +15,14 @@ import random
 
 # Create your views here.
 
+
+# ------------------------------------------------ Forms ---------------------
+
+class DeleteForm(forms.Form):
+	pass
+
+
+# ------------------------------------------------ Tests ---------------------
 
 # Tests
 def tests(request):
@@ -49,10 +59,13 @@ def create_orders(request):
 
 	print()
 	print('Create Orders')
+	#print('Crear Pedidos')
 
 	objs = []
 
-	title = 'Create Orders'
+	#title = 'Create Orders'
+	title = 'Crear Pedidos'
+
 
 	#objs = Order.objects.exclude(state='Pagado')
 
@@ -119,6 +132,10 @@ def create_orders(request):
 
 
 
+
+
+
+
 # clean orders
 def clean_orders(request):
 	print()
@@ -137,3 +154,62 @@ def clean_orders(request):
 	output = render(request, 'tests/clean_orders.html', ctx)
 
 	return HttpResponse(output)
+
+
+
+def clean_orders_for_today():
+	print()
+	print('Clean Orders')
+
+	today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+	today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+
+	objs = Order.objects.filter(date__range=(today_min, today_max))
+	#print(objs)
+
+	objs.delete()
+	#print(objs)
+
+
+
+
+def delete_orders(request):
+	print()
+	print('Delete Orders')
+
+
+	#item = get_object_or_404(Item, pk=item_id)
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('mark')
+
+		#form = DeleteItemForm(request.POST)
+		form = DeleteForm(request.POST)
+
+		if form.is_valid():
+
+		#	item.delete()					# Delete !!!
+			clean_orders_for_today()
+
+		#	return HttpResponseRedirect('/thanks/')
+			return HttpResponseRedirect('/tests/')
+
+
+
+	# Create delete form
+	else:
+
+		#form = DeleteItemForm()
+		form = DeleteForm()
+
+		ctx = {
+				#'item': item,
+				'form': form,
+		}
+		#output = render(request, 'items/delete.html', ctx)
+		output = render(request, 'tests/delete_orders.html', ctx)
+		return HttpResponse(output)
+
+

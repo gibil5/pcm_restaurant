@@ -1,0 +1,36 @@
+{% extends "menus/base.html" %}
+
+{% block content %}
+
+
+
+<!-- Go Home -->
+{% include 'partials/_gotests.html' %}
+
+
+<h2>Eliminar Pedidos de Hoy ?</h2>
+<br>
+
+
+<div class="container">
+
+<form action="{% url 'clean_orders' %}" method="post">
+
+    {% csrf_token %}
+	{{ form.as_p }}
+
+    <td><input type="submit" value="Si"></td>
+</form>
+<br>
+
+
+<form action="{% url 'tests' %}" method="post">
+    {% csrf_token %}
+	{{ form.as_p }}
+
+    <td><input type="submit" value="No"></td>
+</form>
+</div>
+<br>
+
+{% endblock %}
