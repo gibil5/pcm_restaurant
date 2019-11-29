@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import modelform_factory, modelformset_factory
 
-
 from .models import *
 
 

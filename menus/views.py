@@ -103,6 +103,7 @@ def add_item(request, menu_id, family_id):
 
 		# Form from a Model
 		form = MenuForm(instance=menu, initial={'family': family.name,})
+		#form = lib.MenuForm(instance=menu, initial={'family': family.name,})
 
 
 		# Limit to the family
