@@ -42,8 +42,6 @@ def families(request):
 
 	#families = Family.objects.all()
 	families = Family.objects.filter(active=True)
-
-
 	print(families)
 
 	ctx = {

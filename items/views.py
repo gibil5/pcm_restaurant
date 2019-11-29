@@ -61,7 +61,7 @@ def items(request):
 	
 	# Items Dictionary, by Family
 	items_dic = lib.get_items_dic()
-	print(items_dic)
+	#print(items_dic)
 
 
 	# Items

@@ -59,14 +59,16 @@ class NewMenuForm(forms.ModelForm):
 def index(request):
 	
 	#latest_menu_list = Menu.objects.all()
-	latest_menu_list = Menu.objects.filter(active=True)
+	#latest_menu_list = Menu.objects.filter(active=True)
+	menus = Menu.objects.filter(active=True)
 	
 	#print(latest_menu_list)
 
 	err_msg = "No existe ningún Menú todavía."
 
 	ctx = {
-			'latest_menu_list': latest_menu_list,
+			#'latest_menu_list': latest_menu_list,
+			'menus': menus,
 			'err_msg': err_msg,
 		}
 
