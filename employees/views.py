@@ -6,12 +6,15 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 
-
 from .models import *
+
 
 # Create your views here.
 
 
+
+
+# ------------------------------------------------ Forms ---------------------
 # New Form
 class NewEmployeeForm(forms.ModelForm):
 
@@ -22,11 +25,8 @@ class NewEmployeeForm(forms.ModelForm):
 		fields = [
 					'name',
 					'active',
-
 					'is_waiter',
 					'is_cook',
-
-					#'category',
 					'image',
 					'description',
 				]
@@ -36,8 +36,10 @@ class NewEmployeeForm(forms.ModelForm):
 			'description': forms.Textarea(attrs={'rows':1, 'cols':100}),  
 		}
 
+
 class DeleteForm(forms.Form):
 	pass
+
 
 
 # ------------------------------------------------ Employees ---------------------

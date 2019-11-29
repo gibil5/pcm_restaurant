@@ -3,7 +3,6 @@ from django.forms import modelform_factory, modelformset_factory
 
 from .models import *
 
-
 # ------------------------------------------------ Classes ---------------------
 class DeleteMenuForm(forms.Form):
 	pass

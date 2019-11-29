@@ -1,21 +1,63 @@
 """
 Views - Orders
-
-Created: 	   Oct 2019
-Last:		21 Nov 2019
 """
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
-
 import datetime
-
 from .models import *
 
-from . import lib
+#from . import lib
+
 
 # Create your views here.
+
+
+# ------------------------------------------------ Forms ---------------------
+
+# Order
+class NewOrderForm(forms.ModelForm):
+
+	class Meta:
+
+		model = Order
+
+		fields = [
+					'date',
+					'waiter',
+					'state',
+					'active',
+					'table',
+					'cook',
+				]
+
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+
+
+# Order Line
+class NewOrderLineForm(forms.ModelForm):
+
+	class Meta:
+
+		model = OrderLine
+
+		fields = [
+					'order',
+					'item',
+					'qty',
+					'state',
+				]
+
+	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+
+
+
+# Delete
+class DeleteForm(forms.Form):
+	pass
+
+
 
 
 
@@ -180,11 +222,11 @@ def add(request):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = lib.NewOrderForm(request.POST)
+		form = NewOrderForm(request.POST)
 
 		if form.is_valid():
 
-			form_instance = lib.NewOrderForm(request.POST)
+			form_instance = NewOrderForm(request.POST)
 
 			form_instance.cook_id = 1
 
@@ -199,7 +241,7 @@ def add(request):
 
 		order = Order()
 
-		form = lib.NewOrderForm(instance=order)
+		form = NewOrderForm(instance=order)
 
 		ctx = {
 				'title': title,
@@ -227,7 +269,7 @@ def delete(request, order_id):
 	if request.method == 'POST':
 		print('mark')
 
-		form = lib.DeleteForm(request.POST)
+		form = DeleteForm(request.POST)
 
 		if form.is_valid():
 
@@ -238,7 +280,7 @@ def delete(request, order_id):
 
 	# Create delete form
 	else:
-		form = lib.DeleteForm()
+		form = DeleteForm()
 
 		ctx = {
 				'title': title,
@@ -266,12 +308,12 @@ def update(request, order_id):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = lib.NewOrderForm(request.POST)
+		form = NewOrderForm(request.POST)
 
 		# check whether it's valid:
 		if form.is_valid():
 			
-			form_instance = lib.NewOrderForm(request.POST, instance=obj)
+			form_instance = NewOrderForm(request.POST, instance=obj)
 
 			form_instance.save()
 
@@ -282,7 +324,7 @@ def update(request, order_id):
 	else:
 
 		# Form from a Model
-		form = lib.NewOrderForm(instance=obj)
+		form = NewOrderForm(instance=obj)
 
 		# Context
 		ctx = {
@@ -349,12 +391,12 @@ def add_line_order(request, order_id):
 	if request.method == 'POST':
 		print('Create and populate')
 
-		form = lib.NewOrderLineForm(request.POST)
+		form = NewOrderLineForm(request.POST)
 
 		if form.is_valid():
 			print('Is Valid')
 
-			form_instance = lib.NewOrderLineForm(request.POST)
+			form_instance = NewOrderLineForm(request.POST)
 
 			new_line = form_instance.save()
 			print(new_line)
@@ -369,7 +411,7 @@ def add_line_order(request, order_id):
 
 		line.order = order
 
-		form = lib.NewOrderLineForm(instance=line)
+		form = NewOrderLineForm(instance=line)
 
 		ctx = {
 				'title': title,

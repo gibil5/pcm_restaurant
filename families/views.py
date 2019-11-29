@@ -1,12 +1,35 @@
+"""
+Families - Views
+"""
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 
-
+from items.models import *
 
 # Create your views here.
 
-from items.models import *
+
+
+
+
+# ------------------------------------------------ Forms ---------------------
+# New Form
+class NewFamilyForm(forms.ModelForm):
+
+	class Meta:
+
+		model = Family
+
+		fields = [
+					'name',
+					'idx',
+				]
+
+
+class DeleteFamilyForm(forms.Form):
+	pass
 
 
 
@@ -50,17 +73,6 @@ def family(request, family_id):
 
 
 
-# New Form
-class NewFamilyForm(forms.ModelForm):
-
-	class Meta:
-
-		model = Family
-
-		fields = [
-					'name',
-					'idx',
-				]
 
 # Add Family
 def add(request):
@@ -99,8 +111,6 @@ def add(request):
 
 
 
-class DeleteFamilyForm(forms.Form):
-	pass
 
 def delete(request, family_id):
 	print()

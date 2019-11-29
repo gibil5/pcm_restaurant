@@ -16,9 +16,7 @@ class NewOrderForm(forms.ModelForm):
 		fields = [
 					'date',
 					'waiter',
-
 					'state',
-
 					'active',
 					'table',
 					'cook',
@@ -27,8 +25,6 @@ class NewOrderForm(forms.ModelForm):
 	#items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
 
 
-#class DeleteForm(forms.Form):
-#	pass
 
 
 # Order Line
@@ -53,4 +49,5 @@ class NewOrderLineForm(forms.ModelForm):
 # Delete
 class DeleteForm(forms.Form):
 	pass
+
 

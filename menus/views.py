@@ -1,12 +1,56 @@
-#from django.shortcuts import render
+"""
+Menus - Views
+"""
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import *
 
-from . import lib 
+from django import forms
+from django.forms import modelform_factory, modelformset_factory
+
+#from . import lib
+from .models import *
 
 # Create your views here.
 
+
+
+# ------------------------------------------------ Form ---------------------
+class DeleteMenuForm(forms.Form):
+	pass
+	#your_name = forms.CharField(label='Your name', max_length=100)
+
+
+class MenuForm(forms.ModelForm):
+
+	class Meta:
+
+		model = Menu
+
+		fields = [
+					'name',
+					'date',
+					'family',
+					'items',
+				]
+
+	name = forms.CharField(max_length=100, label='Nombre')	
+	date = forms.DateField(required=False, label='Fecha')
+	items = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), widget=forms.widgets.CheckboxSelectMultiple, label='Platos')
+
+
+
+# New Form
+class NewMenuForm(forms.ModelForm):
+
+	class Meta:
+
+		model = Menu
+
+		fields = [
+					'name',
+					'date',
+				]
 
 
 
