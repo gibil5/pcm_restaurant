@@ -2,39 +2,52 @@
 
 {% block content %}
 
-{% include 'partials/_gostyle.html' %}
 
 
+<!-- Go Home -->
+{% include 'partials/_gocook.html' %}
+
+
+
+<!--
 <a href="{% url 'order' obj.id %}">
 	<input type=button value="Refrescar" onClick="" class="btn btn-success">
 </a>
 
-
-<!-- Go -->
 {% include 'partials/_goback.html' %}
+-->
 
 
 
 <!-- Name -->
-<h3>{{title}}</h3>
+<h3>
+	Pedido Abierto
+</h3>
+<br>
+
+<h4>
+	{{obj.date}}
+</h4>
 <br>
 
 
+<!--
 <div class="row">
 	<div class="col-sm-2">
 		<h5>Líneas</h5>
 	</div>
 
 	<div class="col-sm-2">
-		<!--
 		<a href="{% url 'order_add_line' obj.id %}">
 			<input type=button value="Agregar" onClick="" class="btn btn-warning">
 		</a>
-		-->
 	</div>
 </div>
 <br>
+-->
 
+
+{% include 'partials/_gostyle.html' %}
 
 <ul class="list-group">
 {% for line in lines %}

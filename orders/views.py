@@ -109,17 +109,18 @@ def order_cook(request, order_id):
 
 	obj = get_object_or_404(Order, pk=order_id)  		# Get Object
 	
-	title = 'Día del Cocinero - ' + obj.name
+	#title = 'Día del Cocinero - ' + obj.name
 
 	lines = OrderLine.objects.filter(order=order_id)
 
 	ctx = {
-			'title': title,
+			#'title': title,
 			'obj': obj,
 			'lines':	lines,
 		}
 
 	return	render(request, 'orders/order_cook.html', ctx)
+
 
 
 

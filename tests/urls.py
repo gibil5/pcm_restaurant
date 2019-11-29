@@ -1,5 +1,5 @@
 """
-Orders - Urls
+Tests - Urls
 """
 
 from django.urls import path

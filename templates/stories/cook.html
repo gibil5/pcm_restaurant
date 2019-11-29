@@ -2,24 +2,24 @@
 
 {% block content %}
 
-<!-- Go -->
-{% include 'partials/_gostyle.html' %}
 
 
-<!-- Refresh -->
-<a href="{% url 'waiter' obj.id %}">
-	<input type=button value="Refrescar" onClick="" class="btn btn-success">
-</a>
-<br>
-<br>
+<!-- Go Home -->
+{% include 'partials/_gocooks.html' %}
+
+
 
 
 <!-- Title -->
 <h3>
-	{{title}}
+	Día del Cocinero
 </h3>
 <br>
 
+
+
+<!-- Style -->
+{% include 'partials/_gostyle.html' %}
 
 
 <!-- Conditional -->

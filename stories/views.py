@@ -1,4 +1,7 @@
-#from django.shortcuts import render
+"""
+Stories - Views
+"""
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 import datetime
@@ -6,8 +9,6 @@ from employees.models import *
 from orders.models import *
 
 # Create your views here.
-
-
 
 
 
@@ -41,6 +42,7 @@ def waiters(request):
 def waiter(request, waiter_id):
 	print()
 	print('Waiter')
+
 
 	title = 'Día del Mesero'
 
@@ -97,12 +99,14 @@ def cooks(request):
 
 
 
+
 # Cook
 def cook(request, cook_id):
 	print()
 	print('Cook')
 
-	title = 'Día del Cocinero'
+
+	#title = 'Día del Cocinero'
 
 
 	obj = get_object_or_404(Employee, pk=cook_id)  		# Shortcut !
@@ -117,7 +121,7 @@ def cook(request, cook_id):
 	err_msg = "Cocinero no existe."
 
 	ctx = {
-			'title': title,
+			#'title': title,
 			'obj': obj,
 			'orders': orders,
 			'err_msg': err_msg,

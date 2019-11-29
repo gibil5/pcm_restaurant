@@ -2,16 +2,22 @@
 
 {% block content %}
 
-<!-- Go -->
-{% include 'partials/_gostyle.html' %}
+
+
+<!-- Go Home -->
+{% include 'partials/_gowaiters.html' %}
+
+
 
 
 <!-- Refresh -->
+<!--
 <a href="{% url 'waiter' obj.id %}">
 	<input type=button value="Refrescar" onClick="" class="btn btn-success">
 </a>
 <br>
 <br>
+-->
 
 
 <!-- Title -->
@@ -20,6 +26,9 @@
 </h3>
 <br>
 
+
+<!-- Style -->
+{% include 'partials/_gostyle.html' %}
 
 
 <!-- Conditional -->
