@@ -141,8 +141,8 @@ def order_waiter(request, order_id):
 			'lines':	lines,
 		}
 
-	#return	render(request, 'orders/order_waiter.html', ctx)
-	return	render(request, 'orders/order.html', ctx)
+	#return	render(request, 'orders/order.html', ctx)
+	return	render(request, 'orders/order_waiter.html', ctx)
 
 
 

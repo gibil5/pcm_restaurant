@@ -5,7 +5,7 @@
 
 
 <!-- Go Home -->
-{% include 'partials/_gocook.html' %}
+{% include 'partials/_gowaiter.html' %}
 
 
 
@@ -19,6 +19,26 @@
 <h4>
 	{{obj.date}}
 </h4>
+<br>
+
+
+<div class="container">
+	<ul class="list-group">
+		{% include 'orders/_obj_h_field.html' with name='Mozo' value=obj.waiter %}
+		{% include 'orders/_obj_h_field.html' with name='Cocinero' value=obj.cook %}
+		{% include 'orders/_obj_h_field.html' with name='Mesa' value=obj.table %}
+	</ul>
+<br>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-2">
+		<a href="{% url 'order_add_line' obj.id %}">
+			<input type=button value="Agregar Línea" onClick="" class="btn btn-warning">
+		</a>
+	</div>
+</div>
 <br>
 
 
