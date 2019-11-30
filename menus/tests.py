@@ -29,13 +29,8 @@ _MSG_ERROR_EMPTY = "No existe ningún Menú todavía."
 
 
 
-# Test Model View - Empty
-#class MenuEmptyTests(TestCase):
+# Test Model Empty Tests
 class ModelEmptyTests(TestCase):
-
-	#def __init__(self):
-	#	print()
-	#	print('MenuEmptyTests')
 
 
 	def setUp(self):
@@ -44,7 +39,6 @@ class ModelEmptyTests(TestCase):
 		
 		self.name = 'ModelEmptyTests'
 		
-		#self.password = 'boris_the_sneaky_russian'
 		#self.client = Client()  # Django's TestCase already sets self.client so this line isn't required
 		#self.login_status = self.createUserAndLogin(user_name, password)
 
@@ -59,8 +53,7 @@ class ModelEmptyTests(TestCase):
 		print()
 		print('\ttest_index_empty : Begin')
 
-		print(self.name)
-		#print(self.password)
+		#print(self.name)
 
 
 		# Create Client 
@@ -69,9 +62,7 @@ class ModelEmptyTests(TestCase):
 
 
 		# Get Response to /menus/
-		#response = c.post('/menus/')
 		response = c.post(self.path_index)
-
 		#print(response)
 
 
@@ -88,6 +79,7 @@ class ModelEmptyTests(TestCase):
 		#print('\tCheck Page Empty Message')
 		#self.assertContains(response, _MSG_ERROR_EMPTY)
 		self.assertContains(response, self.msg_error_index_empty)
+
 
 
 		# Test 3 - Check Context
