@@ -22,6 +22,7 @@ urlpatterns = [
 
 	path('<int:menu_id>', views.detail, name='menu'),
 
+
 	path('add', views.add, name='add_menu'),
 	
 	path('delete/<int:menu_id>', views.delete, name='delete_menu'),

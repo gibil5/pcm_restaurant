@@ -1,0 +1,15 @@
+Name               Stmts   Miss  Cover
+--------------------------------------
+menus/lib.py           6      0   100%
+menus/models.py       17      0   100%
+menus/tests.py        33      0   100%
+menus/views.py       146    114    22%
+pcm/wsgi.py            4      4     0%
+tables/models.py      11      1    91%
+tables/tests.py        1      1     0%
+tables/views.py       74     57    23%
+tests/models.py        1      0   100%
+tests/tests.py         1      1     0%
+tests/views.py        70     54    23%
+--------------------------------------
+TOTAL                364    232    36%

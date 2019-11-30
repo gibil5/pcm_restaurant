@@ -1,5 +1,64 @@
+# 30 Nov 2019
 
 
+# Test Menu Views Detail
+class MenuDetailViewTests(TestCase):
+
+	# Test 2
+	def test_detail_view_with_a_menu(self):
+		"""
+		Detail View with One Object
+		"""
+		print()
+		print('Test Menu 2: Begin')
+		print('Index View. One Menu')
+
+
+		c = Client()
+
+		response = c.post('/menus/56')
+
+		# Test1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		self.assertEqual(response.status_code, 200)
+
+
+
+# Test Menu Update
+class MenuUpdateViewTests(TestCase):
+
+	# Test 2
+	def test_update_view_with_a_menu(self):
+		"""
+		Detail View with One Object
+		"""
+		print()
+		print('Test Menu 2: Begin')
+		print('Index View. One Menu')
+
+
+		c = Client()
+
+		response = c.post('/menus/update/56')
+
+		# Test1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		self.assertEqual(response.status_code, 200)
+
+
+
+
+
+
+
+
+
+
+
+
+# 29 Nov 2019
 
 # Convenience method
 def create_question(question_text, date):

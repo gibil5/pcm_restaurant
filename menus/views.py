@@ -22,6 +22,7 @@ class DeleteMenuForm(forms.Form):
 
 
 class MenuForm(forms.ModelForm):
+#class MenuForm_(forms.ModelForm):
 
 	class Meta:
 
@@ -57,6 +58,8 @@ class NewMenuForm(forms.ModelForm):
 # ------------------------------------------------ Menus ---------------------
 
 def index(request):
+	print()
+	print('Menu - Index')
 	
 	#latest_menu_list = Menu.objects.all()
 	#latest_menu_list = Menu.objects.filter(active=True)
@@ -177,9 +180,13 @@ def add_item(request, menu_id, family_id):
 
 def update(request, menu_id):
 	print()
-	print('update Menu')
+	#print('update Menu')
+	print('Menu - Update - jx')
+
 
 	menu = get_object_or_404(Menu, pk=menu_id)
+	print(menu)
+
 
 	# Create and populate
 	if request.method == 'POST':
@@ -202,11 +209,13 @@ def update(request, menu_id):
 
 	# Create a blank form
 	else:
+		print('Create a blank form')
 
 		# Form from a Model
 		form = NewMenuForm(instance=menu)
 
 		form.fields['name'].label = "Nombre"
+
 
 		# Context
 		ctx = {

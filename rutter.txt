@@ -146,8 +146,13 @@ response.status_code
 
 200 (OK)
 
-
 response.content
+
+
+
+Coverage
+----------
+coverage run --rcfile=setup.cfg --source='.' manage.py test menus 
 
 
 
