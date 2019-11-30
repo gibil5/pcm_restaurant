@@ -30,7 +30,6 @@ from . import lib_tst
 
 
 
-
 # Test Menu Views Index - Empty
 class MenuEmptyTests(lib_tst.ModelEmptyTests):
 
@@ -45,8 +44,6 @@ class MenuEmptyTests(lib_tst.ModelEmptyTests):
 		self.msg_error_index_empty = "No existe ningún Menú todavía."
 
 		self.ctx_0_name = "menus"
-		
-		#self.ctx_0_value = False
 
 
 	def __str__(self):
@@ -57,69 +54,41 @@ class MenuEmptyTests(lib_tst.ModelEmptyTests):
 
 
 
-# Convenience method
-def create_obj(name, date):
-	return Menu.objects.create(name=name, date=date)
 
+# Test Menu Views Index - Empty
+class MenuIndexTests(lib_tst.ModelIndexTests):
 
-
-
-# Test Menu Views - Populated
-#class MenuOneViewTest(TestCase):
-
-
-# Test Menu Views - Index
-class MenuIndexTests(TestCase):
-
-
-
-	# Test 2 - Index
-	def test_index_view_with_a_menu(self):
-		"""
-		Test Index View with One Object
-		"""
+	def setUp(self):
 		print()
-		print('Test Menu 2: Begin')
-		print('Index View. One Menu')
+		print('setup - MenuIndexTests')
+
+		self.path_index = 'menus'
+
+		self.menu_name = '7 Nov 2019'
+		self.menu_date = timezone.now()
 
 
-		# Init
-		date= timezone.now()
-		name = '7 Nov 2019'
+		self.ctx_0_name = 'menus'
+
+		self.ctx_0_value = '<Menu: 7 Nov 2019>'
+
+		self.debug = False
 
 
-		# Create Menu
-		menu = create_obj(name, date)
+	# Convenience method
+	def create_obj(self):
 
-
-		# Create Client 
-		c = Client()
-
-		response = c.get(reverse('menus'))
-
-
-		# Test1 - Check Status Code - Response OK
-		print()
-		print('\tCheck Status Code')
-		self.assertEqual(response.status_code, 200)
+		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
 
 
 
-		#print(response)
-		#print(response.status_code)
-		#print(response.context['menus'])
-		#print(response.content)
 
 
-		# Test2 - Check Context - Menus
-		print()
-		print('\tCheck Context')
-		self.assertQuerysetEqual(
-			
-			response.context['menus'],
-			
-			['<Menu: 7 Nov 2019>']
-		)
+
+
+
+
+
 
 
 
