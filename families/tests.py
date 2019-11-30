@@ -12,41 +12,60 @@ Tests:
 from django.test import TestCase
 from django.test import Client
 
-#from django.utils import timezone
+from django.utils import timezone
 #from django.urls import reverse
 
 from items.models import Family
 
-from menus import lib
+from menus import lib, lib_tst
 
 
 # Create your tests here.
 
 
 # Test Menu Views - Index
-class FamilyViewTest(TestCase):
+class FamilyEmptyTests(lib_tst.ModelEmptyTests):
 
 
-	# Test 1
-	def test_index_empty(self):
-		"""
-		Test Index View with no Objects
-		"""
+	def setUp(self):
 		print()
-		print('Test Family 1: Begin')
-
-
-
-		# Create Client 
-		c = Client()
-
-		path = 'families'
+		print('setup - FamilyEmptyTests')
 		
-		lib.test_status_code_ok(self, c, path)
+		self.name = 'FamilyEmptyTests'
+
+		self.path_index = '/families/'
+
+		self.msg_error_index_empty = "No existe ninguna Familia todavía."
+
+		self.ctx_0_name = "families"
 
 
 
 
+# Test Menu Views Index - Empty
+class FamilyIndexTests(lib_tst.ModelIndexTests):
+
+	def setUp(self):
 		print()
-		print('Test Family 1: End')
+		print('setup - FamilyIndexTests')
+
+		self.path_index = 'families'
+
+		self.family_name = 'Comida Peruana'
+
+		#self.family_date = timezone.now()
+
+		self.ctx_0_name = 'families'
+
+		self.ctx_0_value = '<Family: Comida Peruana>'
+
+		self.debug = False
+
+
+	# Convenience method
+	def create_obj(self):
+
+		return Family.objects.create(name=self.family_name)
+
+
 

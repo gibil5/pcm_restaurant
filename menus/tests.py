@@ -30,6 +30,8 @@ from . import lib_tst
 
 
 
+# ------------------------------------ ModelEmptyTests -----------------------------------------
+
 # Test Menu Views Index - Empty
 class MenuEmptyTests(lib_tst.ModelEmptyTests):
 
@@ -51,11 +53,9 @@ class MenuEmptyTests(lib_tst.ModelEmptyTests):
 
 
 
+# ------------------------------------ ModelIndexTests -----------------------------------------
 
-
-
-
-# Test Menu Views Index - Empty
+# Test Menu Views Index - One
 class MenuIndexTests(lib_tst.ModelIndexTests):
 
 	def setUp(self):
@@ -89,6 +89,12 @@ class MenuIndexTests(lib_tst.ModelIndexTests):
 
 
 
+# ------------------------------------ In prog -----------------------------------------
+
+# Convenience method
+def create_obj(name, date):
+
+	return Menu.objects.create(name=name, date=date)
 
 
 

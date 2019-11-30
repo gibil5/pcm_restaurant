@@ -44,9 +44,12 @@ def families(request):
 	families = Family.objects.filter(active=True)
 	print(families)
 
+	err_msg = "No existe ninguna Familia todavía."
+
 	ctx = {
 			'families': families,
-			}
+			'err_msg': err_msg,
+		}
 
 	output = render(request, 'families/families.html', ctx)
 
