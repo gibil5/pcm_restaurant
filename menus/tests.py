@@ -15,11 +15,12 @@ Tests:
 """
 
 from django.test import TestCase
-
 from django.test import Client
+
 from django.utils import timezone
 from django.urls import reverse
 from .models import Menu
+
 from . import lib
 
 from . import lib_tst
@@ -27,16 +28,11 @@ from . import lib_tst
 # Create your tests here.
 
 
-#_MSG_ERROR_EMPTY = "No existe ningún Menú todavía."
-
-
-
-
 
 
 
 # Test Menu Views Index - Empty
-class MenuEmptyTests(ModelEmptyTests):
+class MenuEmptyTests(lib_tst.ModelEmptyTests):
 
 	def setUp(self):
 		print()
@@ -51,7 +47,6 @@ class MenuEmptyTests(ModelEmptyTests):
 		self.ctx_0_name = "menus"
 		
 		#self.ctx_0_value = False
-
 
 
 	def __str__(self):

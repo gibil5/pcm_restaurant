@@ -14,6 +14,8 @@ Tests:
 		- Menu
 """
 
+from django.test import TestCase
+from django.test import Client
 
 
 # Test Model Empty Tests
