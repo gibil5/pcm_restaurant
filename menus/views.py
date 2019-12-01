@@ -333,9 +333,3 @@ def add_item(request, menu_id, family_id):
 
 
 
-# ------------------------------------------------ Home ---------------------
-def home(request):
-	ctx = {
-		}
-	output = render(request, 'menus/home.html', ctx)
-	return HttpResponse(output)

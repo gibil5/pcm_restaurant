@@ -42,9 +42,11 @@ python manage.py startapp lines
 
 python manage.py startapp stories 
 
-
 python manage.py startapp tests
 
+
+
+python manage.py startapp pages
 
 
 

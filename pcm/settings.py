@@ -39,6 +39,8 @@ INSTALLED_APPS = [
 
     # Created by JRevilla
 
+   'pages.apps.PagesConfig',
+
    'tests.apps.TestsConfig',
 
 

@@ -34,4 +34,7 @@ urlpatterns = [
 
 
     path('tests/', include('tests.urls')),
+
+
+    path('pages/', include('pages.urls')),
 ]
