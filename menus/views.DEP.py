@@ -1,3 +1,53 @@
+# 1 Dec 2019
+
+def add_item_form(request):
+	print()
+	print('Add Item Form')
+
+
+	# Create and populate
+	if request.method == 'POST':
+		print('* Create and populate 2')
+		
+		form = MenuForm(request.POST)
+
+		name = form.data['name']
+
+		family_name = form.data['family']
+
+		menu = Menu.objects.filter(name=name)[0]
+
+		family = Family.objects.filter(name=family_name)[0]
+
+
+		# Clean Items - only that family
+		qset = menu.items.filter(family=family.id)
+
+		for iq in qset:
+			menu.items.remove(iq)
+
+
+		# check whether it's valid:
+		if form.is_valid():
+		
+			items = form.cleaned_data['items']
+
+			for item in items:
+				menu.items.add(item)
+
+			return HttpResponseRedirect('/thanks/')
+
+
+	# redirect to a new URL:
+	return HttpResponseRedirect('/thanks/')
+
+
+
+
+
+
+
+
 # 7 nov
 
 def add_item(request, menu_id, family_id):

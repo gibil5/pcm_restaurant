@@ -10,8 +10,7 @@
 <br>
 <div class="container">
 
-
-<form action="/add_item_form/" method="post">
+<form action="{% url 'add_item' menu.id family.id %}" method="post">
 
     {% csrf_token %}
 

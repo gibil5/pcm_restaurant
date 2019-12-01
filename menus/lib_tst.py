@@ -215,7 +215,6 @@ class ModelUpdateTests(TestCase):
 
 		# Get Response
 		#response = c.get('/menus/update/' + str(menu.id))
-		#response = c.get('/menus/update/' + str(obj.id))
 		response = c.get(self.path_index + str(obj.id))
 
 
@@ -246,6 +245,179 @@ class ModelUpdateTests(TestCase):
 
 
 
+
+
+# ------------------------------------ ModelDeleteTests -----------------------------------------
+
+# Test Model Views - Delete 
+class ModelDeleteTests(TestCase):
+
+
+	# Test 4 - Delete
+	def test_delete_view_with_a_menu(self):
+		"""
+		Delete View with One Object
+		"""
+		print()
+		print('\ttest_delete_view_with_a_menu : Begin')
+
+
+
+		# Create Obj
+		obj = self.create_obj()
+
+
+		# Client
+		c = Client()
+
+		# Get Response
+		#response = c.get('/menus/delete/' + str(menu.id))
+		response = c.get(self.path_index + str(obj.id))
+
+
+
+		# Assert 1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		self.assertEqual(response.status_code, 200)
+
+
+		# Assert 2 - Check Content
+		print()
+		print('\tCheck Content')
+		#self.assertContains(response, "Modificar")
+		self.assertContains(response, self.page_title)
+
+
+		# Assert 3 - Check Context
+		#print()
+		#print('\tCheck Context')
+		#print(response.context['menu'])
+		#print("<Model: 7 Nov 2019>")
+		#self.assertEqual(response.context['menu'], "<Model: 7 Nov 2019>")
+
+
+		print()
+		print('\ttest_delete_view_with_a_menu : End')
+
+
+
+
+
+
+
+# ------------------------------------ ModelAddTests -----------------------------------------
+
+# Test Model Views - Add 
+class ModelAddTests(TestCase):
+
+
+	# Test 4 - Add
+	def test_Add_view_with_a_menu(self):
+		"""
+		Add View with One Object
+		"""
+		print()
+		print('\ttest_add_view_with_a_menu : Begin')
+
+
+
+		# Create Obj
+		obj = self.create_obj()
+
+
+		# Client
+		c = Client()
+
+		# Get Response
+		#response = c.post(self.path_index)		
+		#response = c.get('/menus/add')
+		response = c.get(self.path_index)
+
+
+
+		# Assert 1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		self.assertEqual(response.status_code, 200)
+
+
+		# Assert 2 - Check Content
+		print()
+		print('\tCheck Content')
+		#self.assertContains(response, "Modificar")
+		self.assertContains(response, self.page_title)
+
+
+		# Assert 3 - Check Context
+		#print()
+		#print('\tCheck Context')
+		#print(response.context['menu'])
+		#print("<Model: 7 Nov 2019>")
+		#self.assertEqual(response.context['menu'], "<Model: 7 Nov 2019>")
+
+
+		print()
+		print('\ttest_add_view_with_a_menu : End')
+
+
+
+
+
+# ------------------------------------ ModelThanksTests -----------------------------------------
+
+# Test Model Views - Thanks 
+class ModelThanksTests(TestCase):
+
+
+	# Test 4 - Thanks
+	def test_Thanks_view_with_a_menu(self):
+		"""
+		Thanks View with One Object
+		"""
+		print()
+		print('\ttest_thanks_view_with_a_menu : Begin')
+
+
+
+		# Create Obj
+		obj = self.create_obj()
+
+
+		# Client
+		c = Client()
+
+		# Get Response
+		#response = c.post(self.path_index)		
+		#response = c.get('/menus/thanks')
+		response = c.get(self.path_index)
+
+
+
+		# Assert 1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		#self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.status_code, 301)
+
+
+		# Assert 2 - Check Content
+		#print()
+		#print('\tCheck Content')
+		#self.assertContains(response, "Modificar")
+		#self.assertContains(response, self.page_title)
+
+
+		# Assert 3 - Check Context
+		#print()
+		#print('\tCheck Context')
+		#print(response.context['menu'])
+		#print("<Model: 7 Nov 2019>")
+		#self.assertEqual(response.context['menu'], "<Model: 7 Nov 2019>")
+
+
+		print()
+		print('\ttest_thanks_view_with_a_menu : End')
 
 
 

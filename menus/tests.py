@@ -133,3 +133,97 @@ class MenuUpdateTests(lib_tst.ModelUpdateTests):
 
 
 
+
+# ------------------------------------ ModelDeleteTests -----------------------------------------
+
+class MenuDeleteTests(lib_tst.ModelDeleteTests):
+
+	def setUp(self):
+		print()
+		print('setup - MenuDeleteTests')
+
+		self.path_index = '/menus/delete/'
+
+		self.menu_name = '7 Nov 2019'
+
+		self.menu_date = timezone.now()
+
+		self.page_title = 'Eliminar'
+
+
+	# Convenience method
+	def create_obj(self):
+
+		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
+
+
+
+
+
+
+
+
+# ------------------------------------ ModelAddTests -----------------------------------------
+
+class MenuAddTests(lib_tst.ModelAddTests):
+
+	def setUp(self):
+		print()
+		print('setup - MenuAddTests')
+
+		self.path_index = '/menus/add'
+
+		self.menu_name = '7 Nov 2019'
+
+		self.menu_date = timezone.now()
+
+		self.page_title = 'Agregar'
+
+
+	# Convenience method
+	def create_obj(self):
+
+		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
+
+
+
+
+
+
+
+
+# ------------------------------------ ModelThanksTests -----------------------------------------
+
+class MenuThanksTests(lib_tst.ModelThanksTests):
+
+	def setUp(self):
+		print()
+		print('setup - MenuThanksTests')
+
+		self.path_index = '/menus/thanks'
+
+		self.menu_name = '7 Nov 2019'
+
+		self.menu_date = timezone.now()
+
+		self.page_title = 'Agregar'
+
+
+	# Convenience method
+	def create_obj(self):
+
+		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,9 +19,7 @@ urlpatterns = [
 
 	#path('menus_today', views.menus_today, name='menus_today'),
 
-
 	path('<int:menu_id>', views.detail, name='menu'),
-
 
 	path('add', views.add, name='add_menu'),
 	
@@ -35,6 +33,5 @@ urlpatterns = [
 	
 	# Add item into menu
 	path('add_item/<int:menu_id>/<int:family_id>', views.add_item, name='add_item'),
-
-	path('add_item_form/', views.add_item_form, name='add_item_form'),
+	#path('add_item_form/', views.add_item_form, name='add_item_form'),
 ]
