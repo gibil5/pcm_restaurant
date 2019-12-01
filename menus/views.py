@@ -221,9 +221,7 @@ def add(request):
 
 			new_menu = form_instance.save()
 
-
 			return HttpResponseRedirect('/thanks/')
-
 
 
 	# Create a blank form
@@ -246,22 +244,7 @@ def add(request):
 
 
 
-# Thanks
-def thanks(request):
-	print()
-	print('* Menu - Thanks')
-	
-	ctx = {}
-	
-	output = render(request, 'menus/thanks.html', ctx)
-	
-	return HttpResponse(output)
-
-
-
-
-# ------------------------------------------------ Add Item ---------------------
-
+# Add Item
 def add_item(request, menu_id, family_id):
 	"""
 	Used by: menu
@@ -328,8 +311,15 @@ def add_item(request, menu_id, family_id):
 
 
 
-
-
-
+# Thanks
+def thanks(request):
+	print()
+	print('* Menu - Thanks')
+	
+	ctx = {}
+	
+	output = render(request, 'menus/thanks.html', ctx)
+	
+	return HttpResponse(output)
 
 

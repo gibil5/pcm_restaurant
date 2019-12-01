@@ -28,7 +28,6 @@ class ItemViewTest(TestCase):
 
 
 	# Test 1
-	#def test_index_view_with_no_menus(self):
 	def test_index_empty(self):
 		"""
 		Test Index View with no Objects

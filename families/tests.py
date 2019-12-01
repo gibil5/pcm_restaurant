@@ -5,7 +5,10 @@ Created: 	29 Nov 2019
 Last up: 	id
 
 Tests:
-	- Views:
+	- Views Empty:
+		- Index
+
+	- Views One:
 		- Index
 """
 
@@ -52,8 +55,6 @@ class FamilyIndexTests(lib_tst.ModelIndexTests):
 		self.path_index = 'families'
 
 		self.family_name = 'Comida Peruana'
-
-		#self.family_date = timezone.now()
 
 		self.ctx_0_name = 'families'
 

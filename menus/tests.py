@@ -5,13 +5,17 @@ Created: 	29 Nov 2019
 Last up: 	 1 Dec 2019
 
 Tests:
-	- Views:
+	- Views Empty:
+		- Index
+
+	- Views One:
 		- Index
 		- Detail
 		- Update
+		- Delete
+		- Add
+		- Thanks
 
-	- Models:
-		- Menu
 """
 
 from django.test import TestCase
@@ -160,9 +164,6 @@ class MenuDeleteTests(lib_tst.ModelDeleteTests):
 
 
 
-
-
-
 # ------------------------------------ ModelAddTests -----------------------------------------
 
 class MenuAddTests(lib_tst.ModelAddTests):
@@ -189,9 +190,6 @@ class MenuAddTests(lib_tst.ModelAddTests):
 
 
 
-
-
-
 # ------------------------------------ ModelThanksTests -----------------------------------------
 
 class MenuThanksTests(lib_tst.ModelThanksTests):
@@ -213,16 +211,6 @@ class MenuThanksTests(lib_tst.ModelThanksTests):
 	def create_obj(self):
 
 		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
-
-
-
-
-
-
-
-
-
-
 
 
 

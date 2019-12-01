@@ -1,4 +1,7 @@
 
-coverage run --rcfile=setup.cfg --source='.' manage.py test menus 
+#coverage run --rcfile=setup.cfg --source='.' manage.py test menus 
 
 #coverage run --rcfile=setup.cfg --source='.' manage.py test families
+
+coverage run --rcfile=setup.cfg --source='.' manage.py test
+
