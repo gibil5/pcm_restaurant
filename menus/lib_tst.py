@@ -148,9 +148,106 @@ class ModelIndexTests(TestCase):
 			[self.ctx_0_value]
 		)
 
-
-
 		print('\ttest_index_with_an_obj : End')
+
+
+
+
+# ------------------------------------ ModelDetailTests -----------------------------------------
+
+# Test Model Views - Detail 
+class ModelDetailTests(TestCase):
+
+	# Test 3 - Detail
+	def test_detail_view_with_a_menu(self):
+		"""
+		Test Detail View with One Object
+		"""
+		print()
+		print('\ttest_detail_view_with_a_menu : Begin')
+
+
+		# Create Obj
+		obj = self.create_obj()
+
+
+		# Create Client 
+		c = Client()
+
+		# Get Response
+		#response = c.post('/menus/' + str(menu.id))
+		response = c.post(self.path_index + str(obj.id))
+
+
+		# Test1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		self.assertEqual(response.status_code, 200)
+
+
+		print()
+		print('\ttest_detail_view_with_a_menu : Begin')
+
+
+
+
+# ------------------------------------ ModelUpdateTests -----------------------------------------
+
+# Test Model Views - Update 
+class ModelUpdateTests(TestCase):
+
+	# Test 4 - Update
+	def test_update_view_with_a_menu(self):
+		"""
+		Update View with One Object
+		"""
+		print()
+		print('\ttest_update_view_with_a_menu : Begin')
+
+
+
+		# Create Obj
+		obj = self.create_obj()
+
+
+		# Client
+		c = Client()
+
+		# Get Response
+		#response = c.get('/menus/update/' + str(menu.id))
+		#response = c.get('/menus/update/' + str(obj.id))
+		response = c.get(self.path_index + str(obj.id))
+
+
+
+		# Assert 1 - Check Status Code - Response OK
+		print()
+		print('\tCheck Status Code')
+		self.assertEqual(response.status_code, 200)
+
+
+		# Assert 2 - Check Content
+		print()
+		print('\tCheck Content')
+		#self.assertContains(response, "Modificar")
+		self.assertContains(response, self.page_title)
+
+
+		# Assert 3 - Check Context
+		#print()
+		#print('\tCheck Context')
+		#print(response.context['menu'])
+		#print("<Model: 7 Nov 2019>")
+		#self.assertEqual(response.context['menu'], "<Model: 7 Nov 2019>")
+
+
+		print()
+		print('\ttest_update_view_with_a_menu : End')
+
+
+
+
+
 
 
 

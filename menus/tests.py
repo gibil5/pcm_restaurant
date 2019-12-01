@@ -2,7 +2,7 @@
 Menus - Tests
 
 Created: 	29 Nov 2019
-Last up: 	id
+Last up: 	 1 Dec 2019
 
 Tests:
 	- Views:
@@ -65,6 +65,7 @@ class MenuIndexTests(lib_tst.ModelIndexTests):
 		self.path_index = 'menus'
 
 		self.menu_name = '7 Nov 2019'
+
 		self.menu_date = timezone.now()
 
 
@@ -83,129 +84,52 @@ class MenuIndexTests(lib_tst.ModelIndexTests):
 
 
 
+# ------------------------------------ ModelDetailTests -----------------------------------------
 
+# Test Menu Views Detail - One
+class MenuDetailTests(lib_tst.ModelDetailTests):
 
-
-
-
-
-# ------------------------------------ In prog -----------------------------------------
-
-# Convenience method
-def create_obj(name, date):
-
-	return Menu.objects.create(name=name, date=date)
-
-
-
-
-# Test Menu Views - Detail 
-class MenuDetailTests(TestCase):
-
-	# Test 3 - Detail
-	def test_detail_view_with_a_menu(self):
-		"""
-		Test Index View with One Object
-		"""
+	def setUp(self):
 		print()
-		print('Test Menu 3: Begin')
-		print('Detail View. One Menu')
+		print('setup - MenuDetailTests')
+
+		self.path_index = '/menus/'
+
+		self.menu_name = '7 Nov 2019'
+
+		self.menu_date = timezone.now()
 
 
-		# Init
-		date= timezone.now()
-		name = '7 Nov 2019'
+	# Convenience method
+	def create_obj(self):
 
-		# Create Menu
-		menu = create_obj(name, date)
+		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
 
 
 
-		# Create Client 
-		c = Client()
 
-		response = c.post('/menus/' + str(menu.id))
+# ------------------------------------ ModelUpdateTests -----------------------------------------
 
+class MenuUpdateTests(lib_tst.ModelUpdateTests):
 
-		# Test1 - Check Status Code - Response OK
+	def setUp(self):
 		print()
-		print('\tCheck Status Code')
-		self.assertEqual(response.status_code, 200)
+		print('setup - MenuUpdateTests')
 
-		print('Test Menu 3: End')
+		self.path_index = '/menus/update/'
 
+		self.menu_name = '7 Nov 2019'
 
+		self.menu_date = timezone.now()
 
-
-# Test Menu Views - Update 
-class MenuUpdateTests(TestCase):
-
-	# Test 4 - Update
-	def test_update_view_with_a_menu(self):
-		"""
-		Update View with One Object
-		"""
-		print()
-		print('Test Menu 4: Begin')
-		print('Update View. One Menu')
+		self.page_title = 'Modificar'
 
 
-		# Init
-		date= timezone.now()
-		name = '7 Nov 2019'
+	# Convenience method
+	def create_obj(self):
 
-		# Create Menu
-		menu = create_obj(name, date)
-		print(menu)
-
-
-		# Client
-		c = Client()
-
-		response = c.get('/menus/update/' + str(menu.id))
+		return Menu.objects.create(name=self.menu_name, date=self.menu_date)
 
 
 
-		# Assert 1 - Check Status Code - Response OK
-		print()
-		print('\tCheck Status Code')
-		self.assertEqual(response.status_code, 200)
-
-
-
-		# Assert 2 - Check Content
-		print()
-		print('\tCheck Content')
-		self.assertContains(response, "Modificar")
-
-
-
-		# Assert 3 - Check Context
-		print()
-		print('\tCheck Context')
-
-		print(response.context['menu'])
-		print("<Menu: 7 Nov 2019>")
-		#self.assertEqual(response.context['menu'], "<Menu: 7 Nov 2019>")
-
-		#self.assertEqual(response.context['menu'], ["<Menu: 7 Nov 2019>"])
-		#['<Menu: 7 Nov 2019>']
-
-
-
-
-		#self.assertEqual(len(response.context['customers']), 5)
-
-
-		#self.assertQuerysetEqual(
-			#response.context['latest_question_list'],			
-			#['<Question: Past question.>']
-		#	response.context['menu'],			
-		#	['<Question: Past question.>']
-		#)
-
-
-
-
-		print('Test Menu 4: End')
 

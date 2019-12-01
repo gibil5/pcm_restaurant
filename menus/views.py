@@ -1,5 +1,8 @@
 """
 Menus - Views
+
+Created:	Oct 2019
+Last up:	1 Dec 2019
 """
 
 from django.shortcuts import render, get_object_or_404
@@ -18,11 +21,9 @@ from .models import *
 # ------------------------------------------------ Form ---------------------
 class DeleteMenuForm(forms.Form):
 	pass
-	#your_name = forms.CharField(label='Your name', max_length=100)
 
 
 class MenuForm(forms.ModelForm):
-#class MenuForm_(forms.ModelForm):
 
 	class Meta:
 
@@ -61,16 +62,12 @@ def index(request):
 	print()
 	print('Menu - Index')
 	
-	#latest_menu_list = Menu.objects.all()
-	#latest_menu_list = Menu.objects.filter(active=True)
+	# Init
 	menus = Menu.objects.filter(active=True)
 	
-	#print(latest_menu_list)
-
 	err_msg = "No existe ningún Menú todavía."
 
 	ctx = {
-			#'latest_menu_list': latest_menu_list,
 			'menus': menus,
 			'err_msg': err_msg,
 		}
@@ -85,27 +82,18 @@ def index(request):
 def detail(request, menu_id):
 	print()
 	print('Menu - Detail')
-	print()
 
+	# Init
 	menu = get_object_or_404(Menu, pk=menu_id)  		# Shortcut !
-	print(menu)
-
-	#print(menu.entries.all())
-	#print(menu.main_courses.all())
-	#print(menu.desserts.all())
-	#print()
 
 
 	# Items Dictionary, by Family
+	items_dic = {}
+
 	families = Family.objects.all()
 
-	items_dic = {}
 	for fam in families:
-
-		#items = menu.objects.all.filter(family=fam.id)
 		items = menu.items.filter(family=fam.id)
-
-		#items_dic[fam.name] = items
 		items_dic[fam] = items
 
 
@@ -118,70 +106,9 @@ def detail(request, menu_id):
 
 
 
-
-def add_item(request, menu_id, family_id):
-	print()
-	print('Add Item')
-
-
-	# Create and populate
-	if request.method == 'POST':
-		
-		# create a form instance and populate it with data from the request:)
-		form = MenuForm(request.POST)
-
-
-		# check whether it's valid:
-		if form.is_valid():
-
-			print(form.cleaned_data)
-
-			# redirect to a new URL:
-			return HttpResponseRedirect('/thanks/')
-
-
-	# Create a blank form
-	else:
-
-		menu = get_object_or_404(Menu, pk=menu_id)
-		#print(menu)
-
-		family = get_object_or_404(Family, pk=family_id)
-		print(family)
-
-
-		# Form from a Model
-		form = MenuForm(instance=menu, initial={'family': family.name,})
-		#form = lib.MenuForm(instance=menu, initial={'family': family.name,})
-
-
-		# Limit to the family
-		form.fields["items"].queryset = Item.objects.filter(family=family_id)
-
-		form.fields['name'].label = "Nombre"
-
-
-		ctx = {
-				'menu': menu,
-				'menu_id': menu.id,
-				'form': form,
-			}
-
-		output = render(request, 'menus/add_item.html', ctx)
-
-		return HttpResponse(output)
-
-
-
-
-
-
-
-
 def update(request, menu_id):
 	print()
-	#print('update Menu')
-	print('Menu - Update - jx')
+	print('Menu - Update')
 
 
 	menu = get_object_or_404(Menu, pk=menu_id)
@@ -236,9 +163,9 @@ def update(request, menu_id):
 def delete(request, menu_id):
 	print()
 	print('Delete Menu')
-	print(request)
-	print(menu_id)
 
+
+	# Init
 	menu = get_object_or_404(Menu, pk=menu_id)
 
 
@@ -273,13 +200,72 @@ def delete(request, menu_id):
 
 
 
+# Add Menu
+def add(request):
+	print()
+	print('Menu - Add')
+	print()
+
+	# Create and populate
+	if request.method == 'POST':
+		print('Create and populate')
+
+		form = NewMenuForm(request.POST)
+
+		# check whether it's valid:
+		if form.is_valid():
+
+			print(form.cleaned_data)
+
+			form_instance = NewMenuForm(request.POST)
+			print(form_instance)
+
+			new_menu = form_instance.save()
+
+
+			return HttpResponseRedirect('/thanks/')
 
 
 
+	# Create a blank form
+	else:
+
+		menu = Menu()
+		#print(menu)
+
+		# Form from a Model
+		#form = MenuForm()
+		#form = MenuForm(instance=menu)
+		form = NewMenuForm(instance=menu)
+
+		form.fields['name'].label = "Nombre"
+
+
+		# Context
+		ctx = {
+				#'menu': menu,
+				'form': form,
+			}
+
+		output = render(request, 'menus/add.html', ctx)
+
+		return HttpResponse(output)
 
 
 
+def thanks(request):
+	print()
+	print('Thanks')
+	
+	ctx = {}
+	
+	output = render(request, 'menus/thanks.html', ctx)
+	
+	return HttpResponse(output)
 
+
+
+# ------------------------------------------------ Add Item ---------------------
 
 def add_item_form(request):
 	print()
@@ -348,71 +334,57 @@ def add_item_form(request):
 
 
 
-
-
-
-# Add Menu
-def add(request):
+def add_item(request, menu_id, family_id):
 	print()
-	print('Menu - Add')
-	print()
+	print('Add Item')
+
 
 	# Create and populate
 	if request.method == 'POST':
-		print('Create and populate')
+		
+		# create a form instance and populate it with data from the request:)
+		form = MenuForm(request.POST)
 
-		form = NewMenuForm(request.POST)
 
 		# check whether it's valid:
 		if form.is_valid():
 
 			print(form.cleaned_data)
 
-			form_instance = NewMenuForm(request.POST)
-			print(form_instance)
-
-			new_menu = form_instance.save()
-
-
+			# redirect to a new URL:
 			return HttpResponseRedirect('/thanks/')
-
 
 
 	# Create a blank form
 	else:
 
-		menu = Menu()
+		menu = get_object_or_404(Menu, pk=menu_id)
 		#print(menu)
 
+		family = get_object_or_404(Family, pk=family_id)
+		print(family)
+
+
 		# Form from a Model
-		#form = MenuForm()
-		#form = MenuForm(instance=menu)
-		form = NewMenuForm(instance=menu)
+		form = MenuForm(instance=menu, initial={'family': family.name,})
+		#form = lib.MenuForm(instance=menu, initial={'family': family.name,})
+
+
+		# Limit to the family
+		form.fields["items"].queryset = Item.objects.filter(family=family_id)
 
 		form.fields['name'].label = "Nombre"
 
 
-		# Context
 		ctx = {
-				#'menu': menu,
+				'menu': menu,
+				'menu_id': menu.id,
 				'form': form,
 			}
 
-		output = render(request, 'menus/add.html', ctx)
+		output = render(request, 'menus/add_item.html', ctx)
 
 		return HttpResponse(output)
-
-
-
-def thanks(request):
-	print()
-	print('Thanks')
-	
-	ctx = {}
-	
-	output = render(request, 'menus/thanks.html', ctx)
-	
-	return HttpResponse(output)
 
 
 
